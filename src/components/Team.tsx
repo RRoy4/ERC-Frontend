@@ -83,7 +83,7 @@ const Team = () => {
     <section id="team" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Our Team</h2>
+          <h2 className="text-3xl font-bold mb-4 font-heading">Our Team</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             Meet the passionate individuals who lead our club, organize events, and mentor new members.
@@ -106,7 +106,7 @@ const Team = () => {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+                <h3 className="text-xl font-semibold mb-1 font-heading">{member.name}</h3>
                 <div className="text-blue-500 font-medium mb-3">{member.role}</div>
                 <p className="text-gray-400 mb-4">{member.bio}</p>
                 <div className="flex justify-center space-x-4">
@@ -134,16 +134,6 @@ const Team = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold mb-6">Join Our Leadership Team</h3>
-          <p className="max-w-2xl mx-auto text-gray-300 mb-8">
-            We're always looking for passionate members to take on leadership roles and help guide the direction of our club. If you're interested in joining the team, please reach out to us.
-          </p>
-          <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors inline-flex items-center">
-            Apply for Leadership Positions
-            <ExternalLink size={16} className="ml-2" />
-          </button>
-        </div>
       </div>
     </section>
   );

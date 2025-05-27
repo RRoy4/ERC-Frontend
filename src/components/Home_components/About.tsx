@@ -39,7 +39,7 @@ const About = () => {
     <section id="about\" className="py-20 bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">About Our Club</h2>
+          <h2 className="text-3xl font-bold mb-4 font-heading">About Our Club</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             Founded in 2020, our Electronics and Robotics Club provides a platform for students to explore their passion for technology through practical learning and exciting projects. We welcome members of all skill levels, from beginners to advanced.
@@ -64,7 +64,7 @@ const About = () => {
         <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-green-500/20 p-8 rounded-xl border border-blue-500/20">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-              <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+              <h2 className="text-2xl font-bold mb-4 font-heading">Our Mission</h2>
               <p className="text-gray-300 mb-4">
                 To foster innovation and technical excellence in electronics and robotics by providing students with hands-on experience, collaborative opportunities, and access to resources that enable them to develop practical skills and create impactful projects.
               </p>

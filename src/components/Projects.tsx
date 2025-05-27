@@ -64,7 +64,7 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Our Projects</h2>
+          <h2 className="text-3xl font-bold mb-4 font-heading">Our Projects</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             Explore some of our innovative projects that combine electronics, programming, and mechanical design to solve real-world problems.
@@ -72,7 +72,7 @@ const Projects = () => {
           
           {/* Filter buttons */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            {['all', 'robotics', 'electronics', 'iot'].map((category) => (
+            {['all', 'robotics', 'electronics', 'IoT'].map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
@@ -80,7 +80,7 @@ const Projects = () => {
                   filter === category 
                     ? 'bg-blue-600 text-white' 
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }`}
+                }  font-heading`}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </button>
@@ -113,7 +113,7 @@ const Projects = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors font-heading">
                   {project.title}
                 </h3>
                 <p className="text-gray-400 mb-4">

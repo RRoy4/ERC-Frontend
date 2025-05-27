@@ -28,7 +28,7 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <h2 className="text-3xl font-bold mb-4 font-heading">Contact Us</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             Have questions about our club or interested in joining? Reach out to us and we'll get back to you as soon as possible.
@@ -39,7 +39,7 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="lg:w-1/3">
             <div className="bg-gray-800 rounded-xl p-8 h-full">
-              <h3 className="text-xl font-semibold mb-6">Get In Touch</h3>
+              <h3 className="text-xl font-semibold mb-6 font-heading">Get In Touch</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -106,7 +106,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:w-2/3">
             <div className="bg-gray-800 rounded-xl p-8">
-              <h3 className="text-xl font-semibold mb-6">Send Us a Message</h3>
+              <h3 className="text-xl font-semibold mb-6 font-heading">Send Us a Message</h3>
               
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Cpu } from 'lucide-react';
+import HeaderLogo from '../assets/header.png';
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,10 +39,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <Cpu className="h-6 w-6 text-blue-500 mr-2" />
-          <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400">
-            TechRobotics
-          </h1>
+          <img src={HeaderLogo} alt="Footer Logo" className="w-auto h-14" />
         </div>
 
         {/* Desktop Navigation */}

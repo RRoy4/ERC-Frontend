@@ -1,5 +1,7 @@
 import React from 'react';
 import { Cpu, Heart, ChevronRight } from 'lucide-react';
+import FooterLogo from '../assets/footer.png';
+
 
 const quickLinks = [
   { label: 'Home', href: '/' },
@@ -12,10 +14,8 @@ const quickLinks = [
 
 const resources = [
   { label: 'Component Library', href: '#' },
-  { label: 'Project Templates', href: '#' },
   { label: 'Tutorials', href: '#' },
   { label: 'Workshop Materials', href: '#' },
-  { label: 'Competition Guidelines', href: '#' },
 ];
 
 const legalLinks = [
@@ -25,21 +25,19 @@ const legalLinks = [
   { label: 'Accessibility', href: '#' },
 ];
 
-const socialPlatforms = ['facebook', 'twitter', 'instagram', 'youtube', 'github'];
+const socialPlatforms = ['instagram', 'github'];
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Club Info */}
           <div>
-            <div className="flex items-center mb-4">
-              <Cpu className="h-6 w-6 text-blue-500 mr-2" />
-              <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400">
-                TechRobotics
-              </h2>
+            <div className="flex items-center mb-4 font-heading">
+
+              <img src={FooterLogo} alt="Footer Logo" className="w-auto h-12" />
             </div>
             <p className="text-gray-400 mb-6">
               Empowering students to explore the exciting world of electronics and robotics through hands-on projects, competitions, and collaborative learning.
@@ -60,7 +58,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 font-heading">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map(({ label, href }) => (
                 <li key={label}>
@@ -75,7 +73,7 @@ const Footer = () => {
 
           {/* Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-semibold mb-4 font-heading">Resources</h3>
             <ul className="space-y-3">
               {resources.map(({ label, href }) => (
                 <li key={label}>

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Zap } from 'lucide-react';
+import CenterLogo from '../../assets/centerlogo.png';
+
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -49,22 +51,29 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center mb-4 px-3 py-1 bg-blue-900/30 rounded-full border border-blue-500/30">
             <Zap size={16} className="text-blue-400 mr-2" />
-            <span className="text-sm text-blue-400">Building the future, one circuit at a time</span>
+            <span className="text-sm text-blue-400">Building the future, one circuit at a time since 2017</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             <span className="block">Welcome to the</span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400">
+            {/* <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400 font-heading">
               Electronics & Robotics Club
-            </span>
+            </span> */}
           </h1>
+            <img
+              src={CenterLogo}
+              alt="Footer Logo"
+              className="block mx-auto w-auto h-44"
+            />
+            <br></br>
+
           <p className="text-xl text-gray-300 mb-8">
             Join our community of innovators, tinkerers, and problem-solvers as we explore the exciting world of electronics and robotics through hands-on projects and competitions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium">
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading">
               Join Our Club
             </button>
-            <button className="px-8 py-3 bg-gray-800 hover:bg-gray-700 rounded-md border border-gray-700 transition-all hover:border-blue-500/50 text-lg font-medium">
+            <button className="px-8 py-3 bg-gray-800 hover:bg-gray-700 rounded-md border border-gray-700 transition-all hover:border-blue-500/50 text-lg font-medium font-heading">
               Explore Projects
             </button>
           </div>
