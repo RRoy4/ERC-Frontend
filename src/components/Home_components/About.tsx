@@ -1,36 +1,37 @@
 import React from 'react';
-import { Cpu, Zap, Users, Award, Code, Lightbulb } from 'lucide-react';
+import { Cpu, Bot ,Layers } from 'lucide-react';
+import {Hardhack , Controlsys , Roboarm} from './Customicon'
 
 const features = [
   {
     icon: <Cpu className="h-8 w-8 text-blue-500" />,
-    title: 'Hands-on Electronics',
-    description: 'Learn practical electronics through interactive workshops and projects led by experienced mentors.'
+    title: 'Embedded Systems',
+    description: 'Master microcontroller programming and real-time system design to build efficient, reliable hardware-software integrated systems.'
   },
   {
-    icon: <Code className="h-8 w-8 text-green-400" />,
-    title: 'Programming Skills',
-    description: 'Master coding for microcontrollers, embedded systems, and robotics applications.'
+    icon: <Bot className="h-8 w-8 text-green-400" />,
+    title: 'ROS (Robot Operating System)',
+    description: 'Build and simulate intelligent robot behaviors using the ROS framework — a powerful toolset for robot software development..'
   },
   {
-    icon: <Users className="h-8 w-8 text-purple-400" />,
-    title: 'Collaborative Community',
-    description: 'Connect with like-minded peers and build lasting relationships through team projects.'
+    icon: <Layers className="h-8 w-8 text-purple-400" />,
+    title: 'Image Processing',
+    description: 'Use computer vision techniques to make robots see, understand, and interact with the world through camera-based sensing and analysis.'
   },
   {
-    icon: <Award className="h-8 w-8 text-yellow-400" />,
-    title: 'Competitions',
-    description: 'Represent our club in regional and national robotics competitions and hackathons.'
+    icon: <Hardhack className="h-8 w-8 text-yellow-400" />,
+    title: 'Hardware Hacking',
+    description: 'Curious how hardware gets hacked in the real world? Learn about side-channel attacks and fault injection.'
   },
   {
-    icon: <Lightbulb className="h-8 w-8 text-orange-400" />,
-    title: 'Innovation Lab',
-    description: 'Access to state-of-the-art equipment and tools to bring your creative ideas to life.'
+    icon: <Roboarm className="h-8 w-8 text-orange-400" />,
+    title: 'Robotics',
+    description: 'Explore robot kinematics, motion planning, and simulation using tools like MATLAB and Hello Robot to design intelligent control strategies.'
   },
   {
-    icon: <Zap className="h-8 w-8 text-red-400" />,
-    title: 'Expert Mentorship',
-    description: 'Learn from industry professionals and academic experts in electronics and robotics.'
+    icon: <Controlsys className="h-8 w-8 text-red-400" />,
+    title: 'Control Systems',
+    description: 'Design and analyze dynamic systems using tools like MATLAB to develop precise control for robotic and electronic applications.'
   }
 ];
 
@@ -39,11 +40,18 @@ const About = () => {
     <section id="about\" className="py-20 bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4 font-heading">About Our Club</h2>
+          <h2 className="text-3xl font-bold mb-4 font-heading 
+            bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 
+            bg-[length:200%_200%] bg-clip-text text-transparent 
+            animate-gradient-x">
+            ELECTRIFY.CODE.INNOVATE
+          </h2>
+
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            Founded in 2020, our Electronics and Robotics Club provides a platform for students to explore their passion for technology through practical learning and exciting projects. We welcome members of all skill levels, from beginners to advanced.
+            The Electronics & Robotics Club, IIT Bombay is a vibrant community of passionate students united by a love for circuits, robotics, and innovation. Open to all skill levels, the club hosts competitions, workshops, and discussions throughout the year to promote hands-on learning and creative problem-solving. We also maintain a growing collection of tutorials, blogs, and a community wiki, contributed to by our members.
           </p>
+          <p className="max-w-3xl mx-auto text-gray-300 mt-4 text-lg italic " >Below are the six core domains we actively explore and grow in:</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

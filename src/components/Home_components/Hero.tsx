@@ -54,7 +54,7 @@ const Hero = () => {
             <span className="text-sm text-blue-400">Building the future, one circuit at a time since 2017</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            <span className="block">Welcome to the</span>
+            {/* {<span className="block">Welcome to the</span>} */}
             {/* <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400 font-heading">
               Electronics & Robotics Club
             </span> */}
@@ -81,12 +81,12 @@ const Hero = () => {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-400 cursor-pointer animate-bounce" onClick={scrollToAbout}>
+      {/* <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-400 cursor-pointer animate-bounce" onClick={scrollToAbout}>
         <div className="flex flex-col items-center">
           <span className="text-sm mb-1">Scroll Down</span>
           <ChevronDown size={24} />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
