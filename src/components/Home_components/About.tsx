@@ -64,12 +64,12 @@ const About = () => {
         <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-green-500/20 p-8 rounded-xl border border-blue-500/20">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-              <h2 className="text-2xl font-bold mb-4 font-heading">Our Mission</h2>
+              <h2 className="text-2xl font-bold mb-4 font-heading">Our Vision</h2>
               <p className="text-gray-300 mb-4">
-                To foster innovation and technical excellence in electronics and robotics by providing students with hands-on experience, collaborative opportunities, and access to resources that enable them to develop practical skills and create impactful projects.
+                Our club envisions being the cornerstone of the Electronics and Robotics community within the institute — a vibrant space where curiosity meets creativity. We strive to provide a dynamic and inclusive platform for students to explore, tinker, and innovate in these cutting-edge domains. 
               </p>
               <p className="text-gray-300">
-                We believe in learning by doing, sharing knowledge openly, and building a supportive community where members can explore their interests and reach their full potential.
+                By fostering a culture rooted in collaboration, continuous learning, and hands-on discovery, we aim to empower enthusiasts to turn ideas into impactful solutions and grow as engineers, thinkers, and problem-solvers.
               </p>
             </div>
             <div className="md:w-1/3 flex justify-center">
