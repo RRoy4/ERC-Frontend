@@ -54,12 +54,14 @@ const Header = () => {
               {label}
             </Link>
           ))}
-          <Link
-            to="/join"
+          <a
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            target="_blank" // Optional: opens in new tab
+            rel="noopener noreferrer" // Security best practice with target="_blank"
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
           >
             Join Us
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Menu Toggle */}
