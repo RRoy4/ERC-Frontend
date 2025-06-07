@@ -96,7 +96,7 @@ const Resources = () => {
   const featuredResources = resourcesData.filter(resource => resource.featured);
 
   return (
-    <section id="resources\" className="py-20 bg-gray-800">
+    <section id="resources\" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Learning Resources</h2>
@@ -150,7 +150,7 @@ const Resources = () => {
         </div>
         
         {/* Resource List */}
-        <div className="bg-gray-900 rounded-xl overflow-hidden">
+        <div className="bg-gray-800 rounded-xl overflow-hidden">
           <div className="divide-y divide-gray-800">
             {filteredResources.map((resource) => (
               <div key={resource.id} className="p-6 hover:bg-gray-800/50 transition-colors">
@@ -178,7 +178,7 @@ const Resources = () => {
           </div>
         </div>
         
-        <div className="mt-12 p-6 bg-gray-900 rounded-xl border border-gray-700 text-center">
+        <div className="mt-12 p-6 bg-gray-1000 rounded-xl border border-gray-700 text-center">
           <h3 className="text-xl font-semibold mb-4">Request Learning Materials</h3>
           <p className="text-gray-300 mb-6">
             Can't find what you're looking for? Request specific tutorials, documentation, or resources to help with your project.

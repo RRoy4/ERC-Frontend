@@ -8,7 +8,7 @@ import Events from './components/Events';
 import Team from './components/Team';
 import Resources from './components/Resources';
 import Contact from './components/Contact';
-import Legacy from './components/Legacy';
+import LegacyPage from './components/LegacyPage';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/legacy" element={<Legacy />} />
+            <Route path="/legacy" element={<LegacyPage />} />
           </Routes>
         </main>
         <Footer />
