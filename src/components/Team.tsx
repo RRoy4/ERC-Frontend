@@ -39,10 +39,10 @@ const teamMembers = [
     image: teamImagesDir + 'aditya.jpg',
     bio: 'Sophomore undergraduate in Electrical Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'maria.rodriguez@example.edu',
-      instagram: 'https://instagram.com/mariarodriguez'
+      linkedin: 'https://www.linkedin.com/in/aditya-patel-98584b327/',
+      github: 'https://github.com/kaabooom',
+      email: 'aadipatel16.05@gmail.com',
+      instagram: 'https://www.instagram.com/aadi_16.1/'
     }
   },
   {
@@ -52,10 +52,10 @@ const teamMembers = [
     image: teamImagesDir + 'aswath.jpeg',
     bio: 'Sophomore undergraduate in Mechanical Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'james.wilson@example.edu',
-      instagram: 'https://instagram.com/jameswilson'
+      linkedin: 'http://linkedin.com/in/aswath-sahoo-a7b70b235',
+      github: 'https://github.com/Aswath0929',
+      email: 'aswath_sahoo@yahoo.com',
+      instagram: 'https://www.instagram.com/aswathsahoo?igsh=M3RncTYzN2J4bDNi&utm_source=qr'
     }
   },
   {
@@ -65,10 +65,10 @@ const teamMembers = [
     image: teamImagesDir + 'daksh.jpg',
     bio: 'Sophomore undergraduate in Metallurgical Engineering and Material Sciences',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'emily.zhang@example.edu',
-      instagram: 'https://instagram.com/emilyzhang'
+      linkedin: 'https://www.linkedin.com/in/daksh-makwana-698253326',
+      github: 'https://github.com/DAKMAK2006',
+      email: 'makwanadaksh01@gmail.com',
+      instagram: '#'
     }
   },
   {
@@ -78,10 +78,10 @@ const teamMembers = [
     image: teamImagesDir + 'dhruv.jpeg',
     bio: 'Sophomore undergraduate in Electrical Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'rachel.adams@example.edu',
-      instagram: 'https://instagram.com/racheladams'
+      linkedin: 'https://www.linkedin.com/in/dhruv-singla-99b8b6320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      github: 'https://github.com/Dhuvsingla16',
+      email: 'sngla.dhrv@gmail.com',
+      instagram: 'https://www.instagram.com/dhruvsingla16?igsh=MTVkb3hsd3A1eXVraQ=='
     }
   },
   {
@@ -91,10 +91,10 @@ const teamMembers = [
     image: teamImagesDir + 'esha.jpg',
     bio: 'Sophomore undergraduate in Mechanical Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'david.kumar@example.edu',
-      instagram: 'https://instagram.com/davidkumar'
+      linkedin: 'https://www.linkedin.com/in/sai-durga-esha-yindukuri-a3616433b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      github: 'https://github.com/ysdesha',
+      email: 'ysdesha@gmail.com',
+      instagram: 'https://www.instagram.com/esha_yindukuri?igsh=MTA5YzR2OGQ1cmlpYg=='
     }
   },
   {
@@ -104,10 +104,10 @@ const teamMembers = [
     image: teamImagesDir + 'kunal.png',
     bio: 'Sophomore undergraduate in Civil Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'lisa.thompson@example.edu',
-      instagram: 'https://instagram.com/lisathompson'
+      linkedin: 'https://www.linkedin.com/in/kunal-gandvane-b28062346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      github: 'https://github.com/webserver105',
+      email: 'kunal7sr@gmail.com',
+      instagram: 'https://www.instagram.com/kunal_262k?igsh=b2Rsbmk1bmIwZml3'
     }
   },
   // Third row - 6 people (Team Members)
@@ -118,10 +118,10 @@ const teamMembers = [
     image: teamImagesDir + 'paroda.jpg',
     bio: 'Sophomore undergraduate in Aerospace Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'michael.brown@example.edu',
-      instagram: 'https://instagram.com/michaelbrown'
+      linkedin: 'https://www.linkedin.com/in/kunal-paroda-126180225?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      github: 'http://github.com/Aero71maverick',
+      email: 'kunalparoda@gmail.com',
+      instagram: 'http://instagram.com/kunalparoda'
     }
   },
   {
@@ -131,10 +131,10 @@ const teamMembers = [
     image: teamImagesDir + 'lakshmi.jpeg',
     bio: 'Final Year Postgraduate in Electrical Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'sophie.lee@example.edu',
-      instagram: 'https://instagram.com/sophielee'
+      linkedin: 'https://www.linkedin.com/in/lakshmi-deep-maddineni/',
+      github: 'https://github.com/',
+      email: 'lakshmideepmaddineni@gmail.com',
+      instagram: 'https://www.instagram.com/'
     }
   },
   {
@@ -145,9 +145,9 @@ const teamMembers = [
     bio: 'Sophomore undergraduate in Engineering Physics',
     social: {
       linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'ryan.patel@example.edu',
-      instagram: 'https://instagram.com/ryanpatel'
+      github: 'https://github.com/Radhika-B1084',
+      email: 'radhu1402@gmail.com',
+      instagram: 'https://www.instagram.com/radhikaag__?igsh=MWc4MmdpYTlvYzJnYQ=='
     }
   },
   {
@@ -157,10 +157,10 @@ const teamMembers = [
     image: teamImagesDir + 'sagar.jpg',
     bio: 'Sophomore undergraduate in Computer Science and Engineering',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Jadeninja-23a',
-      email: 'anna.garcia@example.edu',
-      instagram: 'https://instagram.com/annagarcia'
+      linkedin: 'https://www.linkedin.com/in/sagar-venkatesh-a3a800318/',
+      github: 'https://github.com/Sagarv812',
+      email: 'sagarv812@gmail.com',
+      instagram: 'https://www.instagram.com/sagarv812/'
     }
   },
   {
@@ -170,10 +170,10 @@ const teamMembers = [
     image: teamImagesDir + 'videep.png',
     bio: 'Sophomore undergraduate in Computer Science and Engineering',
     social: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/videep-reddy-jalapally-a2439334a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       github: 'https://github.com/Jadeninja-23a',
-      email: 'kevin.wang@example.edu',
-      instagram: 'https://instagram.com/kevinwang'
+      email: 'mail4videep @gmail.com',
+      instagram: 'https://www.instagram.com/videep_23a?igsh=MXpqMXFnYnM5ZHBi&utm_source=qr'
     }
   }
 ];
