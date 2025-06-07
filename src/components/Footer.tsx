@@ -19,13 +19,17 @@ const resources = [
 ];
 
 const legalLinks = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms of Service', href: '#' },
-  { label: 'Code of Conduct', href: '#' },
-  { label: 'Accessibility', href: '#' },
+  { label: 'Institute Technical Council', href: 'https://tech-iitb.org' },
+  { label: 'Institute Website', href: 'https://www.iitb.ac.in' },
+  { label: 'SAC Constitution, IIT Bombay', href: 'https://gymkhana.iitb.ac.in/SAC-Constitution-March-2018.pdf' },
+  { label: 'Students Gymkhana, IIT Bombay', href: 'https://gymkhana.iitb.ac.in/' },
 ];
 
-const socialPlatforms = ['instagram', 'github'];
+const socialPlatforms = [
+  { name: 'instagram', href: 'https://instagram.com/erc.iitb' },
+  { name: 'github', href: 'https://github.com/erciitb' },
+];
+
 
 const Footer = () => {
   return (
@@ -45,12 +49,14 @@ const Footer = () => {
             <div className="flex space-x-4">
               {socialPlatforms.map((platform) => (
                 <a
-                  key={platform}
-                  href="#"
+                  key={platform.name}
+                  href={platform.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-blue-400 transition-colors"
                 >
-                  <span className="sr-only">{platform}</span>
-                  <i className={`fab fa-${platform}`}></i>
+                  <span className="sr-only">{platform.name}</span>
+                  <i className={`fab fa-${platform.name}`}></i>
                 </a>
               ))}
             </div>
@@ -118,20 +124,20 @@ const Footer = () => {
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Electronics & Robotics Club, IIT Bombay. All rights reserved.
           </p>
-          {/* <div className="flex flex-wrap justify-center gap-4">
+          { <div className="flex flex-wrap justify-center gap-4">
             {legalLinks.map(({ label, href }) => (
               <a key={label} href={href} className="text-gray-500 hover:text-blue-400 transition-colors text-sm">
                 {label}
               </a>
             ))}
-          </div> */}
+          </div>}
         </div>
 
         {/* Made with love */}
         <div className="mt-6 text-center text-gray-500 text-sm flex items-center justify-center">
           <span>Made with</span>
           <Heart size={14} className="mx-1 text-red-500" />
-          <span>by the club members</span>
+          <span>by ERC Team 2025-26</span>
         </div>
       </div>
     </footer>
