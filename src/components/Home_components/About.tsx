@@ -1,6 +1,7 @@
 import React from 'react';
 import { Cpu, Bot ,Layers } from 'lucide-react';
 import {Hardhack , Controlsys , Roboarm} from './Customicon'
+import Spline from '@splinetool/react-spline';
 
 const features = [
   {
@@ -80,14 +81,18 @@ const About = () => {
                 By fostering a culture rooted in collaboration, continuous learning, and hands-on discovery, we aim to empower enthusiasts to turn ideas into impactful solutions and grow as engineers, thinkers, and problem-solvers.
               </p>
             </div>
-            <div className="md:w-1/3 flex justify-center">
-              <div className="relative w-64 h-64 rounded-full bg-blue-900/30 flex items-center justify-center overflow-hidden">
-                <div className="absolute w-full h-full animate-spin-slow" style={{ 
-                  border: '2px dashed rgba(0, 136, 255, 0.3)', 
-                  borderRadius: '50%' 
-                }}></div>
-                <Cpu size={64} className="text-blue-500 z-10" />
-              </div>
+            <div className="w-64 h-64 rounded-full bg-gray-900 overflow-hidden shadow-lg relative">
+              <div
+                className="absolute inset-0 animate-spin-slow"
+                style={{
+                  border: '2px dashed rgba(0, 136, 255, 0.3)',
+                  borderRadius: '50%',
+                }}
+              />
+              <Spline
+                scene="https://prod.spline.design/uP8FxAJpRdIs-ei6/scene.splinecode"
+                className="w-full h-full relative z-10"
+              />
             </div>
           </div>
         </div>
