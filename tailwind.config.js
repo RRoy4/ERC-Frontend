@@ -23,6 +23,7 @@ export default {
       fontFamily: {
         body: ['"Atkinson Hyperlegible"', 'sans-serif'],
         heading: ['"Space Grotesk"', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'serif'], 
       },
     },
   },

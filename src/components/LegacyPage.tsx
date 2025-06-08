@@ -51,7 +51,7 @@ const LegacyPage = () => {
             animate={titleInView ? { y: 0, opacity: 1 } : {}}
             transition={{ delay: 0.6 }}
           >
-            <h2 className="text-7xl md:text-9xl font-bold tracking-tighter mt-2">
+            <h2 className="text-7xl md:text-9xl font-playfair tracking-wide mt-2">
               LEGACY
             </h2>
           </motion.div>
@@ -318,7 +318,7 @@ const LegacyPage = () => {
             <div className="w-48 h-1.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
           </motion.div>
           <motion.h2 
-            className="text-5xl md:text-7xl font-bold mb-12 leading-tight"
+            className="text-5xl md:text-7xl font-playfair mb-12 leading-tight"
             initial={{ opacity: 0 }}
             animate={finalInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.5 }}
