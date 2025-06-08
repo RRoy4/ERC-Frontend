@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Send, Mail, ExternalLink } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
 
@@ -15,9 +17,24 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
-    alert('Message sent successfully! We will get back to you soon.');
+
+    emailjs.send(
+      'service_hocfe6g',     // 🛠️ Replace with your EmailJS Service ID
+      'template_7d5au78',    // 🛠️ Replace with your Template ID
+      formData,
+      'iQ8oZeIUKrSv_e8BA'      // 🛠️ Replace with your Public Key
+    )
+    .then(
+      (response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      },
+      (error) => {
+        console.error('FAILED...', error);
+        alert('Oops! Something went wrong.');
+      }
+    );
   };
 
   return (
@@ -37,76 +54,36 @@ const Contact = () => {
             <div className="bg-gray-800 rounded-xl p-8 h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-xl font-semibold mb-6 font-heading">Get In Touch</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-gray-700 p-3 rounded-lg mr-4">
-                      <Mail className="h-5 w-5 text-blue-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1">Email</h4>
-                      <a
-                        href="mailto:elecrobo.club@iitb.ac.in"
-                        className="text-gray-400 hover:text-blue-400 transition-colors"
-                      >
-                        elecrobo.club@iitb.ac.in
-                      </a>
-                    </div>
+                <div className="flex items-start mb-6">
+                  <div className="bg-gray-700 p-3 rounded-lg mr-4">
+                    <Mail className="h-5 w-5 text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-1">Email</h4>
+                    <a href="mailto:elecrobo.club@iitb.ac.in" className="text-gray-400 hover:text-blue-400 transition-colors">
+                      elecrobo.club@iitb.ac.in
+                    </a>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-gray-700">
-                  <h4 className="font-medium mb-4">Connect With Us</h4>
-                  <div className="flex space-x-4">
-                    <a
-                      href="https://www.facebook.com/share/16mzHh1sFB/"
-                      className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="sr-only">Facebook</span>
-                      <i className="fab fa-facebook"></i>
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/company/electronics-and-robotics-club-iit-bombay/posts/?feedView=all"
-                      className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="sr-only">LinkedIn</span>
-                      <i className="fab fa-linkedin"></i>
-                    </a>
-
-                    <a
-                      href="https://www.instagram.com/erc.iitb"
-                      className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="sr-only">Instagram</span>
-                      <i className="fab fa-instagram"></i>
-                    </a>
-
-                    <a
-                      href="https://www.youtube.com/@ERC-IITB"
-                      className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="sr-only">YouTube</span>
-                      <i className="fab fa-youtube"></i>
-                    </a>
-
-                    <a
-                      href="https://github.com/erciitb"
-                      className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="sr-only">GitHub</span>
-                      <i className="fab fa-github"></i>
-                    </a>
-                  </div>
+                <h4 className="font-medium mb-4">Connect With Us</h4>
+                <div className="flex space-x-4">
+                  {/* Social Links */}
+                  <a href="https://www.facebook.com/share/16mzHh1sFB/" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
+                    <i className="fab fa-facebook"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/company/electronics-and-robotics-club-iit-bombay/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
+                    <i className="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://www.instagram.com/erc.iitb" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://www.youtube.com/@ERC-IITB" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
+                    <i className="fab fa-youtube"></i>
+                  </a>
+                  <a href="https://github.com/erciitb" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
+                    <i className="fab fa-github"></i>
+                  </a>
                 </div>
               </div>
 
@@ -125,12 +102,7 @@ const Contact = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
-                <a
-                  href="https://www.google.com/maps/place/Tinkerers'+Laboratory/@19.1340629,72.9143248,15.96z/data=!4m6!3m5!1s0x3be7c7f5e4ac7efd:0xd9d02f29b4617fb4!8m2!3d19.1337854!4d72.9167784!16s%2Fg%2F1pycxwth8?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-medium"
-                >
+                <a href="https://www.google.com/maps/place/Tinkerers'+Laboratory/" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-medium">
                   View on Google Maps <ExternalLink size={16} className="ml-2" />
                 </a>
               </div>
@@ -141,76 +113,53 @@ const Contact = () => {
           <div className="lg:w-2/3">
             <div className="bg-gray-800 rounded-xl p-8">
               <h3 className="text-xl font-semibold mb-6 font-heading">Send Us a Message</h3>
-
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                      placeholder="John Doe"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white resize-none"
-                    placeholder="Your message here..."
-                  ></textarea>
+                    className="px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 w-full"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 w-full"
+                  />
                 </div>
 
-                <div className="flex items-center mb-6">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    required
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-600 rounded bg-gray-700"
-                  />
-                  <label htmlFor="consent" className="ml-2 block text-sm text-gray-300">
-                    I agree to the processing of my personal data in accordance with the club's privacy policy.
-                  </label>
-                </div>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject (e.g., Request for resources)"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="mb-6 px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 w-full"
+                />
+
+                <textarea
+                  name="message"
+                  placeholder="Your message..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="mb-6 px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 w-full resize-none"
+                ></textarea>
 
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors inline-flex items-center text-white font-medium"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md inline-flex items-center"
                 >
-                  Send Message
-                  <Send size={16} className="ml-2" />
+                  Send Message <Send size={16} className="ml-2" />
                 </button>
               </form>
             </div>
