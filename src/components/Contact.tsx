@@ -44,7 +44,7 @@ const Contact = () => {
           <h2 className="text-3xl font-bold mb-4 font-heading">Contact Us</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            Have questions about our club? Reach out to us and we'll get back to you as soon as possible.
+            Curious about us? Got questions, ideas, or need resources? Drop us a message -  we're always happy to help.
           </p>
         </div>
 
@@ -69,20 +69,14 @@ const Contact = () => {
                 <h4 className="font-medium mb-4">Connect With Us</h4>
                 <div className="flex space-x-4">
                   {/* Social Links */}
-                  <a href="https://www.facebook.com/share/16mzHh1sFB/" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
-                    <i className="fab fa-facebook"></i>
+                  <a href="https://www.instagram.com/erc.iitb" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 text-2xl">
+                    <i className="fab fa-instagram text-2xl"></i>
                   </a>
-                  <a href="https://www.linkedin.com/company/electronics-and-robotics-club-iit-bombay/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
-                    <i className="fab fa-linkedin"></i>
+                   <a href="https://www.linkedin.com/company/electronics-and-robotics-club-iit-bombay/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 text-2xl">
+                    <i className="fab fa-linkedin text-2xl"></i>
                   </a>
-                  <a href="https://www.instagram.com/erc.iitb" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="https://www.youtube.com/@ERC-IITB" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
-                    <i className="fab fa-youtube"></i>
-                  </a>
-                  <a href="https://github.com/erciitb" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600">
-                    <i className="fab fa-github"></i>
+                  <a href="https://github.com/erciitb" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-gray-600 text-2xl">
+                    <i className="fab fa-github text-2xl"></i>
                   </a>
                 </div>
               </div>
