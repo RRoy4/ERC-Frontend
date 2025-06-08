@@ -296,7 +296,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2019-20</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                Managers,
+                Managers, Aniruddha mittal &  Jian Vora
               </p>
             </motion.div>
           </div>
