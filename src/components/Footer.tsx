@@ -12,8 +12,8 @@ const quickLinks = [
 ];
 
 const resources = [
-  { label: 'Tutorials', href: '/resources' },
-  { label: 'Workshop Materials', href: '#' },
+  { label: 'Tutorials', href: '/resources#tutorials' },
+  { label: 'Workshop Materials', href: '/resources#workshops' },
 ];
 
 const legalLinks = [
