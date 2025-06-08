@@ -1,36 +1,28 @@
-import React, { useEffect, useRef } from 'react';
-import { ChevronDown, Zap } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Zap } from 'lucide-react';
 import CenterLogo from '../../assets/centerlogo.png';
-import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import PcbBackground from '../../assets/pcb.svg';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate(); // ✅ Initialize navigate
+  const navigate = useNavigate();
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
 
-      const { clientX, clientY } = e;
-      const { width, height, left, top } = heroRef.current.getBoundingClientRect();
+      const { left, top, width, height } = heroRef.current.getBoundingClientRect();
+      const x = (e.clientX - left) / width;
+      const y = (e.clientY - top) / height;
 
-      const x = (clientX - left) / width;
-      const y = (clientY - top) / height;
-
-      heroRef.current.style.setProperty('--mouse-x', `${x}`);
-      heroRef.current.style.setProperty('--mouse-y', `${y}`);
+      setMousePos({ x, y });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section
@@ -38,20 +30,22 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage:
-          'radial-gradient(circle at calc(var(--mouse-x, 0.5) * 100%) calc(var(--mouse-y, 0.5) * 100%), rgba(0, 136, 255, 0.15), transparent 40%)',
+        backgroundImage: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(56, 189, 248, 0.15), transparent 40%)`,
       }}
     >
-      {/* Background Circuit Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute w-full h-full"
-          style={{
-            background:
-              'repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0, 136, 255, 0.5) 40px, rgba(0, 136, 255, 0.5) 41px), repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 136, 255, 0.5) 40px, rgba(0, 136, 255, 0.5) 41px)',
-          }}
-        ></div>
-      </div>
+      {/* PCB Background masked to cursor circle */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url(${PcbBackground})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          maskImage: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, black 10%, transparent 25%)`,
+          WebkitMaskImage: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, black 10%, transparent 25%)`,
+          opacity: 0.1,
+        }}
+      />
 
       <div className="container mx-auto px-4 z-10 font-body">
         <div className="max-w-3xl mx-auto text-center">
@@ -67,21 +61,21 @@ const Hero = () => {
 
           <p className="text-xl text-gray-300 mb-8">
             Join our community of innovators, tinkerers, and problem-solvers as we explore the
-            exciting world of electronics and robotics through hands-on projects and competitions.
+            exciting world of electronics and robotics through workshops and competitions.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="https://linktr.ee/elecrobocommunity"
-              target="_blank" // Optional: opens in new tab
-              rel="noopener noreferrer" // Security best practice with target="_blank"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
             >
               Join Our Club
             </a>
             <button
               className="px-8 py-3 bg-gray-800 hover:bg-gray-700 rounded-md border border-gray-700 transition-all hover:border-blue-500/50 text-lg font-medium font-heading"
-              onClick={() => navigate('/events')} // ✅ Link to Events page
+              onClick={() => navigate('/events')}
             >
               Explore Events
             </button>
