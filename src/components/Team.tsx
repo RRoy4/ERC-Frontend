@@ -132,9 +132,9 @@ const teamMembers = [
     bio: 'Final Year Postgraduate in Electrical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/lakshmi-deep-maddineni/',
-      github: 'https://github.com/',
+      github: '#',
       email: 'lakshmideepmaddineni@gmail.com',
-      instagram: 'https://www.instagram.com/'
+      instagram: '#'
     }
   },
   {
