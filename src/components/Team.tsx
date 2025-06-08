@@ -231,13 +231,13 @@ const Team = () => {
 
         {/* First Row - 2 people (Leadership) */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-center mb-8 text-gray-200">Leadership</h2>
+          <h2 className="text-2xl font-heading text-center mb-8 text-gray-200">Leadership</h2>
           {renderTeamRow(leadership, "grid-cols-1 md:grid-cols-2 justify-center max-w-2xl mx-auto")}
         </div>
 
         {/* Core Team Section - 2nd, 3rd, and 4th rows (4 + 4 + 3 people) */}
         <div>
-          <h2 className="text-2xl font-semibold text-center mb-8 text-gray-200">Core Team</h2>
+          <h2 className="text-2xl font-heading text-center mb-8 text-gray-200">Core Team</h2>
           {/* Second Row - 4 people */}
           {renderTeamRow(coreTeamRow1, "grid-cols-1 md:grid-cols-2 lg:grid-cols-4")}
           {/* Third Row - 4 people */}
