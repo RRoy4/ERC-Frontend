@@ -109,7 +109,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2024-25</h2>
               <p className="text-gray-300 text-xl max-w-md">
-                Driven by purpose and precision, they raised the bar and left a mark of excellence that will guide the next generation.
+                Managers, Ayush Prasad & Kyari Ponkiya
               </p>
             </motion.div>
           </div>
@@ -147,7 +147,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2023-24</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                Innovators who embraced change and technology. Their forward-thinking approach laid the groundwork for future growth.
+                Managers, Anuj Bangad & Kushal Agarwal
               </p>
             </motion.div>
           </div>
@@ -183,7 +183,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2022-23</h2>
               <p className="text-gray-300 text-xl max-w-md">
-                With resilience and teamwork, they faced challenges head-on and turned obstacles into opportunities. Their unity strengthened the legacy.
+                Managers, Sourabh Hanje & Tejas Amritkar
               </p>
             </motion.div>
           </div>
@@ -221,7 +221,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2021-22</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                Visionaries who brought fresh energy and bold ideas. Their creativity redefined what's possible and expanded the club's horizons.
+                Managers, Sharvaree Sinkar & Sidharth Mundhra
               </p>
             </motion.div>
           </div>
@@ -257,7 +257,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2020-21</h2>
               <p className="text-gray-300 text-xl max-w-md">
-                Building on the foundation, they pushed boundaries and achieved new milestones. Their passion fueled the legacy forward.
+                Managers, Shubham Agrawal & Shubham Lohiya
               </p>
             </motion.div>
           </div>
@@ -296,7 +296,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2019-20</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                The pioneers who set the foundation for excellence and innovation. Their dedication created a legacy that continues to inspire.
+                Managers,
               </p>
             </motion.div>
           </div>
