@@ -60,7 +60,7 @@ const Hero = () => {
           <br />
 
           <p className="text-xl text-gray-300 mb-8">
-            Join our community of innovators, tinkerers, and problem-solvers as we explore the
+            Join our community of innovators and problem-solvers as we explore the
             exciting world of electronics and robotics through workshops and competitions.
           </p>
 
