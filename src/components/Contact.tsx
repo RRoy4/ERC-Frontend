@@ -31,7 +31,7 @@ const Contact = () => {
           <h2 className="text-3xl font-bold mb-4 font-heading">Contact Us</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            Have questions about our club or interested in joining? Reach out to us and we'll get back to you as soon as possible.
+            Have questions about our club? Reach out to us and we'll get back to you as soon as possible.
           </p>
         </div>
         
@@ -48,7 +48,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Location</h4>
-                    <p className="text-gray-400">Engineering Building, Room 305<br />University Campus</p>
+                    <p className="text-gray-400">Tinkerers' Laboratory, Academic Area<br />Indian Institute of Technology Bombay</p>
                   </div>
                 </div>
                 
@@ -58,21 +58,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Email</h4>
-                    <a href="mailto:club@techrobotics.edu" className="text-gray-400 hover:text-blue-400 transition-colors">
-                      club@techrobotics.edu
+                    <a href="mailto:elecrobo.club@iitb.ac.in" className="text-gray-400 hover:text-blue-400 transition-colors">
+                      elecrobo.club@iitb.ac.in
                     </a>
                   </div>
                 </div>
                 
-                <div className="flex items-start">
-                  <div className="bg-gray-700 p-3 rounded-lg mr-4">
-                    <Clock className="h-5 w-5 text-blue-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Club Hours</h4>
-                    <p className="text-gray-400">Monday - Friday: 2:00 PM - 8:00 PM<br />Saturday: 10:00 AM - 4:00 PM</p>
-                  </div>
-                </div>
+
               </div>
               
               <div className="mt-8 pt-8 border-t border-gray-700">
@@ -93,7 +85,7 @@ const Contact = () => {
               
               <div className="mt-8 pt-8 border-t border-gray-700">
                 <a 
-                  href="#" 
+                  href="https://maps.app.goo.gl/bzCa3eU3vYwwok5p6" 
                   className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-medium"
                 >
                   View on Google Maps

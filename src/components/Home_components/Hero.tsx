@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="inline-flex items-center mb-4 px-3 py-1 bg-blue-900/30 rounded-full border border-blue-500/30">
             <Zap size={16} className="text-blue-400 mr-2" />
             <span className="text-sm text-blue-400">
-              Building the future, one circuit at a time since 2017
+              Building the future, one circuit at a time, since 2017.
             </span>
           </div>
 
@@ -72,7 +72,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              href="https://linktr.ee/elecrobocommunity"
               target="_blank" // Optional: opens in new tab
               rel="noopener noreferrer" // Security best practice with target="_blank"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
