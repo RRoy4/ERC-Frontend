@@ -109,7 +109,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2024-25</h2>
               <p className="text-gray-300 text-xl max-w-md">
-                Managers, Ayush Prasad & Kyari Ponkiya
+                Led by Ayush Prasad & Kyari Ponkiya
               </p>
             </motion.div>
           </div>
@@ -147,7 +147,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2023-24</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                Managers, Anuj Bangad & Kushal Agarwal
+                Led by Anuj Bangad & Kushal Agarwal
               </p>
             </motion.div>
           </div>
@@ -183,7 +183,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2022-23</h2>
               <p className="text-gray-300 text-xl max-w-md">
-                Managers, Sourabh Hanje & Tejas Amritkar
+                Led by Sourabh Hanje & Tejas Amritkar
               </p>
             </motion.div>
           </div>
@@ -221,7 +221,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2021-22</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                Managers, Sharvaree Sinkar & Sidharth Mundhra
+                Led by Sharvaree Sinkar & Sidharth Mundhra
               </p>
             </motion.div>
           </div>
@@ -257,7 +257,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2020-21</h2>
               <p className="text-gray-300 text-xl max-w-md">
-                Managers, Shubham Agrawal & Shubham Lohiya
+                Led by Shubham Agrawal & Shubham Lohiya
               </p>
             </motion.div>
           </div>
@@ -296,7 +296,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2019-20</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                Managers, Aniruddha mittal &  Jian Vora
+                Led by Aniruddha mittal &  Jian Vora
               </p>
             </motion.div>
           </div>
