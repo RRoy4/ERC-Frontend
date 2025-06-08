@@ -1,6 +1,7 @@
 // LegacyPage.tsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import AnimatedBackground from './AnimatedBackground';
 
 const LegacyPage = () => {
   // Refs for animations
@@ -22,7 +23,9 @@ const LegacyPage = () => {
   ];
 
   return (
-    <div className="scroll-container bg-gray-900">
+    <div className="scroll-container relative bg-gray-900">
+      <AnimatedBackground />
+      <div className="relative z-10">
       {/* Slide 1: Full-screen ERC LEGACY Popup */}
       <section className="scroll-section flex items-center justify-center relative min-h-screen">
         <motion.div
@@ -337,9 +340,10 @@ const LegacyPage = () => {
         
         {/* Decorative elements */}
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center">
-          <p className="text-gray-500 text-lg">ERC Legacy 2017-present</p>
+          <p className="text-gray-500 text-lg">ERC Legacy: striving for excellence</p>
         </div>
       </section>
+    </div>
     </div>
   );
 };
