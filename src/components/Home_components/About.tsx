@@ -52,7 +52,7 @@ const About = () => {
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             The Electronics & Robotics Club, IIT Bombay is a vibrant community of passionate students united by a love for circuits, robotics, and innovation. Open to all skill levels, the club hosts competitions, workshops, and discussions throughout the year to promote hands-on learning and creative problem-solving. We also maintain a growing collection of tutorials, blogs, and a community wiki, contributed to by our members.
           </p>
-          <p className="max-w-3xl mx-auto text-gray-300 mt-4 text-lg italic " >Below are the six core domains we actively explore and grow in:</p>
+          <p className="max-w-3xl mx-auto text-gray-300 mt-4 text-lg font-heading" >Flagship domains we actively explore</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,191 +1,106 @@
-import React, { useState } from 'react';
-import { BookOpen, FileText, Video, Download, ExternalLink, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+const resoimg = "/team/images/"
 
-// Categories for resources
-const categories = [
-  { id: 'all', name: 'All Resources' },
-  { id: 'tutorials', name: 'Tutorials' },
-  { id: 'documentation', name: 'Documentation' },
-  { id: 'videos', name: 'Video Courses' },
-  { id: 'software', name: 'Software & Tools' },
-];
-
-// Resources data
 const resourcesData = [
   {
     id: 1,
-    title: 'Introduction to Arduino Programming',
-    description: 'A comprehensive guide to getting started with Arduino for beginners.',
-    type: 'tutorials',
-    icon: <BookOpen className="h-5 w-5" />,
+    title: 'ER101: Digital Electronics & Microcontrollers',
+    description: 'Master digital logic design, microcontroller architecture, and embedded programming fundamentals.',
+    image: resoimg + 'reso-er.png',
     link: '#',
-    featured: true
   },
   {
     id: 2,
-    title: 'Raspberry Pi Project Ideas',
-    description: 'Collection of 50+ project ideas for Raspberry Pi with difficulty ratings.',
-    type: 'tutorials',
-    icon: <BookOpen className="h-5 w-5" />,
+    title: 'ROS: Advanced Robotic Operating Systems',
+    description: 'Comprehensive guide to Robot Operating System architecture, middleware, and industrial applications.',
+    image: resoimg +'reso-ros.png',
     link: '#',
-    featured: false
   },
   {
     id: 3,
-    title: 'ESP32 Technical Documentation',
-    description: 'Official documentation for ESP32 microcontroller with examples.',
-    type: 'documentation',
-    icon: <FileText className="h-5 w-5" />,
+    title: 'Control Theory: Modern Approaches',
+    description: 'State-space modeling, stability analysis, and controller design for complex dynamic systems.',
+    image: resoimg +'reso-ct.png',
     link: '#',
-    featured: false
   },
   {
     id: 4,
-    title: 'Robot Operating System (ROS) Basics',
-    description: 'Video course covering the fundamentals of ROS for robotics projects.',
-    type: 'videos',
-    icon: <Video className="h-5 w-5" />,
+    title: 'Reinforcement Learning: Theory to Practice',
+    description: 'Deep Q-learning, policy gradients, and multi-agent systems implementation with hardware acceleration.',
+    image: resoimg +'reso-rl.png',
     link: '#',
-    featured: true
   },
   {
     id: 5,
-    title: 'KiCad PCB Design Tutorial',
-    description: 'Learn how to design professional PCBs using the free KiCad software.',
-    type: 'tutorials',
-    icon: <BookOpen className="h-5 w-5" />,
+    title: 'Hardware Security & Reverse Engineering',
+    description: 'Circuit analysis, fault injection, and side-channel attacks for embedded system security.',
+    image: resoimg +'reso-hh.png',
     link: '#',
-    featured: false
-  },
-  {
-    id: 6,
-    title: 'Arduino Libraries Reference',
-    description: 'Documentation for common Arduino libraries used in club projects.',
-    type: 'documentation',
-    icon: <FileText className="h-5 w-5" />,
-    link: '#',
-    featured: false
-  },
-  {
-    id: 7,
-    title: 'Machine Learning for Embedded Systems',
-    description: 'Video series on implementing ML algorithms on microcontrollers.',
-    type: 'videos',
-    icon: <Video className="h-5 w-5" />,
-    link: '#',
-    featured: false
-  },
-  {
-    id: 8,
-    title: 'Club Project Templates',
-    description: 'Starter templates and code for various types of electronics projects.',
-    type: 'software',
-    icon: <Download className="h-5 w-5" />,
-    link: '#',
-    featured: true
   }
 ];
 
 const Resources = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-  
-  const filteredResources = activeCategory === 'all'
-    ? resourcesData
-    : resourcesData.filter(resource => resource.type === activeCategory);
-    
-  const featuredResources = resourcesData.filter(resource => resource.featured);
-
   return (
-    <section id="resources\" className="py-20 bg-gray-900">
+    <section id="resources" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Learning Resources</h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            Access our curated collection of tutorials, documentation, and tools to enhance your skills in electronics and robotics.
+        <div className="text-center mb-1">
+          <h2 className="text-4xl font-san-serif mb-4 font-heading">Learning Resources</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+          <p className="max-w-3xl mx-auto text-gray-300 text-lg mb-10">
+            Access our curated collection of learning materials for electronics and robotics.
           </p>
         </div>
         
-        {/* Featured Resources */}
-        <div className="mb-16">
-          <h3 className="text-xl font-semibold mb-6 px-4">Featured Resources</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredResources.map((resource) => (
-              <div 
-                key={resource.id}
-                className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all"
-              >
-                <div className="bg-blue-500/20 p-3 rounded-lg inline-block mb-4">
-                  {resource.icon}
-                </div>
-                <h4 className="text-lg font-semibold mb-2">{resource.title}</h4>
+        {/* Featured Resources Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {resourcesData.map((resource) => (
+            <div 
+              key={resource.id}
+              className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-blue-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+            >
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={resource.image} 
+                  alt={resource.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">{resource.title}</h3>
                 <p className="text-gray-400 mb-4">{resource.description}</p>
                 <a 
                   href={resource.link}
-                  className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-medium"
+                  className="inline-flex items-center justify-between w-full px-4 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors group"
                 >
-                  Access Resource
-                  <ExternalLink size={16} className="ml-2" />
+                  <span className="font-medium">Access Resource</span>
+                  <ExternalLink 
+                    size={18} 
+                    className="text-blue-400 group-hover:text-blue-300 transition-colors" 
+                  />
                 </a>
               </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center mb-8">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-5 py-2 m-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === category.id 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-900 text-gray-300 hover:bg-gray-700'
-              }`}
-            >
-              {category.name}
-            </button>
+            </div>
           ))}
         </div>
-        
-        {/* Resource List */}
-        <div className="bg-gray-800 rounded-xl overflow-hidden">
-          <div className="divide-y divide-gray-800">
-            {filteredResources.map((resource) => (
-              <div key={resource.id} className="p-6 hover:bg-gray-800/50 transition-colors">
-                <div className="flex items-start">
-                  <div className="bg-gray-800 p-3 rounded-lg mr-4">
-                    {resource.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-semibold mb-1">{resource.title}</h4>
-                    <p className="text-gray-400 mb-2">{resource.description}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500 capitalize">{resource.type}</span>
-                      <a 
-                        href={resource.link}
-                        className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
-                      >
-                        View Resource
-                        <ChevronRight size={16} className="ml-1" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+
+        {/* Additional Call-to-Action */}
+        <div className="mt-20 text-center max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-0.5 rounded-xl">
+            <div className="bg-gray-900 p-8 rounded-xl">
+              <h3 className="text-2xl font-bold mb-4">Need some Resources?</h3>
+              <p className="text-gray-300 mb-6">
+                Contact us for specialized learning materials tailored to your project needs.
+              </p>
+              <Link to="/contact">
+                <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5">
+                  Request Resources
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
-        
-        <div className="mt-12 p-6 bg-gray-1000 rounded-xl border border-gray-700 text-center">
-          <h3 className="text-xl font-semibold mb-4">Request Learning Materials</h3>
-          <p className="text-gray-300 mb-6">
-            Can't find what you're looking for? Request specific tutorials, documentation, or resources to help with your project.
-          </p>
-          <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors">
-            Request Resources
-          </button>
         </div>
       </div>
     </section>

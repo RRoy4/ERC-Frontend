@@ -5,7 +5,6 @@ import FooterLogo from '../assets/footer.png';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Projects', href: '/projects' },
   { label: 'Events', href: '/events' },
   { label: 'Team', href: '/team' },
   { label: 'Resources', href: '/resources' },
@@ -13,8 +12,7 @@ const quickLinks = [
 ];
 
 const resources = [
-  { label: 'Component Library', href: '#' },
-  { label: 'Tutorials', href: '#' },
+  { label: 'Tutorials', href: '/resources' },
   { label: 'Workshop Materials', href: '#' },
 ];
 
