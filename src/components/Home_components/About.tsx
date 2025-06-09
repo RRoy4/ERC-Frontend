@@ -41,7 +41,7 @@ const About = () => {
     <section id="about\" className="py-20 bg-gradient-to-b from-gray-800 to-gray-900"> 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h1 className="text-5xl mb-4 font-heading 
+          <h1 className="text-5xl mb-4 font-heading
             bg-gradient-to-r from-blue-500 to-orange-500 
             bg-[length:200%_200%] bg-clip-text text-transparent 
             animate-gradient-x">

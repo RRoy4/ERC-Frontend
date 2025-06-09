@@ -48,7 +48,7 @@ const Header = () => {
             <Link
               key={label}
               to={path}
-              className="text-gray-300 hover:text-orange-500 font-bold transition-colors capitalize"
+              className="text-gray-300 hover:text-orange-500 transition-colors capitalize"
               onClick={() => setIsMenuOpen(false)}
             >
               {label}
