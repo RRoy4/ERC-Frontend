@@ -11,9 +11,9 @@ const teamMembers = [
     image: teamImagesDir + 'saravan.jpeg',
     bio: 'Pre-final year undergraduate in Electrical Engineering',
     social: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/saravan-kumar-boddeda-0351b1294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       github: 'https://github.com/LunarLogician007',
-      email: '23B3922@iitb.ac.in',
+      email: 'boddedask@gmail.com',
       instagram: 'https://instagram.com/b_saravan_kumar'
     }
   },
