@@ -39,7 +39,7 @@ const teamMembers = [
     social: {
       linkedin: 'https://www.linkedin.com/in/aditya-patel-98584b327/',
       github: 'https://github.com/kaabooom',
-      email: 'aadipatel16.05@gmail.com',
+      email: '24B3949@iitb.ac.in',
       instagram: 'https://www.instagram.com/aadi_16.1/'
     }
   },
@@ -58,15 +58,15 @@ const teamMembers = [
   },
   {
     id: 5,
-    name: 'Daksh Makwana',
+    name: 'Radhika Agarwal',
     role: 'Convenor',
-    image: teamImagesDir + 'daksh.jpg',
-    bio: 'Sophomore undergraduate in Metallurgical Engineering and Material Sciences',
+    image: teamImagesDir + 'radhika.jpg',
+    bio: 'Sophomore undergraduate in Engineering Physics',
     social: {
-      linkedin: 'https://www.linkedin.com/in/daksh-makwana-698253326',
-      github: 'https://github.com/DAKMAK2006',
-      email: 'makwanadaksh01@gmail.com',
-      instagram: '#'
+      linkedin: '#',
+      github: 'https://github.com/Radhika-B1084',
+      email: 'radhu1402@gmail.com',
+      instagram: 'https://www.instagram.com/radhikaag__?igsh=MWc4MmdpYTlvYzJnYQ=='
     }
   },
   {
@@ -136,15 +136,15 @@ const teamMembers = [
   },
   {
     id: 11,
-    name: 'Radhika Agarwal',
+    name: 'Daksh Makwana',
     role: 'Convenor',
-    image: teamImagesDir + 'radhika.jpg',
-    bio: 'Sophomore undergraduate in Engineering Physics',
+    image: teamImagesDir + 'daksh.jpg',
+    bio: 'Sophomore undergraduate in Metallurgical Engineering and Material Sciences',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Radhika-B1084',
-      email: 'radhu1402@gmail.com',
-      instagram: 'https://www.instagram.com/radhikaag__?igsh=MWc4MmdpYTlvYzJnYQ=='
+      linkedin: 'https://www.linkedin.com/in/daksh-makwana-698253326',
+      github: 'https://github.com/DAKMAK2006',
+      email: 'makwanadaksh01@gmail.com',
+      instagram: '#'
     }
   },
   {
@@ -225,7 +225,7 @@ const Team = () => {
   return (
     <section id="team" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+         <div className="text-center mb-16">
           <h2 className="text-4xl font-heading mb-4">Meet the Team</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
@@ -242,7 +242,41 @@ const Team = () => {
           <h2 className="text-2xl font-heading text-center mb-8 text-gray-200">Core Team</h2>
           {renderTeamRow(coreTeamRow1, "grid-cols-1 md:grid-cols-2 lg:grid-cols-4")}
           {renderTeamRow(coreTeamRow2, "grid-cols-1 md:grid-cols-2 lg:grid-cols-4")}
-          {renderTeamRow(coreTeamRow3, "grid-cols-1 md:grid-cols-2 lg:grid-cols-4")}
+          
+          {/* Modified last row - centered 3-column layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-8 justify-center max-w-4xl mx-auto">
+            {coreTeamRow3.map((member) => (
+              <div
+                key={member.id}
+                className="rounded-xl p-6 transition-all bg-gray-800 hover:shadow-lg hover:shadow-blue-500/10"
+              >
+                <div className="mb-6">
+                  <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-gray-700">
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold mb-1 font-heading">{member.name}</h3>
+                  <div className="text-blue-500 font-medium mb-3">{member.role}</div>
+                  <p className="text-gray-400 mb-4">{member.bio}</p>
+                  <div className="flex justify-center space-x-4">
+                    <a href={member.social.github} className="text-gray-400 hover:text-blue-400 p-2 hover:bg-gray-700 rounded-full">
+                      <Github size={20} />
+                    </a>
+                    <a href={member.social.linkedin} className="text-gray-400 hover:text-blue-400 p-2 hover:bg-gray-700 rounded-full">
+                      <Linkedin size={20} />
+                    </a>
+                    <a href={`mailto:${member.social.email}`} className="text-gray-400 hover:text-blue-400 p-2 hover:bg-gray-700 rounded-full">
+                      <Mail size={20} />
+                    </a>
+                    <a href={member.social.instagram} className="text-gray-400 hover:text-pink-500 p-2 hover:bg-gray-700 rounded-full">
+                      <Instagram size={20} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

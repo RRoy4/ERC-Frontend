@@ -48,7 +48,8 @@ const Resources = () => {
       <div className="container mx-auto px-4">
         {/* Tutorials Section */}
         <div id="tutorials" className="text-center mb-16">
-          <h2 className="text-4xl font-heading mb-4">Tutorials</h2>
+          <h2 className="text-4xl font-heading mb-4">Learning Resources
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg mb-10">
             Dive into curated tutorials and guides to strengthen your understanding in electronics and robotics.

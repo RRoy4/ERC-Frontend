@@ -12,7 +12,7 @@ const quickLinks = [
 ];
 
 const resources = [
-  { label: 'Tutorials', href: '/resources#tutorials' },
+  { label: 'Learning Resources', href: '/resources#tutorials' },
   { label: 'Workshop Materials', href: '/resources#workshops' },
 ];
 

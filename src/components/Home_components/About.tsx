@@ -22,7 +22,7 @@ const features = [
   {
     icon: <Hardhack className="h-8 w-8 text-yellow-400" />,
     title: 'Hardware Hacking',
-    description: 'Curious how hardware gets hacked in the real world? Learn about side-channel attacks and fault injection.'
+    description: 'Curious how hardware gets hacked in the real world? Learn about side-channel attacks, fault injection using the ChipWhisperer platform.'
   },
   {
     icon: <Roboarm className="h-8 w-8 text-orange-400" />,
