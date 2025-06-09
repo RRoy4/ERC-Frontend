@@ -134,7 +134,7 @@ const Footer = () => {
         {/* Made with love */}
         <div className="mt-6 text-center text-gray-500 text-sm flex items-center justify-center">
           <span>Made with</span>
-          <Heart size={14} className="mx-1 text-red-500" />
+          <Heart size={14} className="mx-1 text-orange-600" />
           <span>by ERC Team 2025-26</span>
         </div>
       </div>

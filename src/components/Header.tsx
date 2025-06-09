@@ -48,19 +48,19 @@ const Header = () => {
             <Link
               key={label}
               to={path}
-              className="text-gray-300 hover:text-blue-500 transition-colors capitalize"
+              className="text-gray-300 hover:text-orange-500 font-bold transition-colors capitalize"
               onClick={() => setIsMenuOpen(false)}
             >
               {label}
             </Link>
           ))}
           <a
-            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            href="https://bit.ly/erc-xlr8"
             target="_blank" // Optional: opens in new tab
             rel="noopener noreferrer" // Security best practice with target="_blank"
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+            className="px-4 py-2 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors"
           >
-            Join Us
+            XLR8
           </a>
         </nav>
 
