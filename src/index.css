@@ -60,7 +60,7 @@ body {
 }
 
 .floating {
-  animation: float 2s ease-in-out infinite;
+  animation: float 10s ease-in-out infinite;
 }
 
 @keyframes scrollX {
@@ -73,7 +73,7 @@ body {
 }
 
 .animate-scroll-x {
-  animation: scrollX 40s linear infinite;
+  animation: scrollX 300s linear infinite;
 }
 
 .hover\:paused-scroll-x:hover {

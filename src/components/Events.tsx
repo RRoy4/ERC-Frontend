@@ -4,14 +4,14 @@ import Cont from '../assets/controlcard.png';
 import { useState, useEffect } from 'react';
 
 
-  const teams = [
-    { year: 2024, image: '/team/images/2024-25.jpg' },
-    { year: 2023, image: '/team/images/2023-24.jpg' },
-    { year: 2022, image: '/team/images/2022-23.jpg' },
-    { year: 2021, image: '/team/images/2021-22.jpg' },
-    { year: 2020, image: '/team/images/2020-21.jpg' },
-    { year: 2020, image: '/team/images/2019-20.jpg' },
-  ];
+const galleryImages = [
+  'gallery/f.jpg', 'gallery/h.jpg', 'gallery/l.jpeg', 'gallery/r.jpeg', 'gallery/g.jpg',
+  'gallery/p.jpeg', 'gallery/j.jpeg', 'gallery/c.JPG', 'gallery/q.jpeg', 'gallery/k.jpeg',
+  'gallery/o.jpeg', 'gallery/n.jpeg', 'gallery/a.JPG', 'gallery/i.jpeg', 'gallery/e.JPG',
+  'gallery/m.jpeg', 'gallery/d.JPG', 'gallery/b.JPG', 'gallery/s.jpeg', 'gallery/t.jpeg',
+];
+
+
 // Event data
 const eventsData = [
   // {
@@ -164,8 +164,7 @@ const Events = () => {
               </div>
             </div>
           ))}
-        </div>
-        
+        </div>        
         <div className="mt-12 p-6 bg-gray-800 rounded-xl border border-gray-700 text-center">
           <h3 className="text-xl font-semibold mb-4">Stay Updated on All Events</h3>
           <p className="text-gray-300 mb-6">
@@ -186,31 +185,27 @@ const Events = () => {
               subscribed
                 ? 'bg-green-600 text-white cursor-default'
                 : 'bg-blue-600 hover:bg-blue-700 text-white'
-            }`}
+            }`} 
           >
             {subscribed ? 'Subscribed!' : 'Subscribe'}
           </button>
         </div>
         </div>
-                {/* Auto-scrolling Team Gallery */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-heading text-center text-white mb-8">Events Gallery</h3>
-          <div className="relative overflow-hidden">
-            <div className="flex gap-8 animate-scroll-x hover:paused-scroll-x whitespace-nowrap w-max">
-              {[...teams, ...teams].map((team, index) => (
-                <div key={index} className="flex-none w-104 h-80 rounded-xl overflow-hidden shadow-xl border border-gray-700">
-                  <img
-                    src={team.image}
-                    alt={`Team ${team.year}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+                {/*Auto-scrolling Team Gallery*/} 
+                <h3 className="text-3xl font-heading text-center text-orange mb-8">Events Gallery</h3>
+        <div className="relative overflow-hidden">
+          <div className="flex gap-8 animate-scroll-x hover:paused-scroll-x whitespace-nowrap w-max">
+            {[...galleryImages, ...galleryImages].map((filename, index) => (
+              <div key={index} className="flex-none w-104 h-80 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                <img
+                  src={`${filename}`}
+                  alt={`Event ${filename}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))} 
           </div>
         </div>
-
-
       </div>
     </section>
   );
