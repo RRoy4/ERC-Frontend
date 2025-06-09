@@ -39,10 +39,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
+      <div  className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4 font-heading">Contact Us</h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+          <div id="cus" className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             Curious about us? Got questions, ideas, or need resources? Drop us a message -  we're always happy to help.
           </p>

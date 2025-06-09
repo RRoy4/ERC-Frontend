@@ -41,18 +41,19 @@ const About = () => {
     <section id="about\" className="py-20 bg-gradient-to-b from-gray-800 to-gray-900"> 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4 font-heading 
-            bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 
+          <h1 className="text-5xl mb-4 font-heading
+            bg-gradient-to-r from-blue-500 to-orange-500 
             bg-[length:200%_200%] bg-clip-text text-transparent 
             animate-gradient-x">
-            ELECTRIFY.CODE.INNOVATE
-          </h2>
+            ELECTRIFY. CODE. INNOVATE.
+          </h1>
 
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-gray-300 text-lg">
+          <p className="max-w-3xl mx-auto text-gray-300 text-lg justify">
             The Electronics & Robotics Club, IIT Bombay is a vibrant community of passionate students united by a love for circuits, robotics, and innovation. Open to all skill levels, the club hosts competitions, workshops, and discussions throughout the year to promote hands-on learning and creative problem-solving. We also maintain a growing collection of tutorials, blogs, and a community wiki, contributed to by our members.
           </p>
-          <p className="max-w-3xl mx-auto text-gray-300 mt-4 text-xl font-heading uppercase tracking-wide">
+          <p className="max-w-3xl mx-auto text-orange-300 mt-4 text-2xl font-heading uppercase tracking-wide">
+            
             Flagship domains we actively explore
           </p>
         </div>
@@ -72,7 +73,7 @@ const About = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-green-500/20 p-8 rounded-xl border border-blue-500/20">
+        <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-orange-500/20 p-8 rounded-xl border border-blue-500/20">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
               <h2 className="text-2xl font-bold mb-4 font-heading">Our Vision</h2>
@@ -87,7 +88,7 @@ const About = () => {
               <div
                 className="absolute inset-0 animate-spin-slow"
                 style={{
-                  border: '2px dashed rgba(0, 136, 255, 0.3)',
+                  border: '2px rgba(196, 149, 47, 0.3)',
                   borderRadius: '50%',
                 }}
               />

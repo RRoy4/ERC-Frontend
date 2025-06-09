@@ -17,7 +17,7 @@ const resourcesData = [
     title: 'ROS: Advanced Robotic Operating Systems',
     description: 'Comprehensive guide to Robot Operating System architecture, middleware, and industrial applications.',
     image: resoimg +'reso-ros.png',
-    link: '#',
+    link: 'https://docs.ros.org/',
   },
   {
     id: 3,
@@ -95,7 +95,7 @@ const Resources = () => {
           <p className="max-w-2xl mx-auto text-gray-300 text-lg mb-10">
             Access recordings, slides, and documentation from our technical workshops.
           </p>
-          <div className="bg-gray-800/50 text-blue-400 border border-dashed border-blue-400 py-12 px-6 rounded-xl max-w-xl mx-auto">
+          <div className="bg-gray-800/50 text-blue-400 border border-orange-500 py-12 px-6 rounded-xl max-w-xl mx-auto">
             <p className="text-xl">🚧 Coming Soon 🚧</p>
             <p className="text-gray-400 mt-2">Stay tuned for hands-on workshop resources!</p>
           </div>
@@ -103,14 +103,14 @@ const Resources = () => {
 
         {/* Call-to-Action */}
         <div className="mt-20 text-center max-w-3xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-0.5 rounded-xl">
+          <div className="bg-gradient-to-r from-blue-900/30 to-orange-900/30 p-0.5 rounded-xl">
             <div className="bg-gray-900 p-8 rounded-xl">
               <h3 className="text-2xl font-bold mb-4">Need some Resources?</h3>
               <p className="text-gray-300 mb-6">
                 Contact us for specialized learning materials tailored to your project needs.
               </p>
-              <Link to="/contact">
-                <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5">
+              <Link to="/contact#cus">
+                <button className="px-8 py-3 bg-blue-600 hover:bg-orange-500 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5">
                   Request Resources
                 </button>
               </Link>
