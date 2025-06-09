@@ -62,3 +62,22 @@ body {
 .floating {
   animation: float 2s ease-in-out infinite;
 }
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-x {
+  animation: scrollX 40s linear infinite;
+}
+
+.hover\:paused-scroll-x:hover {
+  animation-play-state: paused;
+}
+
+
