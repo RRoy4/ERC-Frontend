@@ -24,7 +24,7 @@ const teamMembers = [
     image: teamImagesDir + 'srivathsa.jpg',
     bio: 'Pre-final year undergraduate in Electrical Engineering',
     social: {
-      linkedin: '#',
+      linkedin: 'https://linkedin.com/in/srivathsahere',
       github: 'https://github.com/semicolonmissin',
       email: 'srivathsa.thotakura@iitb.ac.in',
       instagram: 'https://instagram.com/voidsrivathsa'
