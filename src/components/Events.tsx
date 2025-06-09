@@ -165,7 +165,7 @@ const Events = () => {
             </div>
           ))}
         </div>        
-        <div className="mt-12 p-6 bg-gray-800 rounded-xl border border-gray-700 text-center">
+        <div className="mt-12 p-6 bg-gray-800 rounded-xl border border-gray-700 text-center mb-20">
           <h3 className="text-xl font-semibold mb-4">Stay Updated on All Events</h3>
           <p className="text-gray-300 mb-6">
             Subscribe to our newsletter to receive notifications about upcoming events, workshops, and competitions.
@@ -192,7 +192,8 @@ const Events = () => {
         </div>
         </div>
                 {/*Auto-scrolling Team Gallery*/} 
-                <h3 className="text-3xl font-heading text-center text-orange mb-8">Events Gallery</h3>
+                <h3 className="text-3xl font-heading text-center text-orange ma-8 mb-4">Events Gallery</h3>
+                <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
         <div className="relative overflow-hidden">
           <div className="flex gap-8 animate-scroll-x hover:paused-scroll-x whitespace-nowrap w-max">
             {[...galleryImages, ...galleryImages].map((filename, index) => (
