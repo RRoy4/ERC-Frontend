@@ -80,7 +80,7 @@ const Events = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Featured Event */}
-          <div className="col-span-1 lg:col-span-2 bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-xl overflow-hidden border border-blue-500/20">
+          <div className="col-span-1 lg:col-span-2 bg-gradient-to-br from-blue-900/30 to-orange-900/30 rounded-xl overflow-hidden border border-blue-500/20">
             <div className="flex flex-col md:flex-row">
               <div className="md:w-1/2 p-8">
                 <div className="inline-flex items-center mb-4 px-3 py-1 bg-blue-500/20 rounded-full">
@@ -104,7 +104,7 @@ const Events = () => {
                   This course is your gateway into the world of control systems — the brains behind every smart, stable machine. We’ll break down the core math, then take a deep dive into MATLAB Simulink, the gold standard for simulating and designing real-world systems. You’ll start by crafting a rock-solid PID controller, then level up with the smooth precision of an LQR controller. To tie it all together, you’ll build your own self-balancing bot — because what’s the point of theory if you can’t show it off?
                 </p>
                 <a href="https://bit.ly/erc-control" target="_blank" rel="noopener noreferrer">
-                  <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all inline-flex items-center">
+                  <button className="px-6 py-3 bg-blue-600 hover:bg-orange-600 rounded-md transition-all inline-flex items-center">
                     Register Now
                     <ArrowRight size={16} className="ml-2" />
                   </button>
@@ -183,7 +183,7 @@ const Events = () => {
             disabled={subscribed}
             className={`px-6 py-3 transition-colors sm:rounded-l-none rounded-md ${
               subscribed
-                ? 'bg-green-600 text-white cursor-default'
+                ? 'bg-orange-600 text-white cursor-default'
                 : 'bg-blue-600 hover:bg-blue-700 text-white'
             }`} 
           >

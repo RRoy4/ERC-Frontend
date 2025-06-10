@@ -51,7 +51,7 @@ const Footer = () => {
                   href={platform.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                  className="text-gray-400 hover:text-orange-400 transition-colors"
                 >
                   <span className="sr-only">{platform.name}</span>
                   <i className={`fab fa-${platform.name}`}></i>
@@ -66,7 +66,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map(({ label, href }) => (
                 <li key={label}>
-                  <a href={href} className="text-gray-400 hover:text-blue-400 transition-colors inline-flex items-center">
+                  <a href={href} className="text-gray-400 hover:text-orange-400 transition-colors inline-flex items-center">
                     <ChevronRight size={16} className="mr-1" />
                     {label}
                   </a>
@@ -81,7 +81,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {resources.map(({ label, href }) => (
                 <li key={label}>
-                  <a href={href} className="text-gray-400 hover:text-blue-400 transition-colors inline-flex items-center">
+                  <a href={href} className="text-gray-400 hover:text-orange-400 transition-colors inline-flex items-center">
                     <ChevronRight size={16} className="mr-1" />
                     {label}
                   </a>
@@ -105,7 +105,7 @@ const Footer = () => {
                 />
                 <button 
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+                  className="px-4 py-2 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors"
                 >
                   Subscribe
                 </button>
@@ -124,7 +124,7 @@ const Footer = () => {
           </p>
           { <div className="flex flex-wrap justify-center gap-4">
             {legalLinks.map(({ label, href }) => (
-              <a key={label} href={href} className="text-gray-500 hover:text-blue-400 transition-colors text-sm">
+              <a key={label} href={href} className="text-gray-500 hover:text-orange-400 transition-colors text-sm">
                 {label}
               </a>
             ))}
