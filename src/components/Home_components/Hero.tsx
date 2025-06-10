@@ -59,10 +59,12 @@ const Hero = () => {
           // You can map mousePos to camera or objects via Spline API
           className="w-full h-full"
         />
+        {/* Translucent blue overlay */}
+        <div className="absolute inset-0 bg-gray-900/70 pointer-events-none" />
       </div>
 
       <div className="container mx-auto px-4 z-10 font-body">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto text-center">
           <div className="inline-flex items-center mb-4 px-3 py-1 bg-blue-900/30 rounded-full border border-blue-500/30">
             <Zap size={16} className="text-yellow-400 mr-2" />
             <span className="text-sm text-blue-400">
@@ -70,7 +72,7 @@ const Hero = () => {
             </span>
           </div>
 
-          <img src={CenterLogo} alt="Footer Logo" className="block mx-auto w-auto h-44" />
+          <img src={CenterLogo} alt="Footer Logo" className="block mx-auto w-auto h-auto" />
           <br />
 
           <p className="text-xl text-gray-300 mb-8">

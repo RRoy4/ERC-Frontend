@@ -38,10 +38,10 @@ const features = [
 
 const About = () => {
   return (
-    <section id="about\" className="py-20 bg-gradient-to-b from-black to-gray-900"> 
+    <section id="about\" className="py-20 bg-gray-900/70"> 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h1 className="text-5xl mb-4 font-heading
+          <h1 className="text-7xl mb-4 font-slogan
             bg-gradient-to-r from-blue-500 to-orange-500 
             bg-[length:200%_200%] bg-clip-text text-transparent 
             animate-gradient-x">
@@ -52,35 +52,18 @@ const About = () => {
           <p className="max-w-3xl mx-auto text-gray-300 text-lg justify">
             The Electronics & Robotics Club, IIT Bombay is a vibrant community of passionate students united by a love for circuits, robotics, and innovation. Open to all skill levels, the club hosts competitions, workshops, and discussions throughout the year to promote hands-on learning and creative problem-solving. We also maintain a growing collection of tutorials, blogs, and a community wiki, contributed to by our members.
           </p>
-          <p className="max-w-3xl mx-auto text-orange-300 mt-4 text-2xl font-heading uppercase tracking-wide">
-            
-            Flagship domains we actively explore
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all group"
-            >
-              <div className="mb-4 p-3 inline-block bg-gray-800 rounded-lg group-hover:bg-gray-700 transition-colors">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2 font-heading">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
-            </div>
-          ))}
-        </div>
+
 
         <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-orange-500/20 p-8 rounded-xl border border-blue-500/20">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
               <h2 className="text-2xl font-bold mb-4 font-heading">Our Vision</h2>
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-300 mb-4 text-lg">
                 Our club envisions being the cornerstone of the Electronics and Robotics community within the institute — a vibrant space where curiosity meets creativity. We strive to provide a dynamic and inclusive platform for students to explore, tinker, and innovate in these cutting-edge domains. 
               </p>
-              <p className="text-gray-300">
+              <p className="text-gray-300 text-lg">
                 By fostering a culture rooted in collaboration, continuous learning, and hands-on discovery, we aim to empower enthusiasts to turn ideas into impactful solutions and grow as engineers, thinkers, and problem-solvers.
               </p>
             </div>
