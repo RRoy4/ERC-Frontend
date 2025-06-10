@@ -1,6 +1,7 @@
 // LegacyPage.tsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import HexagonBackground from './HexagonBackground';
 import AnimatedBackground from './AnimatedBackground';
 
 const LegacyPage = () => {
@@ -23,9 +24,11 @@ const LegacyPage = () => {
   ];
 
   return (
-    <div className="scroll-container relative bg-gray-900">
-      <AnimatedBackground />
-      <div className="relative z-10">
+    <div className="relative bg-transparent">
+  <HexagonBackground />
+  <AnimatedBackground/>
+  <div className="scroll-container relative z-10">
+    
       {/* Slide 1: Full-screen ERC LEGACY Popup */}
       <section className="scroll-section flex items-center justify-center relative min-h-screen">
         <motion.div
@@ -107,7 +110,7 @@ const LegacyPage = () => {
               viewport={{ once: true }}
               className="md:pl-10"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2024-25</h2>
+              <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2024-25</h2>
               <p className="text-gray-300 text-xl max-w-md">
                 Led by Ayush Prasad & Kyari Ponkiya
               </p>
@@ -145,7 +148,7 @@ const LegacyPage = () => {
               viewport={{ once: true }}
               className="md:order-1 md:pr-10 md:text-right"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2023-24</h2>
+              <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2023-24</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
                 Led by Anuj Bangad & Kushal Agarwal
               </p>
@@ -181,7 +184,7 @@ const LegacyPage = () => {
               viewport={{ once: true }}
               className="md:pl-10"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2022-23</h2>
+              <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2022-23</h2>
               <p className="text-gray-300 text-xl max-w-md">
                 Led by Sourabh Hanje & Tejas Amritkar
               </p>
@@ -219,7 +222,7 @@ const LegacyPage = () => {
               viewport={{ once: true }}
               className="md:order-1 md:pr-10 md:text-right"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2021-22</h2>
+              <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2021-22</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
                 Led by Sharvaree Sinkar & Sidharth Mundhra
               </p>
@@ -255,7 +258,7 @@ const LegacyPage = () => {
               viewport={{ once: true }}
               className="md:pl-10"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2020-21</h2>
+              <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2020-21</h2>
               <p className="text-gray-300 text-xl max-w-md">
                 Led by Shubham Agrawal & Shubham Lohiya
               </p>
@@ -294,7 +297,7 @@ const LegacyPage = () => {
               viewport={{ once: true }}
               className="md:order-1 md:pr-10 md:text-right"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">Team 2019-20</h2>
+              <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2019-20</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
                 Led by Aniruddha mittal &  Jian Vora
               </p>
