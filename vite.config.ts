@@ -7,4 +7,8 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  server: {
+    host: '0.0.0.0',  // 👈 allows connections from your phone
+    port: 3000,       // 👈 optional, sets fixed port
+  },
 });
