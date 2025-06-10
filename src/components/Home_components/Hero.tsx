@@ -59,8 +59,14 @@ const Hero = () => {
           // You can map mousePos to camera or objects via Spline API
           className="w-full h-full"
         />
-        {/* Translucent blue overlay */}
-        <div className="absolute inset-0 bg-gray-900/70 pointer-events-none" />
+        {/* Translucent overlay with custom radial gradient */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(26, 38, 60, 0.9) 0px, rgba(26, 36, 58, 0.9) 100px, rgba(27, 38, 62, 0.7) 200px, rgba(17,24,39,0.7) 100%)"
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 z-10 font-body">

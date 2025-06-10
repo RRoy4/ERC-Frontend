@@ -16,7 +16,7 @@ const About = () => {
         {/* Heading */}
         <div className="text-center mb-16">
           <h1 className="text-7xl mb-4 font-heading font-bold
-            bg-gradient-to-r from-blue-500 to-orange-500 
+            bg-gradient-to-r from-yellow-300 to-orange-500 
             bg-[length:200%_200%] bg-clip-text text-transparent 
             animate-gradient-x">
             ELECTRIFY. CODE. INNOVATE.
@@ -28,7 +28,7 @@ const About = () => {
         </div>
 
         {/* Vision Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-orange-500/20 p-8 rounded-xl border border-blue-500/20">
+        <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-orange-600/20 p-8 rounded-xl border border-blue-500/20">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
               <h2 className="text-2xl font-bold mb-4 font-heading">Our Vision</h2>
@@ -59,7 +59,7 @@ const About = () => {
         <div className="mt-24">
           <h3 className="text-3xl font-heading text-center text-gray-100 mb-4">HIGHLIGHTS GALLERY</h3>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden  bg-white/10 backdrop-blur-lg shadow-lg p-6">
             <div className="flex gap-8 animate-scroll-x hover:paused-scroll-x whitespace-nowrap w-max">
               {[...galleryImages, ...galleryImages].map((filename, index) => (
                 <div key={index} className="flex-none w-104 h-80 rounded-xl overflow-hidden shadow-xl border border-gray-700">
