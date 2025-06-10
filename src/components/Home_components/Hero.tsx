@@ -2,21 +2,23 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Zap } from 'lucide-react';
 import CenterLogo from '../../assets/centerlogo.png';
 import { useNavigate } from 'react-router-dom';
-import PcbBackground from '../../assets/pcb.svg';
+import Spline from '@splinetool/react-spline';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
 
+  // Real cursor tracking for desktop
   useEffect(() => {
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouchDevice) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
-
       const { left, top, width, height } = heroRef.current.getBoundingClientRect();
       const x = (e.clientX - left) / width;
       const y = (e.clientY - top) / height;
-
       setMousePos({ x, y });
     };
 
@@ -24,33 +26,45 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Gyro-based movement for mobile
+  useEffect(() => {
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (!isTouchDevice || !window.DeviceOrientationEvent) return;
+
+    const handleOrientation = (event: DeviceOrientationEvent) => {
+      if (!heroRef.current) return;
+      // gamma: left-right tilt [-90,90], beta: front-back tilt [-180,180]
+      const gamma = event.gamma ?? 0;
+      const beta = event.beta ?? 0;
+      // Normalize to [0,1]
+      const x = Math.min(Math.max((gamma + 90) / 180, 0), 1);
+      const y = Math.min(Math.max((beta + 180) / 360, 0), 1);
+      setMousePos({ x, y });
+    };
+
+    window.addEventListener('deviceorientation', handleOrientation);
+    return () => window.removeEventListener('deviceorientation', handleOrientation);
+  }, []);
+
   return (
     <section
       ref={heroRef}
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(56, 189, 248, 0.15), transparent 40%)`,
-      }}
     >
-      {/* PCB Background masked to cursor circle */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `url(${PcbBackground})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          maskImage: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, black 10%, transparent 25%)`,
-          WebkitMaskImage: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, black 10%, transparent 25%)`,
-          opacity: 0.1,
-        }}
-      />
+      {/* Interactive Spline Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Spline
+          scene="https://prod.spline.design/eELXmmdwRuXGtrSS/scene.splinecode"
+          // You can map mousePos to camera or objects via Spline API
+          className="w-full h-full"
+        />
+      </div>
 
       <div className="container mx-auto px-4 z-10 font-body">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center mb-4 px-3 py-1 bg-blue-900/30 rounded-full border border-blue-500/30">
-            <Zap size={16} className="text-blue-400 mr-2" />
+            <Zap size={16} className="text-yellow-400 mr-2" />
             <span className="text-sm text-blue-400">
               Building the future, one circuit at a time, since 2017.
             </span>
