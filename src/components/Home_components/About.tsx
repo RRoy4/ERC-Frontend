@@ -38,7 +38,7 @@ const features = [
 
 const About = () => {
   return (
-    <section id="about\" className="py-20 bg-gradient-to-b from-gray-800 to-gray-900"> 
+    <section id="about\" className="py-20 bg-gradient-to-b from-black to-gray-900"> 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-5xl mb-4 font-heading

@@ -165,7 +165,7 @@ const Events = () => {
             </div>
           ))}
         </div>        
-        <div className="mt-12 p-6 bg-gray-800 rounded-xl border border-gray-700 text-center mb-20">
+        <div className="mt-12 p-6 bg-blue-900/30 rounded-xl border border-gray-700 text-center mb-20">
           <h3 className="text-xl font-semibold mb-4">Stay Updated on All Events</h3>
           <p className="text-gray-300 mb-6">
             Subscribe to our newsletter to receive notifications about upcoming events, workshops, and competitions.
