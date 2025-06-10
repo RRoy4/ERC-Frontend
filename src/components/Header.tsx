@@ -48,7 +48,7 @@ const Header = () => {
             <Link
               key={label}
               to={path}
-              className="text-gray-300 hover:text-orange-500 transition-colors capitalize"
+              className="text-gray-300 hover:text-orange-500 transition-colors capitalize font-heading"
               onClick={() => setIsMenuOpen(false)}
             >
               {label}
@@ -56,9 +56,9 @@ const Header = () => {
           ))}
           <a
             href="https://bit.ly/erc-xlr8"
-            target="_blank" // Optional: opens in new tab
-            rel="noopener noreferrer" // Security best practice with target="_blank"
-            className="px-4 py-2 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors font-heading"
           >
             XLR8
           </a>
@@ -81,18 +81,18 @@ const Header = () => {
             <Link
               key={label}
               to={path}
-              className="text-xl text-gray-300 hover:text-blue-500 transition-colors capitalize py-2"
+              className="text-xl text-gray-300 hover:text-blue-500 transition-colors capitalize py-2 font-heading"
               onClick={() => setIsMenuOpen(false)}
             >
               {label}
             </Link>
           ))}
           <Link
-            to="/join"
-            className="mt-4 px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors text-center"
+            to="https://bit.ly/erc-xlr8"
+            className="mt-4 px-4 py-3 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors text-center font-heading"
             onClick={() => setIsMenuOpen(false)}
           >
-            Join Us
+            XLR8
           </Link>
         </div>
       </div>

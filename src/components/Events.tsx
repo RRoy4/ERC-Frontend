@@ -1,53 +1,16 @@
 import React from 'react';
 import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
 import Cont from '../assets/controlcard.png';
-import { useState, useEffect } from 'react';
-
-
-const galleryImages = [
-  'gallery/f.jpg', 'gallery/h.jpg', 'gallery/l.jpeg', 'gallery/r.jpeg', 'gallery/g.jpg',
-  'gallery/p.jpeg', 'gallery/j.jpeg', 'gallery/c.JPG', 'gallery/q.jpeg', 'gallery/k.jpeg',
-  'gallery/o.jpeg', 'gallery/n.jpeg', 'gallery/a.JPG', 'gallery/i.jpeg', 'gallery/e.JPG',
-  'gallery/m.jpeg', 'gallery/d.JPG', 'gallery/b.JPG', 'gallery/s.jpeg', 'gallery/t.jpeg',
-];
+import { useState } from 'react';
 
 
 // Event data
 const eventsData = [
-  // {
-  //   id: 1,
-  //   title: 'Introduction to Arduino Workshop',
-  //   date: 'May 15, 2025',
-  //   time: '3:00 PM - 5:30 PM',
-  //   location: 'Tech Lab 101',
-  //   description: 'Learn the basics of Arduino programming and create your first LED circuit in this hands-on workshop for beginners.',
-  //   seats: 20,
-  //   image: 'https://images.pexels.com/photos/2568412/pexels-photo-2568412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  // },
-  // {
-  //   id: 2,
-  //   title: 'Robotics Competition Prep',
-  //   date: 'May 22, 2025',
-  //   time: '4:00 PM - 7:00 PM',
-  //   location: 'Main Engineering Hall',
-  //   description: 'Team strategy session and practice for the upcoming regional robotics competition. All team members should attend.',
-  //   seats: 15,
-  //   image: 'https://images.pexels.com/photos/8566526/pexels-photo-8566526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  // },
-  // {
-  //   id: 3,
-  //   title: 'IoT Project Showcase',
-  //   date: 'June 5, 2025',
-  //   time: '1:00 PM - 4:00 PM',
-  //   location: 'Innovation Center',
-  //   description: 'Members will present their Internet of Things projects and receive feedback from peers and industry mentors.',
-  //   seats: 30,
-  //   image: 'https://images.pexels.com/photos/2659939/pexels-photo-2659939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  // }
+  // Add your event objects here if needed
 ];
 
 const Events = () => {
-    const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubscribe = async () => {
@@ -61,12 +24,13 @@ const Events = () => {
       if (response.ok) {
         setSubscribed(true);
         setEmail('');
-        setTimeout(() => setSubscribed(false), 3000); // Reset after 3 sec
+        setTimeout(() => setSubscribed(false), 3000);
       }
     } catch (error) {
       console.error('Error subscribing:', error);
     }
   };
+
   return (
     <section id="events" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -120,7 +84,7 @@ const Events = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Regular Events */}
           {eventsData.map((event) => (
             <div 
@@ -164,47 +128,33 @@ const Events = () => {
               </div>
             </div>
           ))}
-        </div>        
+        </div>
+
+        {/* Subscription Section */}
         <div className="mt-12 p-6 bg-blue-900/30 rounded-xl border border-gray-700 text-center mb-20">
           <h3 className="text-xl font-semibold mb-4">Stay Updated on All Events</h3>
           <p className="text-gray-300 mb-6">
             Subscribe to our newsletter to receive notifications about upcoming events, workshops, and competitions.
           </p>
-         <div className="flex flex-col sm:flex-row max-w-md mx-auto">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="px-4 py-3 bg-gray-900 rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-500 border border-gray-700 mb-2 sm:mb-0 sm:flex-1"
-          />
-          <button
-            onClick={handleSubscribe}
-            disabled={subscribed}
-            className={`px-6 py-3 transition-colors sm:rounded-l-none rounded-md ${
-              subscribed
-                ? 'bg-orange-600 text-white cursor-default'
-                : 'bg-blue-600 hover:bg-blue-700 text-white'
-            }`} 
-          >
-            {subscribed ? 'Subscribed!' : 'Subscribe'}
-          </button>
-        </div>
-        </div>
-                {/*Auto-scrolling Team Gallery*/} 
-                <h3 className="text-3xl font-heading text-center text-orange ma-8 mb-4">Events Gallery</h3>
-                <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-        <div className="relative overflow-hidden">
-          <div className="flex gap-8 animate-scroll-x hover:paused-scroll-x whitespace-nowrap w-max">
-            {[...galleryImages, ...galleryImages].map((filename, index) => (
-              <div key={index} className="flex-none w-104 h-80 rounded-xl overflow-hidden shadow-xl border border-gray-700">
-                <img
-                  src={`${filename}`}
-                  alt={`Event ${filename}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))} 
+          <div className="flex flex-col sm:flex-row max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="px-4 py-3 bg-gray-900 rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-500 border border-gray-700 mb-2 sm:mb-0 sm:flex-1"
+            />
+            <button
+              onClick={handleSubscribe}
+              disabled={subscribed}
+              className={`px-6 py-3 transition-colors sm:rounded-l-none rounded-md ${
+                subscribed
+                  ? 'bg-orange-600 text-white cursor-default'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
+            >
+              {subscribed ? 'Subscribed!' : 'Subscribe'}
+            </button>
           </div>
         </div>
       </div>

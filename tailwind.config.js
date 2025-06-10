@@ -22,9 +22,8 @@ export default {
       },
       fontFamily: {
         body: ['"Atkinson Hyperlegible"', 'sans-serif'],
-        heading: ['"Space Grotesk"', 'sans-serif'],
+        heading: ['"Host Grotesk"', 'sans-serif'],
         playfair: ['"Playfair Display"', 'serif'],
-        slogan: ['"Bebas Neue"', 'sans-serif'], // Added for direct use as 'font-bebas'
       },
     },
   },

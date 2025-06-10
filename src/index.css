@@ -80,4 +80,9 @@ body {
   animation-play-state: paused;
 }
 
+.font-heading {
+  font-family: 'Host Grotesk', sans-serif;
+  font-weight: 800;
+}
+
 
