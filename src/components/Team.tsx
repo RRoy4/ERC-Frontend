@@ -58,15 +58,15 @@ const teamMembers = [
   },
   {
     id: 5,
-    name: 'Radhika Agarwal',
+    name: 'Daksh Makwana',
     role: 'Convenor',
-    image: teamImagesDir + 'radhika.jpg',
-    bio: 'Sophomore undergraduate in Engineering Physics',
+    image: teamImagesDir + 'daksh.jpg',
+    bio: 'Sophomore undergraduate in Metallurgical Engineering and Material Sciences',
     social: {
-      linkedin: '#',
-      github: 'https://github.com/Radhika-B1084',
-      email: 'radhu1402@gmail.com',
-      instagram: 'https://www.instagram.com/radhikaag__?igsh=MWc4MmdpYTlvYzJnYQ=='
+      linkedin: 'https://www.linkedin.com/in/daksh-makwana-698253326',
+      github: 'https://github.com/DAKMAK2006',
+      email: 'makwanadaksh01@gmail.com',
+      instagram: '#'
     }
   },
   {
@@ -136,15 +136,15 @@ const teamMembers = [
   },
   {
     id: 11,
-    name: 'Daksh Makwana',
+    name: 'Radhika Agarwal',
     role: 'Convenor',
-    image: teamImagesDir + 'daksh.jpg',
-    bio: 'Sophomore undergraduate in Metallurgical Engineering and Material Sciences',
+    image: teamImagesDir + 'radhika.jpg',
+    bio: 'Sophomore undergraduate in Engineering Physics',
     social: {
-      linkedin: 'https://www.linkedin.com/in/daksh-makwana-698253326',
-      github: 'https://github.com/DAKMAK2006',
-      email: 'makwanadaksh01@gmail.com',
-      instagram: '#'
+      linkedin: '#',
+      github: 'https://github.com/Radhika-B1084',
+      email: 'radhu1402@gmail.com',
+      instagram: 'https://www.instagram.com/radhikaag__?igsh=MWc4MmdpYTlvYzJnYQ=='
     }
   },
   {
