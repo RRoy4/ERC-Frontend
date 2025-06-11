@@ -68,7 +68,7 @@ const LegacyPage = () => {
             className="mt-16"
           >
             <div className="h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            <p className="mt-8 text-gray-400 text-xl">Scroll to explore our journey</p>
+            <p className="mt-8 font-playfair text-400 text-xl">The Architects of our Odyssey</p>
           </motion.div>
         </motion.div>
         
@@ -79,7 +79,7 @@ const LegacyPage = () => {
             transition={{ repeat: Infinity, duration: 1.8 }}
             className="w-4 h-4 bg-blue-500 rounded-full mb-2"
           ></motion.div>
-          <p className="text-sm text-gray-400">Scroll</p>
+          <p className="text-sm text-gray-400">Swipe up to explore</p>
         </div>
       </section>
 
@@ -299,7 +299,7 @@ const LegacyPage = () => {
             >
               <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2019-20</h2>
               <p className="text-gray-300 text-xl max-w-md md:ml-auto">
-                Led by Aniruddha mittal &  Jian Vora
+                Led by Aniruddha Mittal &  Jian Vora
               </p>
             </motion.div>
           </div>
