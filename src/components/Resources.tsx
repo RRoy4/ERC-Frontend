@@ -7,22 +7,22 @@ const resoimg = "/team/images/";
 const resourcesData = [
   {
     id: 1,
-    title: 'ER101: Digital Electronics & Microcontrollers',
+    title: 'ERC101: Digital Electronics & Microcontrollers',
     description: 'Master digital logic design, microcontroller architecture, and embedded programming fundamentals.',
     image: resoimg + 'reso-er.png',
     link: '#',
   },
   {
     id: 2,
-    title: 'ROS: Advanced Robotic Operating Systems',
-    description: 'Comprehensive guide to Robot Operating System architecture, middleware, and industrial applications.',
+    title: 'ERC605: A beginners Guide to ROS2 Humble',
+    description: 'Comprehensive guide to ROS architecture, working and applications along with Gazebo. Works for any OS.',
     image: resoimg +'reso-ros.png',
-    link: 'https://docs.ros.org/',
+    link: 'https://github.com/erciitb/fROSty-winter-2024',
   },
   {
     id: 3,
-    title: 'Control Theory: Modern Approaches',
-    description: 'State-space modeling, stability analysis, and controller design for complex dynamic systems.',
+    title: 'ERC105: ITSP Collaborative and Prototyping tools',
+    description: 'Devise and Design the perfect ITSA Project by using the right tools and software when remote.',
     image: resoimg +'reso-ct.png',
     link: '#',
   },
@@ -50,7 +50,7 @@ const Resources = () => {
         <div id="tutorials" className="text-center mb-16">
           <h2 className="text-4xl font-heading mb-4">Learning Resources
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-600 mx-auto mb-8 rounded-full"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg mb-10">
             Dive into curated tutorials and guides to strengthen your understanding in electronics and robotics.
           </p>
