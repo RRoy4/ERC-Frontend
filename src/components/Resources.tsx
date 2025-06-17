@@ -7,24 +7,24 @@ const resoimg = "/team/images/";
 const resourcesData = [
   {
     id: 1,
-    title: 'ERC101: Digital Electronics & Microcontrollers',
+    title: 'Digital Electronics & Microcontrollers',
     description: 'Master digital logic design, microcontroller architecture, and embedded programming fundamentals.',
     image: resoimg + 'reso-er.png',
     link: '#',
   },
   {
     id: 2,
-    title: 'ERC605: A beginners Guide to ROS2 Humble',
+    title: 'A beginners Guide to ROS2 Humble',
     description: 'Comprehensive guide to ROS architecture, working and applications along with Gazebo. Works for any OS.',
     image: resoimg +'reso-ros.png',
     link: 'https://github.com/erciitb/fROSty-winter-2024',
   },
   {
     id: 3,
-    title: 'ERC105: ITSP Collaborative and Prototyping tools',
+    title: 'ITSP Collaborative and Prototyping tools',
     description: 'Devise and Design the perfect ITSA Project by using the right tools and software when remote.',
     image: resoimg +'reso-ct.png',
-    link: '#',
+    link: 'https://github.com/erciitb/ITSP_Resources',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const resourcesData = [
     title: 'Hardware Security & Reverse Engineering',
     description: 'Circuit analysis, fault injection, and side-channel attacks for embedded system security.',
     image: resoimg +'reso-hh.png',
-    link: '#',
+    link: 'https://github.com/erciitb/Hardware_Hacking_Resources',
   }
 ];
 

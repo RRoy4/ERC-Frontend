@@ -15,7 +15,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h1 className="text-7xl mb-4 font-heading font-bold
+          <h1 className="text-5xl mb-4 font-heading font-bold
             bg-gradient-to-r from-yellow-300 to-orange-500 
             bg-[length:200%_200%] bg-clip-text text-transparent 
             animate-gradient-x">
