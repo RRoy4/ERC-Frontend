@@ -9,7 +9,7 @@ const teamMembers = [
     name: 'Saravan Kumar B.',
     role: 'Institute Electronics & Robotics Secretary',
     image: teamImagesDir + 'saravan.jpeg',
-    bio: 'Pre-final year undergraduate in Electrical Engineering',
+    bio: 'Third year undergraduate in Electrical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/saravan-kumar-boddeda-0351b1294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       github: 'https://github.com/LunarLogician007',
@@ -229,7 +229,7 @@ const Team = () => {
           <h2 className="text-4xl font-heading mb-4">Meet the Team</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            Meet the passionate individuals who lead our club, organize events, and mentor new members.
+            Meet the individuals who lead our club, organize events, and mentor new members.
           </p>
         </div>
 
