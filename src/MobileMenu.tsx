@@ -16,7 +16,7 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     <div
       className={`md:hidden fixed inset-0 z-[999] transition-transform duration-300 ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
-      } bg-gradient-to-br from-gray-800 to-blue-900/90 backdrop-blur-xl`}
+      } bg-gradient-to-br from-gray-800 to-gray-700/90 backdrop-blur-xl`}
     >
       {/* Close Button aligned top-right just like the toggle icon */}
       <button
