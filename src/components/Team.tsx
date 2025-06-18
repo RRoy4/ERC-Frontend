@@ -123,7 +123,7 @@ const teamMembers = [
   },
   {
     id: 10,
-    name: 'Lakshmi Deep Chowdary',
+    name: 'Lakshmi Deep Chowdary M.',
     role: 'Postgraduate Convenor',
     image: teamImagesDir + 'lakshmi.jpeg',
     bio: 'Final Year Postgraduate in Electrical Engineering',
