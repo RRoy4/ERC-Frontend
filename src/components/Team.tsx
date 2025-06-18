@@ -84,7 +84,7 @@ const teamMembers = [
   },
   {
     id: 7,
-    name: 'Esha Yindukuri',
+    name: 'Sai Durga Esha Y.',
     role: 'Convenor',
     image: teamImagesDir + 'esha.jpg',
     bio: 'Sophomore undergraduate in Mechanical Engineering',
