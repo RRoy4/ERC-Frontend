@@ -7,7 +7,7 @@ const resoimg = "/team/images/";
 const resourcesData = [
   {
     id: 1,
-    title: 'Digital Electronics & Microcontrollers',
+    title: 'Watt is Electronics?',
     description: 'Master digital logic design, microcontroller architecture, and embedded programming fundamentals.',
     image: resoimg + 'reso-er.png',
     link: '#',

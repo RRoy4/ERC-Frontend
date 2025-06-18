@@ -38,9 +38,10 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <img src={HeaderLogo} alt="Footer Logo" className="w-auto h-20" />
-        </div>
+        <Link to="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
+          <img src={HeaderLogo} alt="Header Logo" className="w-auto h-20 min-h-[24px] min-w-[24px]" />
+        </Link>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
@@ -70,32 +71,43 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      <div
-        className={`md:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-md z-40 transition-transform duration-300 ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+{/* Mobile Navigation */}
+<div
+  className={`md:hidden fixed inset-0 z-40 transition-transform duration-300 ${
+    isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+  } bg-gradient-to-br from-gray-800 to-blue-900/90 backdrop-blur-xl`}
+>
+  {/* Close Button inside menu */}
+  <div className="flex justify-end px-4 pt-4">
+    <button onClick={toggleMenu} className="text-gray-300 hover:text-white transition-colors">
+      <X size={28} />
+    </button>
+  </div>
+
+  {/* Navigation Links */}
+  <div className="px-4 py-10 flex flex-col space-y-6">
+    {navItems.map(({ label, path }) => (
+      <Link
+        key={label}
+        to={path}
+        className="text-xl text-gray-300 hover:text-blue-400 transition-colors capitalize py-2 font-heading"
+        onClick={toggleMenu}
       >
-        <div className="container mx-auto px-4 py-20 flex flex-col space-y-6">
-          {navItems.map(({ label, path }) => (
-            <Link
-              key={label}
-              to={path}
-              className="text-xl text-gray-300 hover:text-blue-500 transition-colors capitalize py-2 font-heading"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {label}
-            </Link>
-          ))}
-          <Link
-            to="https://bit.ly/erc-xlr8"
-            className="mt-4 px-4 py-3 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors text-center font-heading"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            XLR8
-          </Link>
-        </div>
-      </div>
+        {label}
+      </Link>
+    ))}
+    <a
+      href="https://bit.ly/erc-xlr8"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-4 px-4 py-3 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors text-center font-heading"
+      onClick={toggleMenu}
+    >
+      XLR8
+    </a>
+  </div>
+</div>
+
     </header>
   );
 };
