@@ -8,6 +8,13 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const checkTouch = window.matchMedia('(pointer: coarse)').matches;
+    setIsTouchDevice(checkTouch);
+  }, []);
+
 
   // Real cursor tracking for desktop
   useEffect(() => {
@@ -53,21 +60,21 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Interactive Spline Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <Spline
-          scene="https://prod.spline.design/eELXmmdwRuXGtrSS/scene.splinecode"
-          // You can map mousePos to camera or objects via Spline API
-          className="w-full h-full"
-        />
-        {/* Translucent overlay with custom radial gradient */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at center, rgba(26, 38, 60, 0.9) 0px, rgba(26, 36, 58, 0.9) 100px, rgba(27, 38, 62, 0.7) 200px, rgba(17,24,39,0.7) 100%)"
-          }}
-        />
-      </div>
+      {!isTouchDevice && (
+        <div className="absolute inset-0 pointer-events-none">
+          <Spline
+            scene="https://prod.spline.design/eELXmmdwRuXGtrSS/scene.splinecode"
+            className="w-full h-full"
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(circle at center, rgba(26, 38, 60, 0.9) 0px, rgba(26, 36, 58, 0.9) 100px, rgba(27, 38, 62, 0.7) 200px, rgba(17,24,39,0.7) 100%)"
+            }}
+          />
+        </div>
+      )}
 
       <div className="container mx-auto px-4 z-10 font-body">
         <div className="max-w-2xl mx-auto text-center">
