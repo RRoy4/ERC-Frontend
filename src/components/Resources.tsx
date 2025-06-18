@@ -7,7 +7,7 @@ const resoimg = "/team/images/";
 const resourcesData = [
   {
     id: 1,
-    title: 'Watt is Electronics?',
+    title: 'Watt is Electronics?: An Amateurs Roadmap',
     description: 'Master digital logic design, microcontroller architecture, and embedded programming fundamentals.',
     image: resoimg + 'reso-er.png',
     link: '#',
@@ -72,14 +72,24 @@ const Resources = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-heading mb-3">{resource.title}</h3>
                   <p className="text-gray-400 mb-4">{resource.description}</p>
-                  <a 
+                  <a
                     href={resource.link}
-                    className="inline-flex items-center justify-between w-full px-4 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors group"
+                    target={resource.link === '#' ? '_self' : '_blank'}
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center justify-between w-full px-4 py-2.5 rounded-lg transition-colors group
+                      ${resource.link === '#' 
+                        ? 'bg-gray-700 cursor-not-allowed' 
+                        : 'bg-orange-600 hover:bg-orange-500'}
+                    `}
                   >
-                    <span className="font-medium">Access Resource</span>
-                    <ExternalLink 
-                      size={18} 
-                      className="text-blue-400 group-hover:text-blue-300 transition-colors" 
+                    <span className={`font-medium ${resource.link === '#' ? 'text-gray-400' : 'text-white'}`}>
+                      {resource.link === '#' ? 'Coming Soon!' : 'Access Resource'}
+                    </span>
+                    <ExternalLink
+                      size={18}
+                      className={`transition-colors ${
+                        resource.link === '#' ? 'text-gray-500' : 'text-white group-hover:text-white'
+                      }`}
                     />
                   </a>
                 </div>
@@ -91,7 +101,7 @@ const Resources = () => {
         {/* Workshop Materials Section */}
         <div id="workshops" className="text-center mt-20">
           <h2 className="text-4xl font-heading mb-4">Workshop Materials</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto mb-8 rounded-full"></div>
           <p className="max-w-2xl mx-auto text-gray-300 text-lg mb-10">
             Access recordings, slides, and documentation from our technical workshops.
           </p>
