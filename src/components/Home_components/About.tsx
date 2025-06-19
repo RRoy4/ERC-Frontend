@@ -1,5 +1,4 @@
 import React from 'react';
-import { Hardhack, Controlsys, Roboarm } from './Customicon';
 import Spline from '@splinetool/react-spline';
 
 const galleryImages = [

@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import Projects from './components/Projects';
 import Events from './components/Events';
 import Team from './components/Team';
 import Resources from './components/Resources';
 import Contact from './components/Contact';
 import LegacyPage from './components/LegacyPage';
+import BlogViewer  from './components/BlogViewer.tsx';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/projects" element={<Projects />} /> */}
+            <Route path="/blog/:slug" element={<BlogViewer />} />
             <Route path="/events" element={<Events />} />
             <Route path="/team" element={<Team />} />
             <Route path="/resources" element={<Resources />} />
