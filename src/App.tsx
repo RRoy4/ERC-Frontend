@@ -10,6 +10,7 @@ import Resources from './components/Resources';
 import Contact from './components/Contact';
 import LegacyPage from './components/LegacyPage';
 import BlogViewer  from './components/BlogViewer.tsx';
+import CertificatePortal from './components/CertificatePortal.tsx'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/legacy" element={<LegacyPage />} />
+            <Route path="/certificates" element={<CertificatePortal />} />
           </Routes>
         </main>
         <Footer />

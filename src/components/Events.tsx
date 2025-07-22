@@ -54,7 +54,7 @@ const Events = () => {
                 <h3 className="text-2xl font-bold mb-3 font-heading">The Control Theory Bootcamp 2025</h3>
                 <div className="flex items-center text-gray-300 mb-2">
                   <Calendar size={16} className="mr-2 text-gray-400" />
-                  <span>June 9, 2025</span>
+                  <span>Ended on July 9, 2025</span>
                 </div>
                 <div className="flex items-center text-gray-300 mb-2">
                   <Clock size={16} className="mr-2 text-gray-400" />
@@ -67,9 +67,9 @@ const Events = () => {
                 <p className="text-gray-300 mb-6">
                   This course is your gateway into the world of control systems — the brains behind every smart, stable machine. We’ll break down the core math, then take a deep dive into MATLAB Simulink, the gold standard for simulating and designing real-world systems. You’ll start by crafting a rock-solid PID controller, then level up with the smooth precision of an LQR controller. To tie it all together, you’ll build your own self-balancing bot — because what’s the point of theory if you can’t show it off?
                 </p>
-                <a href="https://bit.ly/erc-control" target="_blank" rel="noopener noreferrer">
+                <a href="/certificates" target="_blank" rel="noopener noreferrer">
                   <button className="px-6 py-3 bg-blue-600 hover:bg-orange-600 rounded-md transition-all inline-flex items-center">
-                    Register Now
+                    View Certificates
                     <ArrowRight size={16} className="ml-2" />
                   </button>
                 </a>
