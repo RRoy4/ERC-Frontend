@@ -3,7 +3,7 @@ import { FileText, Search } from 'lucide-react';
 
 const CertificatePortal = () => {
   const [selectedEvent, setSelectedEvent] = useState('Control Theory Bootcamp');
-  const [selectedYear, setSelectedYear] = useState('2024');
+  const [selectedYear, setSelectedYear] = useState('2025');
   const [rollNo, setRollNo] = useState('');
   const [pdfUrl, setPdfUrl] = useState('');
   const [notFound, setNotFound] = useState(false);
@@ -40,7 +40,7 @@ const CertificatePortal = () => {
     <section className="min-h-screen bg-gray-900 text-white px-4 py-20">
       {/* Header and Navigation */}
       <header className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-orange-400 mb-2">ERC Certificate Portal</h1>
+        <h1 className="text-4xl font-heading text-orange-400 mb-2">ERC Certificate Portal</h1>
         <p className="text-gray-400 text-lg">Find and download your certificates for ERC events</p>
       </header>
 
