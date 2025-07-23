@@ -9,6 +9,7 @@ const navItems = [
   { label: 'legacy', path: '/legacy' },
   { label: 'resources', path: '/resources' },
   { label: 'contact', path: '/contact' },
+  { label: 'Certificates', path: '/certificates' },
 ];
 
 const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
