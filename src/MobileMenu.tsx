@@ -40,15 +40,7 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             {label}
           </Link>
         ))}
-        <a
-          href="https://bit.ly/erc-xlr8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 px-4 py-3 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors text-center font-heading"
-          onClick={onClose}
-        >
-          XLR8
-        </a>
+        
       </div>
     </div>
   );

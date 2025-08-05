@@ -59,14 +59,12 @@ return (
             </Link>
           ))}
 
-          <a
-            href="https://bit.ly/erc-xlr8"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/xlr8"
             className="px-4 py-2 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors font-heading"
           >
             XLR8
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle — move inside the same flex row */}
