@@ -24,7 +24,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     id: 2,
     title: 'Soldering Session',
-    description: 'Hands-on session to learn how to solder',
+    description: 'A practical session where you’ll learn the essential techniques and skills needed to solder with confidence.',
     date: 'Aug 17, 2025',
   },
   {
