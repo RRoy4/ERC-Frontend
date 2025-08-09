@@ -46,7 +46,7 @@ const XLR8 = () => {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://forms.gle/Wczmt7CgtQCfXh787"
+              href="https://forms.gle/BGpTMK9K3bnjkh6z5"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
