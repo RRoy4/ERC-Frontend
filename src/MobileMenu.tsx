@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { X } from 'lucide-react';
+import XLR8Page from './components/XLR8Page.tsx';
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -40,7 +41,13 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             {label}
           </Link>
         ))}
-        
+        <Link
+          to="/xlr8"
+          className="mt-4 px-4 py-3 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors text-center font-heading"
+          onClick={onClose}
+        >
+          XLR8
+        </Link>
       </div>
     </div>
   );
