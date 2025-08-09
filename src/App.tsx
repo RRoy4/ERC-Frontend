@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import XLR8Page from './components/XLR8Page.tsx';
 import Events from './components/Events';
 import Team from './components/Team';
 import Resources from './components/Resources';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/legacy" element={<LegacyPage />} />
             <Route path="/certificates" element={<CertificatePortal />} />
+            <Route path="/xlr8" element={<XLR8Page />} /> 
           </Routes>
         </main>
         <Footer />
