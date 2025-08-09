@@ -35,12 +35,7 @@ const XLR8 = () => {
 
       <div className="container mx-auto px-4 z-10 font-body">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="inline-flex items-center mb-4 px-3 py-1 bg-blue-900/30 rounded-full border border-blue-500/30">
-            <Zap size={16} className="text-yellow-400 mr-2" />
-            <span className="text-sm text-blue-400">
-              (What to keep here? or should I remove?)
-            </span>
-          </div>
+          
 
           <img src={CenterLogo} alt="Footer Logo" className="block mx-auto w-auto h-auto" />
           <br />
@@ -51,7 +46,7 @@ const XLR8 = () => {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://forms.gle/n7buTzTWxdbcwoh29"
+              href="https://forms.gle/Wczmt7CgtQCfXh787"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
@@ -111,7 +106,7 @@ const XLR8 = () => {
             <div className="aspect-video w-full rounded-xl overflow-hidden">
                 <iframe 
                 className="w-full h-full rounded-xl"
-                src="https://www.youtube.com/embed/KiHMioOa9lY"
+                src="https://www.youtube.com/embed/sZyHNQ7Sq2w"
                 title="XLR8 Aftermovie"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
