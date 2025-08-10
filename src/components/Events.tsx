@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 import { Calendar, Clock, MapPin, Users, ArrowRight, Award } from 'lucide-react';
 import Cont from '../assets/ctbc banner.png';
 import Xlr8Img from '../assets/XLR8card.png';
@@ -146,15 +146,12 @@ const Events = () => {
                     <span>{event.seats}</span>
                   </div>
                   {event.seats === 'Completed' ? (
-                    <a
-                      href={event.certificateLink}
-                      target="/certificates"
-                      rel="noopener noreferrer"
+                    <Link
+                      to={event.certificateLink}
                       className="text-orange-400 hover:text-orange-300 transition-colors font-medium inline-flex items-center"
                     >
-                      <Award size={16} className="mr-1" />
-                      View Certificate
-                    </a>
+                      View Certificates
+                    </Link>
                   ) : (
                     <button className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
                       Register
