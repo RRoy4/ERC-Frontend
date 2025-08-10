@@ -59,7 +59,7 @@ const XLR8 = () => {
               rel="noopener noreferrer"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
             >
-              XLR8 Resource Page
+              XLR8 Info
             </a>
           </div>
         </div>
