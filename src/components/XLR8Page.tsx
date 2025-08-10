@@ -54,7 +54,7 @@ const XLR8 = () => {
               Register Here!
             </a>
              <a
-              href="https://erc-xlr8.notion.site/XLR8-Home-197268adf3694221af47be18b7e7148a"
+              href="https://erc-xlr8.notion.site/xlr8-home-25"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
