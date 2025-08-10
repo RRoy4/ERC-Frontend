@@ -18,7 +18,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     id: 1,
     title: 'Hardware Session',
-    description: 'Session to design, build, and wire the hardware that brings your bot to life.(Electrical and mechanical)',
+    description: 'Session to design, build, and wire the hardware that brings your bot to life. (Electrical and mechanical)',
     date: 'Aug 16, 2025',
   },
   {
@@ -30,27 +30,27 @@ const timelineEvents: TimelineEvent[] = [
   {
     id: 3,
     title: 'Software Session',
-    description: 'Session to learn coding and uploading programs to control your bot',
+    description: 'Hands-on workshop where you’ll learn to write and upload code to control your bot’s movements and actions.',
     date: 'Aug 22–24, 2025',
   },
   {
     id: 4,
     title: 'XLR8 Main Event',
-    description: 'Get ready to race your bot through a thrilling obstacle course and go head-to-head with the fiercest competitors!',
-    date: 'Aug 30-31, 2025',
+    description: 'Race your bot through a challenging obstacle course and compete with the best teams!',
+    date: 'Aug 30–31, 2025',
   },
 ];
 
 const TimelineSection = () => {
   return (
     <section className="relative py-20 text-white">
-
-      {/* vertical white center line */}
-      <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-white/30" />
+      {/* vertical line */}
+      <div className="absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 bg-white/30" />
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4">
         {timelineEvents.map((event, index) => {
           const isLeft = index % 2 === 0;
+
           return (
             <motion.div
               key={event.id}
@@ -58,22 +58,18 @@ const TimelineSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="mb-24 relative min-h-[160px]"
+              className="mb-16 relative flex flex-col items-center md:items-stretch"
             >
-              {/* white dot */}
-              {/* white dot (centered on timeline) */}
-              <div className="w-4 h-4 rounded-full bg-white absolute top-2 left-1/2 -translate-x-1/2" />
+              {/* dot */}
+              <div className="w-4 h-4 rounded-full bg-white absolute left-1/2 -translate-x-1/2 z-10" />
 
-            
-              {/* orange box */}
+              {/* card */}
               <div
-                className={`max-w-md rounded-xl bg-orange-500 p-6 shadow-lg absolute ${
-                  isLeft
-                    ? 'left-1/2 -translate-x-[calc(100%+40px)]'  // Left side: offset box left of center
-                    : 'left-1/2 translate-x-[40px]'              // Right side: offset box right of center
-                }`}
+                className={`
+                  mt-6 md:mt-0 w-[90%] md:w-[45%] rounded-xl bg-orange-500 p-6 shadow-lg
+                  ${isLeft ? 'md:mr-auto md:text-right' : 'md:ml-auto md:text-left'}
+                `}
               >
-
                 <h3 className="text-xl font-bold">{event.title}</h3>
                 <p className="text-sm opacity-80">{event.date}</p>
                 <p className="mt-2 text-base">{event.description}</p>
