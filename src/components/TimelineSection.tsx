@@ -70,7 +70,7 @@ const TimelineSection = () => {
                   ${isLeft ? 'md:mr-auto md:text-right' : 'md:ml-auto md:text-left'}
                 `}
               >
-                <h3 className="text-xl font-bold">{event.title}</h3>
+                <h3 className="text-xl font-heading">{event.title}</h3>
                 <p className="text-sm opacity-80">{event.date}</p>
                 <p className="mt-2 text-base">{event.description}</p>
               </div>

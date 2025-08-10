@@ -49,7 +49,7 @@ const XLR8 = () => {
               href="https://forms.gle/BGpTMK9K3bnjkh6z5"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
+              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
             >
               Register Here!
             </a>
@@ -93,7 +93,7 @@ const XLR8 = () => {
 
     <section className="py-12 bg-[#0B1120] text-white">
     <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6 border-b-4 border-blue-600 inline-block">XLR8 2024 After Movie</h2>
+        <h2 className="text-3xl font-heading mb-6 border-b-4 border-blue-600 inline-block">XLR8 2024 After Movie</h2>
 
         
         <div className="relative">
