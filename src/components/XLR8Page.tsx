@@ -3,7 +3,8 @@ import { Zap } from 'lucide-react';
 import CenterLogo from '../assets/newcenterlogo.png';
 import TimelineSection from './TimelineSection'; // adjust the path as needed
 import bgImage from '../assets/bg.jpeg'; // adjust relative path if needed
-
+import ProblemStatementSection from './ProblemStatement';
+import HardwareSession from './HardwareSession';
 
 const XLR8 = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -120,6 +121,8 @@ const XLR8 = () => {
     </section>
 
     <TimelineSection />
+    <ProblemStatementSection />
+    <HardwareSession /> 
     </>
   );
 };
