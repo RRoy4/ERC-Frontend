@@ -4,7 +4,7 @@ import CenterLogo from '../assets/newcenterlogo.png';
 import TimelineSection from './TimelineSection'; // adjust the path as needed
 import bgImage from '../assets/bg.jpeg'; // adjust relative path if needed
 import ProblemStatementSection from './ProblemStatement';
-import HardwareSession from './HardwareSession';
+import ResultsSection from './ResultsSection'; // adjust the path
 
 const XLR8 = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -46,14 +46,17 @@ const XLR8 = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="https://forms.gle/BGpTMK9K3bnjkh6z5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
-            >
-              Register Here!
-            </a>
+              <button
+                onClick={() => {
+                  const resultsSection = document.getElementById('results');
+                  if (resultsSection) {
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="px-8 py-3 bg-orange-600 hover:bg-orange-700 rounded-md transition-all hover:shadow-lg hover:shadow-blue-500/20 text-lg font-medium font-heading"
+              >
+                See Results!
+              </button>
              <a
               href="https://erc-xlr8.notion.site/xlr8-home-25"
               target="_blank"
@@ -122,7 +125,9 @@ const XLR8 = () => {
 
     <TimelineSection />
     <ProblemStatementSection />
-    <HardwareSession /> 
+    <section id="results" className="py-16 bg-[#0B1120] text-white">
+    {<ResultsSection />}
+    </section>
     </>
   );
 };
