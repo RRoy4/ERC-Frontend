@@ -37,50 +37,81 @@ const ResultsSection = () => {
 
         <h2 className="text-4xl font-heading mb-12 border-b-4 border-blue-500 inline-block pb-2">Results</h2>
 
-        <div className="relative p-6 rounded-3xl bg-[#0e1628]">
-            {/* Aura */}
-            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[50%] h-[88%] rounded-3xl blur-2xl opacity-30 z-0 bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500"></div>
+        
+       {/* Podium Section with Enhanced Styling */}
+      <div className="relative flex justify-center items-end mb-16">
 
+        {/* Podium Background Image */}
+        <img
+          src="/podium.png" // 👈 Make sure this is in /public
+          alt="Podium"
+          className="w-[700px] h-auto relative top-[100px]"
+        />
 
-          {/* Podium */}
-          <div className="flex justify-center items-end gap-10 mb-12 relative z-10">
-            {/* 2nd Place */}
-            {podium[1] && (
-              <div className="flex flex-col items-center">
-                <div className="w-40 h-36 bg-[#C0C0C0] rounded-t-2xl flex items-end justify-center p-3 shadow-lg">
-                  <span className="text-white font-semibold text-base">{podium[1]['Team Name']}<br />#{podium[1]['Team Number']}</span>
-                </div>
-                <span className="text-gray-300 mt-2 text-lg font-medium">2</span>
-              </div>
-            )}
-
-            {/* 1st Place */}
-            {podium[0] && (
-              <div className="flex flex-col items-center relative">
-                <div className="w-48 h-60 bg-yellow-400 rounded-t-3xl flex items-end justify-center p-4 shadow-2xl">
-                  <span className="text-black font-bold text-lg">{podium[0]['Team Name']}<br />#{podium[0]['Team Number']}</span>
-                </div>
-                <span className="text-gray-200 mt-2 text-xl font-bold">1</span>
-                <div className="absolute -top-8">
-                  <span role="img" aria-label="crown" className="text-3xl animate-bounce">👑</span>
-                </div>
-              </div>
-            )}
-
-            {/* 3rd Place */}
-            {podium[2] && (
-              <div className="flex flex-col items-center">
-                <div className="w-36 h-20 bg-orange-500 rounded-t-2xl flex items-end justify-center p-3 shadow-lg">
-                  <span className="text-white font-semibold text-base">{podium[2]['Team Name']}<br />#{podium[2]['Team Number']}</span>
-                </div>
-                <span className="text-gray-300 mt-2 text-lg font-medium">3</span>
-              </div>
-            )}
+        {/* 1st Place Name */}
+        {podium[0] && (
+          <div
+            className="absolute flex flex-col items-center text-center"
+            style={{ top: '25%', left: '49.5%', transform: 'translate(-50%, -50%)' }}
+          >
+            <div className="relative">
+              <span
+                role="img"
+                aria-label="crown"
+                className="text-5xl absolute -top-12 left-1/2 -translate-x-1/2 animate-bounce"
+              >
+                👑
+              </span>
+              <p className="text-4xl font-extrabold text-yellow-300 drop-shadow-[0_0_10px_rgba(255,215,0,0.7)]">
+                {podium[0]['Team Name']}
+              </p>
+            </div>
+            <p className="text-lg text-gray-300 font-medium mt-1">
+              #{podium[0]['Team Number']}
+            </p>
           </div>
+        )}
+
+        {/* 2nd Place Name */}
+        {podium[1] && (
+          <div
+            className="absolute flex flex-col items-center text-center"
+            style={{ top: '50%', left: '30%', transform: 'translate(-50%, -50%)' }}
+          >
+            <p className="text-3xl font-bold text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">
+              {podium[1]['Team Name']}
+            </p>
+            <p className="text-sm text-gray-300 font-medium">
+              #{podium[1]['Team Number']}
+            </p>
+          </div>
+        )}
+
+        {/* 3rd Place Name */}
+        {podium[2] && (
+          <div
+            className="absolute flex flex-col items-center text-center"
+            style={{ top: '65%', left: '68%', transform: 'translate(-50%, -50%)' }}
+          >
+            <p
+              className="text-2xl font-extrabold drop-shadow-[0_0_8px_rgba(205,127,50,0.8)]"
+              style={{ color: '#cd7f32' }}   // Bronze color
+            >
+              {podium[2]['Team Name']}
+            </p>
+            <p className="text-sm text-gray-300 font-medium">
+              #{podium[2]['Team Number']}
+            </p>
+          </div>
+        )}
+      </div>
+
+
+
 
           {/* Honourable Mentions */}
           {honorableMentions.length > 0 && (
-            <div className="mb-12 relative z-10">
+            <div className="mb-12 mt-24 relative z-10">
               <h3 className="text-2xl font-heading mb-6 border-b-2 border-blue-500 inline-block pb-1">Honourable Mentions</h3>
               <div className="flex justify-center gap-6 flex-wrap">
                 {honorableMentions.map((team, idx) => (
@@ -93,7 +124,6 @@ const ResultsSection = () => {
               </div>
             </div>
           )}
-        </div>
         
           {/* Podium + Honourable + Table wrapped in aura */}
         <div className="relative p-6 rounded-3xl bg-[#0e1628]">
