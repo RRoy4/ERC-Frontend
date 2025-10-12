@@ -28,8 +28,8 @@ const ResultsSection = () => {
   if (loading) return <p className="text-white text-center py-8">Loading results...</p>;
   if (results.length === 0) return <p className="text-white text-center py-8">No results available yet.</p>;
 
-  const podium = results.slice(0, 3);
-  const honorableMentions = results.slice(3, 5);
+  const podium = results.slice(0, 4);
+  const honorableMentions = results.slice(4, 6);
 
   return (
     <section id="results" className="py-20 relative text-white bg-[#0e1628]">
@@ -45,7 +45,7 @@ const ResultsSection = () => {
         <img
           src="/podium.png" // 👈 Make sure this is in /public
           alt="Podium"
-          className="w-[700px] h-auto relative top-[100px]"
+          className="w-[700px] h-auto relative top-[100px] left-[-18px]"
         />
 
         {/* 1st Place Name */}
@@ -73,34 +73,34 @@ const ResultsSection = () => {
         )}
 
         {/* 2nd Place Name */}
-        {podium[1] && (
+        {podium[2] && (
           <div
             className="absolute flex flex-col items-center text-center"
-            style={{ top: '50%', left: '30%', transform: 'translate(-50%, -50%)' }}
+            style={{ top: '50%', left: '31%', transform: 'translate(-50%, -50%)' }}
           >
             <p className="text-3xl font-bold text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">
-              {podium[1]['Team Name']}
+              {podium[2]['Team Name']}
             </p>
             <p className="text-sm text-gray-300 font-medium">
-              #{podium[1]['Team Number']}
+              #{podium[2]['Team Number']}
             </p>
           </div>
         )}
 
         {/* 3rd Place Name */}
-        {podium[2] && (
+        {podium[3] && (
           <div
             className="absolute flex flex-col items-center text-center"
-            style={{ top: '65%', left: '68%', transform: 'translate(-50%, -50%)' }}
+            style={{ top: '67%', left: '68.5%', transform: 'translate(-50%, -50%)' }}
           >
             <p
               className="text-2xl font-extrabold drop-shadow-[0_0_8px_rgba(205,127,50,0.8)]"
               style={{ color: '#cd7f32' }}   // Bronze color
             >
-              {podium[2]['Team Name']}
+              {podium[3]['Team Name']}
             </p>
             <p className="text-sm text-gray-300 font-medium">
-              #{podium[2]['Team Number']}
+              #{podium[3]['Team Number']}
             </p>
           </div>
         )}
@@ -141,14 +141,28 @@ const ResultsSection = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
-                {results.slice(0, 20).map((team, idx) => (
+              {(() => {
+                // Optionally enable this to inspect raw rank values:
+                // console.log('ranks:', results.map(r => r.Rank));
+
+                const filtered = results.filter(team => {
+                  // normalize rank to a number safely
+                  const rankNum = Number(String(team.Rank ?? '').trim());
+                  // if rankNum is NaN, keep the row (or change to `false` to drop invalid ranks)
+                  if (Number.isNaN(rankNum)) return true;
+                  return rankNum !== 2; // exclude rank 2
+                });
+
+                return filtered.slice(0, 20).map((team, idx) => (
                   <tr key={idx} className="hover:bg-gray-800 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap text-center font-medium">{team.Rank}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">{team['Team Name']}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">{team['Team Number']}</td>
                   </tr>
-                ))}
-              </tbody>
+                ));
+              })()}
+            </tbody>
+
             </table>
           </div>
 
