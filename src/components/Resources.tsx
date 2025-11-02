@@ -50,6 +50,13 @@ const workshopData = [
     description: 'Devise and design the perfect ITSA Project by using the right tools and software when remote.',
     image: resoimg +'reso-ct.png',
     link: 'https://github.com/erciitb/ITSP_Resources/blob/main/README.md',
+  },
+  {
+    id: 6,
+    title: 'Internet Of Things Workshop',
+    description: 'Hands-on worshop exploring IoT systems, edge AI, and communication technologies.',
+    image: resoimg +'iot.png',
+    link: 'https://github.com/Radhika-B1084/ESP32CAM-face',
   }
 ];
 
