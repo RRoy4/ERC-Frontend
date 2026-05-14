@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { Zap } from 'lucide-react';
 import CenterLogo from '../../assets/centerlogo.png';
 import { useNavigate } from 'react-router-dom';
-import Spline from '@splinetool/react-spline';
+
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -62,10 +63,12 @@ const Hero = () => {
       {/* Interactive Spline Background */}
       {!isTouchDevice && (
         <div className="absolute inset-0 pointer-events-none">
-          <Spline
-            scene="https://prod.spline.design/eELXmmdwRuXGtrSS/scene.splinecode"
-            className="w-full h-full"
-          />
+          <Suspense fallback={null}>
+            <Spline
+              scene="https://prod.spline.design/eELXmmdwRuXGtrSS/scene.splinecode"
+              className="w-full h-full"
+            />
+          </Suspense>
           <div
             className="absolute inset-0 pointer-events-none"
             style={{

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
 import Cont from '../assets/ctbc banner.png';
-import Xlr8Img from '../assets/XLR8card.png';
+import Xlr8Img from '../assets/header.png';
 
 const eventsData = [
   {
@@ -102,8 +102,8 @@ const Events = () => {
               <div className="md:w-1/2 h-64 md:h-auto relative">
                 <img
                   src={Xlr8Img}
-                  alt="XLR8 2025"
-                  className="w-full h-full object-cover"
+                  alt="Electronics and Robotics Club header"
+                  className="w-full h-full object-contain bg-gray-900 p-6"
                 />
               </div>
             </div>

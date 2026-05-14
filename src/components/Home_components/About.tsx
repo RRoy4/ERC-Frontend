@@ -1,5 +1,6 @@
-import React from 'react';
-import Spline from '@splinetool/react-spline';
+import React, { Suspense, lazy } from 'react';
+
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const galleryImages = [
   'gallery/f.jpg', 'gallery/h.jpg', 'gallery/l.jpeg', 'gallery/r.jpeg', 'gallery/g.jpg',
@@ -46,10 +47,12 @@ const About = () => {
                   borderRadius: '50%',
                 }}
               />
-              <Spline
-                scene="https://prod.spline.design/uP8FxAJpRdIs-ei6/scene.splinecode"
-                className="w-full h-full relative z-10"
-              />
+              <Suspense fallback={null}>
+                <Spline
+                  scene="https://prod.spline.design/uP8FxAJpRdIs-ei6/scene.splinecode"
+                  className="w-full h-full relative z-10"
+                />
+              </Suspense>
             </div>
           </div>
         </div>
