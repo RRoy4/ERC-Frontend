@@ -1,15 +1,17 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
-const galleryImages = [
-  'gallery/f.jpg', 'gallery/h.jpg', 'gallery/l.jpeg', 'gallery/r.jpeg', 'gallery/g.jpg',
-  'gallery/p.jpeg', 'gallery/j.jpeg', 'gallery/c.JPG', 'gallery/q.jpeg', 'gallery/k.jpeg',
-  'gallery/o.jpeg', 'gallery/n.jpeg', 'gallery/a.JPG', 'gallery/i.jpeg', 'gallery/e.JPG',
-  'gallery/m.jpeg', 'gallery/d.JPG', 'gallery/b.JPG', 'gallery/s.jpeg', 'gallery/t.jpeg',
-];
-
 const About = () => {
+  const [galleryImages, setGalleryImages] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/media/?category=gallery`)
+      .then(res => res.json())
+      .then(data => setGalleryImages(data.results))
+      .catch(err => console.error('Gallery load failed:', err));
+  }, []);
+
   return (
     <section id="about" className="py-20 bg-gray-900/70">
       <div className="container mx-auto px-4">
@@ -63,11 +65,12 @@ const About = () => {
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <div className="relative overflow-hidden  bg-white/10 backdrop-blur-lg shadow-lg p-6">
             <div className="flex gap-8 animate-scroll-x hover:paused-scroll-x whitespace-nowrap w-max">
-              {[...galleryImages, ...galleryImages].map((filename, index) => (
+              {[...galleryImages, ...galleryImages].map((asset, index) => (
                 <div key={index} className="flex-none w-104 h-80 rounded-xl overflow-hidden shadow-xl border border-gray-700">
                   <img
-                    src={`${filename}`}
-                    alt={`Highlight ${index}`}
+                    src={asset.url}
+                    alt={asset.alt_text || `Highlight ${index}`}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
