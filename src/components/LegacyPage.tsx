@@ -21,7 +21,8 @@ const LegacyPage = () => {
     { year: 2022, image: '/team/images/2022-23.jpg' },
     { year: 2021, image: '/team/images/2021-22.jpg' },
     { year: 2020, image: '/team/images/2020-21.jpg' },
-    { year: 2020, image: '/team/images/2019-20.jpg' },
+    { year: 2019, image: '/team/images/2019-20.jpg' },
+    { year: 2018, image: '/team/images/2018-19.jpg' }
   ];
 
   return (
@@ -306,6 +307,7 @@ const LegacyPage = () => {
           </div>
         </div>
       </section>
+      
 
       {/* Slide 8: Team 2019 - Image left, text right */}
       <section className="scroll-section flex items-center justify-center py-16 md:py-24">
@@ -343,7 +345,45 @@ const LegacyPage = () => {
         </div>
       </section>
 
-      {/* Slide 9: Full-screen Legacy Continuation */}
+            {/* Slide 9: Team 2018 - Image right, text left */}
+      <section className="scroll-section flex items-center justify-center py-16 md:py-24">
+        <div className="max-w-6xl w-full px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="md:order-2"
+            >
+              <div className="relative">
+                <div className="absolute -inset-5 bg-gradient-to-r from-purple-600 to-blue-500 rounded-2xl opacity-70 blur-xl"></div>
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-2xl aspect-video">
+                  <img 
+                    src={teams[7].image} 
+                    alt={`Team ${teams[7].year}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              viewport={{ once: true }}
+              className="md:order-1 md:pr-10 md:text-right"
+            >
+              <h2 className="text-5xl md:text-7xl font-playfair mb-8">Team 2018-19</h2>
+              <p className="text-gray-300 text-xl max-w-md md:ml-auto">
+                Led by Abbey George & Bhishma Dedhia   
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slide 10: Full-screen Legacy Continuation */}
       <section className="scroll-section flex items-center justify-center relative min-h-screen">
         <motion.div
           ref={finalTextRef}
