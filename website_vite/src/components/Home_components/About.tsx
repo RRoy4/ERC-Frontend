@@ -2,11 +2,13 @@ import React, { Suspense, lazy, useState, useEffect } from 'react';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
+const API = import.meta.env.VITE_API_URL || 'https://ercadmin.pythonanywhere.com';
+
 const About = () => {
   const [galleryImages, setGalleryImages] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/media/?category=gallery`)
+    fetch(`${API}/api/media/?category=gallery`)
       .then(res => res.json())
       .then(data => setGalleryImages(data.results))
       .catch(err => console.error('Gallery load failed:', err));
