@@ -7,7 +7,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-import Cont from '../assets/ctbc banner.png';
+import Cont from '../assets/itsp banner.png';
 import Xlr8Img from '../assets/header.png';
 
 const Events = () => {
@@ -48,7 +48,7 @@ const Events = () => {
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-heading mb-4">
-            Upcoming Events
+            Events
           </h2>
 
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
@@ -62,7 +62,7 @@ const Events = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-          {/* XLR8 CARD */}
+          {/* SUMMER OF ROBOTICS CARD */}
           <div className="col-span-1 lg:col-span-2 bg-gradient-to-br from-blue-900/30 to-orange-900/30 rounded-xl overflow-hidden border border-blue-500/20">
             <div className="flex flex-col md:flex-row">
 
@@ -75,12 +75,12 @@ const Events = () => {
                   />
 
                   <span className="text-sm text-blue-400">
-                    Featured Event
+                    Flagship Event
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-bold mb-3 font-heading">
-                  XLR8 2025
+                  Summer of Robotics
                 </h3>
 
                 <div className="flex items-center text-gray-300 mb-2">
@@ -89,7 +89,7 @@ const Events = () => {
                     className="mr-2 text-gray-400"
                   />
 
-                  <span>13 - 31 August 2025</span>
+                  <span>1.5 Month Program</span>
                 </div>
 
                 <div className="flex items-center text-gray-300 mb-2">
@@ -98,7 +98,7 @@ const Events = () => {
                     className="mr-2 text-gray-400"
                   />
 
-                  <span>18 days</span>
+                  <span>Hands-on Learning Series</span>
                 </div>
 
                 <div className="flex items-center text-gray-300 mb-4">
@@ -107,25 +107,26 @@ const Events = () => {
                     className="mr-2 text-gray-400"
                   />
 
-                  <span>IIT Bombay</span>
+                  <span>MS Teams</span>
                 </div>
 
                 <p className="text-gray-300 mb-6">
-                  XLR8 is our annual high-speed robotics competition
-                  where student-built racing bots compete in an intense
-                  test of speed, control, and engineering creativity.
+                  Summer of Robotics is ERC's flagship robotics
+                  learning program covering the complete mechatronics
+                  and robotics workflow — from robot anatomy and CAD
+                  modelling to ROS2 simulations using Gazebo.
 
-                  Every year, the event attracts hundreds of
-                  participants from across the country, making it one
-                  of the biggest and most exciting tech events in the
-                  institute.
+                  Participants explore SLAM, OpenCV,
+                  YOLOv8, MoveIt, RSSI heatmaps, Ollama LLM integration,
+                  and exciting real-world robotics projects throughout
+                  the bootcamp.
                 </p>
 
                 <button
-                  onClick={() => navigate('/xlr8')}
+                  onClick={() => navigate('/summer-of-robotics')}
                   className="px-6 py-3 bg-blue-600 hover:bg-orange-600 rounded-md transition-all inline-flex items-center"
                 >
-                  Register Now
+                  Explore Program
 
                   <ArrowRight size={16} className="ml-2" />
                 </button>
@@ -135,7 +136,7 @@ const Events = () => {
               <div className="md:w-1/2 h-64 md:h-auto relative">
                 <img
                   src={Xlr8Img}
-                  alt="XLR8 Event"
+                  alt="Summer of Robotics"
                   loading="lazy"
                   className="w-full h-full object-contain bg-gray-900 p-6"
                 />
@@ -147,13 +148,13 @@ const Events = () => {
           <div className="col-span-1 lg:col-span-2 bg-gradient-to-br from-orange-900/30 to-blue-900/30 rounded-xl overflow-hidden border border-orange-500/20">
             <div className="flex flex-col md:flex-row">
 
-              {/* Image */}
-              <div className="md:w-1/2 h-64 md:h-auto relative order-2 md:order-1">
+              {/* Replace your current image block with this */}
+              <div className="md:w-1/2 h-64 md:h-auto relative">
                 <img
                   src={Cont}
-                  alt="ITSP Bootcamp"
+                  alt="ITSP bootcamp"
                   loading="lazy"
-                  className="w-full h-full object-contain bg-gray-900 p-6"
+                  className="w-full h-full object-cover" 
                 />
               </div>
 
@@ -205,9 +206,7 @@ const Events = () => {
                 <p className="text-gray-300 mb-6">
                   The ITSP Bootcamp introduced participants to the
                   fundamentals of embedded systems, sensors,
-                  microcontrollers, and IoT development through
-                  interactive sessions and live demonstrations.
-
+                  microcontrollers, and IoT development.
                   Participants also explored powerful engineering tools
                   like Gazebo, Proteus, MATLAB, and Simulink — making
                   it the perfect starting point for students doing hardware 
