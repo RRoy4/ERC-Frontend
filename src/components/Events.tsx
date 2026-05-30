@@ -6,8 +6,8 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-import Cont from '../assets/itsp banner.png';
-import Xlr8Img from '../assets/header.png';
+import itsp from '../assets/itsp banner.png';
+import sor from '../assets/sor banner.jpg';
 
 const Events = () => {
   const [email, setEmail] = useState('');
@@ -41,25 +41,8 @@ const Events = () => {
   return (
     <section
       id="events"
-      className="py-20 bg-gray-950 relative overflow-hidden"
+      className="py-20 bg-gray-900 relative overflow-hidden"
     >
-
-      {/* Background Grid */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #ffffff 1px, transparent 1px),
-              linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-          }}
-        ></div>
-
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_95%,rgba(0,255,255,0.08)_100%)] bg-[length:100%_6px] opacity-20"></div>
-      </div>
 
       <div className="container relative z-10 mx-auto px-4">
 
@@ -117,7 +100,7 @@ const Events = () => {
                     className="mr-2 text-cyan-400"
                   />
 
-                  <span>1.5 Month Program</span>
+                  <span>6 Weeks Bootcamp</span>
                 </div>
 
                 <div className="flex items-center text-gray-300 mb-2">
@@ -126,7 +109,7 @@ const Events = () => {
                     className="mr-2 text-cyan-400"
                   />
 
-                  <span>Hands-on Learning Series</span>
+                  <span>Register by 4th June</span>
                 </div>
 
                 <div className="flex items-center text-gray-300 mb-4">
@@ -166,7 +149,7 @@ const Events = () => {
               <div className="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
 
                 <img
-                  src={Xlr8Img}
+                  src={sor}
                   alt="Summer of Robotics"
                   loading="lazy"
                   className="w-full h-full object-contain bg-gradient-to-br from-[#020617] via-[#0f172a] to-black p-8"
@@ -186,7 +169,7 @@ const Events = () => {
               <div className="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
 
                 <img
-                  src={Cont}
+                  src={itsp}
                   alt="ITSP bootcamp"
                   loading="lazy"
                   className="w-full h-full object-cover"

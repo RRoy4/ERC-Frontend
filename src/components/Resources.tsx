@@ -2,28 +2,28 @@ import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const resoimg = "/blogs/thumb/";
+// const resoimg = "/blogs/thumb/";
 
 const resourcesData = [
   {
     id: 1,
     title: 'Watt is Electronics?: An Amateurs Roadmap',
     description: 'Master digital logic design, microcontroller architecture, and embedded programming fundamentals.',
-    image: resoimg + 'wie.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/wie.jpg',
     link: 'https://github.com/erciitb/WattIsElectronics/blob/main/README.md',
   },
   {
     id: 4,
     title: 'MCU: MicroController Universe',
     description: 'Get started with microcontrollers — the tiny computers behind modern electronics. Learn the basics of architecture, GPIO, and communication protocols.',
-    image: resoimg +'mcu.webp',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/mcu.webp',
     link: 'https://github.com/erciitb/MCU-MicroControllerUniverse/blob/main/README.md',
   },
   {
     id: 2,
     title: 'A beginners Guide to ROS2 Humble',
     description: 'Comprehensive guide to ROS architecture, working and applications along with Gazebo. Works for any OS.',
-    image: resoimg +'reso-ros.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/reso-ros.png',
     link: 'https://github.com/erciitb/fROSty-winter-2024/blob/main/README.md',
   },
 
@@ -31,7 +31,7 @@ const resourcesData = [
     id: 5,
     title: 'Hardware Security & Reverse Engineering',
     description: 'Circuit analysis, fault injection, and side-channel attacks for embedded system security.',
-    image: resoimg +'reso-hh.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/reso-hh.png',
     link: 'https://github.com/erciitb/Hardware_Hacking_Resources/blob/main/README.md',
   }
 ];
@@ -41,21 +41,21 @@ const workshopData = [
     id: 1,
     title: 'Control Theory Bootcamp',
     description: 'Master PID, LQR and system modeling through MATLAB Simulink and build a self-balancing bot.',
-    image: resoimg + 'ctb.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780116239/ctb.jpg',
     link: 'https://github.com/erciitb/LS2025_Control_Theory/tree/main',
   },
   {
     id: 3,
     title: 'ITSP Collaborative and Prototyping tools',
     description: 'Devise and design the perfect ITSA Project by using the right tools and software when remote.',
-    image: resoimg +'reso-ct.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110693/reso-ct.png',
     link: 'https://github.com/erciitb/ITSP_Resources/blob/main/README.md',
   },
   {
     id: 6,
     title: 'Internet Of Things Workshop',
     description: 'Hands-on worshop exploring IoT systems, edge AI, and communication technologies.',
-    image: resoimg +'iot.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780116234/iot.png',
     link: 'https://github.com/Radhika-B1084/ESP32CAM-face',
   }
 ];

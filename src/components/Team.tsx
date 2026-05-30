@@ -1,14 +1,14 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 
-const teamImagesDir = "/team/images/";
+// const teamImagesDir = "/team/images/";
 
 const teamMembers = [
   {
     id: 1,
     name: 'Aditya Patel',
     role: 'Electronics and Robotics Club Secretary',
-    image: teamImagesDir + 'aditya.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/aditya.jpg',
     bio: 'Third year undergraduate in Electrical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/aditya-patel-98584b327/',
@@ -21,7 +21,7 @@ const teamMembers = [
     id: 2,
     name: 'Daksh Makhwana',
     role: 'Electronics and Robotics Club Manager',
-    image: teamImagesDir + 'daksh.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/daksh.jpg',
     bio: 'Third year undergraduate in Metallurgical Engineering And Material Sciences',
     social: {
       linkedin: 'https://www.linkedin.com/in/daksh-makwana-698253326',
@@ -34,7 +34,7 @@ const teamMembers = [
     id: 3,
     name: 'Ayush Goel',
     role: 'Convenor',
-    image: teamImagesDir + 'ayush.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780115324/ayush.jpg',
     bio: 'Sophomore undergraduate in Metallurgical Engineering and Material Sciences',
     social: {
       linkedin: 'https://www.linkedin.com/in/ayush-goel-823b7a378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
@@ -47,7 +47,7 @@ const teamMembers = [
     id: 4,
     name: 'Diya Dholakia',
     role: 'Convenor',
-    image: teamImagesDir + 'diya.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110620/diya.jpg',
     bio: 'Sophomore undergraduate in Mechanical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/diya-dholakia-34727b388?utm_source=share_via&utm_content=profile&utm_medium=member_android',
@@ -60,7 +60,7 @@ const teamMembers = [
     id: 5,
     name: 'Ishika Goyal',
     role: 'Convenor',
-    image: teamImagesDir + 'ishika.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110638/ishika.jpg',
     bio: 'Sophomore undergraduate in Mechanical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/ishika-goyal-36922840a?utm_source=share_via&utm_content=profile&utm_medium=member_android',
@@ -73,7 +73,7 @@ const teamMembers = [
     id: 6,
     name: 'Maulik Khandelwal',
     role: 'Convenor',
-    image: teamImagesDir + 'maulik.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110642/maulik.jpg',
     bio: 'Sophomore undergraduate in Chemical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/maulikkhandelwal',
@@ -86,7 +86,7 @@ const teamMembers = [
     id: 7,
     name: 'Ratnala Srisiva Yashasri',
     role: 'Convenor',
-    image: teamImagesDir + 'yashasri.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110642/yashasri.jpg',
     bio: 'Sophomore undergraduate in Electrical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/yashasri-ratnala-0b9b85379/',
@@ -99,7 +99,7 @@ const teamMembers = [
     id: 8,
     name: 'Raunak Roy',
     role: 'Convenor',
-    image: teamImagesDir + 'raunak.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110642/raunak.jpg',
     bio: 'Sophomore undergraduate in Mechanical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/raunak-roy1',
@@ -112,7 +112,7 @@ const teamMembers = [
     id: 9,
     name: 'Reyansh Agarwal',
     role: 'Convenor',
-    image: teamImagesDir + 'reyansh.jpeg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110646/reyansh.jpg',
     bio: 'Sophomore undergraduate in Civil Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/reyansh-agarwal-743a4a386',
@@ -125,7 +125,7 @@ const teamMembers = [
     id: 10,
     name: 'Sachin Mandal',
     role: 'Convenor',
-    image: teamImagesDir + 'sachin.jpeg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/sachin.jpg',
     bio: 'Sophomore undergraduate in Mechanical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/sachin-mandal-iitb',
@@ -138,7 +138,7 @@ const teamMembers = [
     id: 11,
     name: 'Santhosh Senthilmurugan',
     role: 'Convenor',
-    image: teamImagesDir + 'santhosh.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/santhosh.jpg',
     bio: 'Sophomore undergraduate in Electrical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/santhosh-s-74a203384?utm_source=share_via&utm_content=profile&utm_medium=member_android',
@@ -151,7 +151,7 @@ const teamMembers = [
     id: 12,
     name: 'Sarthak Goel',
     role: 'Convenor',
-    image: teamImagesDir + 'sarthak.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780115325/sarthak.jpg',
     bio: 'Sophomore undergraduate in Electrical Engineering',
     social: {
       linkedin: 'https://www.linkedin.com/in/sarthak-goel-b6695337b?utm_source=share_via&utm_content=profile&utm_medium=member_android',
