@@ -148,7 +148,7 @@ const Events = () => {
                 </div>
 
                 <h3 className="text-3xl font-bold mb-4 font-heading text-white">
-                  ITSP Bootcamp 2025
+                  ITSP Bootcamp 2026
                 </h3>
 
                 <div className="flex items-center text-gray-300 mb-2">
