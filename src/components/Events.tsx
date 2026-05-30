@@ -124,7 +124,7 @@ const Events = () => {
                   <Calendar size={16} className="text-orange-400 mr-2" />
                   <span className="text-sm text-orange-300">Technical Bootcamp</span>
                 </div>
-                <h3 className="text-3xl font-bold mb-4 font-heading text-white">ITSP Bootcamp 2025</h3>
+                <h3 className="text-3xl font-bold mb-4 font-heading text-white">ITSP Bootcamp 2026</h3>
                 <div className="flex items-center text-gray-300 mb-2">
                   <Calendar size={16} className="mr-2 text-orange-400" />
                   <span>24 May 2026</span>
