@@ -1,21 +1,42 @@
-import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState, Component } from 'react';
 import { Zap } from 'lucide-react';
 import CenterLogo from '../../assets/centerlogo.png';
 import { useNavigate } from 'react-router-dom';
+import Spline from '@splinetool/react-spline';
 
-const Spline = lazy(() => import('@splinetool/react-spline'));
+// ─── Error Boundary ────────────────────────────────────────────────────────────
+class SplineErrorBoundary extends Component<
+  { children: React.ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error: Error) {
+    console.warn('Spline failed to load (WebGL not supported):', error.message);
+  }
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
+}
 
+// ─── Hero Component ────────────────────────────────────────────────────────────
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [splineLoaded, setSplineLoaded] = useState(false);
 
   useEffect(() => {
     const checkTouch = window.matchMedia('(pointer: coarse)').matches;
     setIsTouchDevice(checkTouch);
   }, []);
-
 
   // Real cursor tracking for desktop
   useEffect(() => {
@@ -41,10 +62,8 @@ const Hero = () => {
 
     const handleOrientation = (event: DeviceOrientationEvent) => {
       if (!heroRef.current) return;
-      // gamma: left-right tilt [-90,90], beta: front-back tilt [-180,180]
       const gamma = event.gamma ?? 0;
       const beta = event.beta ?? 0;
-      // Normalize to [0,1]
       const x = Math.min(Math.max((gamma + 90) / 180, 0), 1);
       const y = Math.min(Math.max((beta + 180) / 360, 0), 1);
       setMousePos({ x, y });
@@ -62,13 +81,21 @@ const Hero = () => {
     >
       {/* Interactive Spline Background */}
       {!isTouchDevice && (
-        <div className="absolute inset-0 pointer-events-none">
-          <Suspense fallback={null}>
+        <div className="absolute inset-0 pointer-events-none bg-[#111827]">
+          <SplineErrorBoundary>
+            {/* Spinner shown until Spline fires onLoad */}
+            {!splineLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-10 h-10 border-2 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
+              </div>
+            )}
             <Spline
               scene="https://prod.spline.design/eELXmmdwRuXGtrSS/scene.splinecode"
               className="w-full h-full"
+              onLoad={() => setSplineLoaded(true)}
             />
-          </Suspense>
+          </SplineErrorBoundary>
+
           <div
             className="absolute inset-0 pointer-events-none"
             style={{

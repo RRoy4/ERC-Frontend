@@ -1,92 +1,55 @@
-import React, { Suspense, lazy } from 'react';
+import React, { useState, Component } from 'react';
+import Spline from '@splinetool/react-spline';
 
-const Spline = lazy(() => import('@splinetool/react-spline'));
+// ─── Error Boundary ────────────────────────────────────────────────────────────
+class SplineErrorBoundary extends Component<
+  { children: React.ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error: Error) {
+    console.warn('Spline failed to load (WebGL not supported):', error.message);
+  }
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
+}
 
-// Cloudinary Optimized Gallery (A → T)
+// ─── Gallery Images ────────────────────────────────────────────────────────────
 const galleryImages = [
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/a.jpeg',
-    alt: 'ERC Event A',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/b.jpeg',
-    alt: 'ERC Event B',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/c.jpeg',
-    alt: 'ERC Event C',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/d.jpeg',
-    alt: 'ERC Event D',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/e.jpeg',
-    alt: 'ERC Event E',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/f.jpeg',
-    alt: 'ERC Event F',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/g.jpeg',
-    alt: 'ERC Event G',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/h.jpeg',
-    alt: 'ERC Event H',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/i.jpeg',
-    alt: 'ERC Event I',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/j.jpeg',
-    alt: 'ERC Event J',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/k.jpeg',
-    alt: 'ERC Event K',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/l.jpeg',
-    alt: 'ERC Event L',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/m.jpeg',
-    alt: 'ERC Event M',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/n.jpeg',
-    alt: 'ERC Event N',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/o.jpeg',
-    alt: 'ERC Event O',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/p.jpeg',
-    alt: 'ERC Event P',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/q.jpeg',
-    alt: 'ERC Event Q',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/r.jpeg',
-    alt: 'ERC Event R',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/s.jpeg',
-    alt: 'ERC Event S',
-  },
-  {
-    url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/t.jpeg',
-    alt: 'ERC Event T',
-  },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/a.jpeg', alt: 'ERC Event A' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/b.jpeg', alt: 'ERC Event B' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/c.jpeg', alt: 'ERC Event C' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/d.jpeg', alt: 'ERC Event D' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/e.jpeg', alt: 'ERC Event E' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/f.jpeg', alt: 'ERC Event F' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/g.jpeg', alt: 'ERC Event G' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/h.jpeg', alt: 'ERC Event H' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/i.jpeg', alt: 'ERC Event I' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/j.jpeg', alt: 'ERC Event J' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/k.jpeg', alt: 'ERC Event K' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/l.jpeg', alt: 'ERC Event L' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/m.jpeg', alt: 'ERC Event M' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/n.jpeg', alt: 'ERC Event N' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/o.jpeg', alt: 'ERC Event O' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/p.jpeg', alt: 'ERC Event P' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/q.jpeg', alt: 'ERC Event Q' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/r.jpeg', alt: 'ERC Event R' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/s.jpeg', alt: 'ERC Event S' },
+  { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/t.jpeg', alt: 'ERC Event T' },
 ];
 
+// ─── About Component ───────────────────────────────────────────────────────────
 const About = () => {
+  const [splineLoaded, setSplineLoaded] = useState(false);
+
   return (
     <section id="about" className="py-20 bg-gray-900/70">
       <div className="container mx-auto px-4">
@@ -94,8 +57,8 @@ const About = () => {
         {/* Heading */}
         <div className="text-center mb-16">
           <h1 className="text-5xl mb-4 font-heading font-bold
-            bg-gradient-to-r from-yellow-300 to-orange-500 
-            bg-[length:200%_200%] bg-clip-text text-transparent 
+            bg-gradient-to-r from-yellow-300 to-orange-500
+            bg-[length:200%_200%] bg-clip-text text-transparent
             animate-gradient-x">
             ELECTRIFY. CODE. INNOVATE.
           </h1>
@@ -120,12 +83,19 @@ const About = () => {
 
             <div className="w-64 h-64 rounded-full bg-gray-900 overflow-hidden shadow-lg relative">
               <div className="absolute inset-0 animate-spin-slow border border-yellow-400/30 rounded-full" />
-              <Suspense fallback={null}>
+              <SplineErrorBoundary>
+                {/* Spinner until Spline fires onLoad */}
+                {!splineLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="w-8 h-8 border-2 border-yellow-400/30 border-t-yellow-400 rounded-full animate-spin" />
+                  </div>
+                )}
                 <Spline
                   scene="https://prod.spline.design/uP8FxAJpRdIs-ei6/scene.splinecode"
                   className="w-full h-full relative z-10"
+                  onLoad={() => setSplineLoaded(true)}
                 />
-              </Suspense>
+              </SplineErrorBoundary>
             </div>
           </div>
         </div>
