@@ -1,25 +1,43 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import {
-  Calendar,
-  Clock,
-  MapPin,
-  ArrowRight,
-} from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
 
-const itsp = 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780121523/itsp_banner.png';
-const sor = 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780121521/sor_banner.png';
+// const itsp = 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/itsp_banner.jpg';
+// const sor = 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/sor_banner.jpg';
+import itsp from '../assets/itsp_banner.png';
+import sor from '../assets/sor_banner.png';
+
+
+const eventsData = [
+  {
+    id: 1,
+    title: 'ITSP Bootcamp 2026',
+    date: '24 May 2026',
+    time: '2:00 PM onwards',
+    location: 'MS Teams',
+    description:
+      'The ITSP Bootcamp introduced participants to embedded systems, sensors, microcontrollers, and IoT development while exploring tools like Gazebo, Proteus, MATLAB, and Simulink — making it the perfect launchpad for hardware and robotics projects.',
+    image: itsp,
+    seats: 'Completed',
+    resourcesLink: 'https://github.com/erciitb/ITSP_Resources',
+    slidesLink: 'https://drive.google.com/drive/folders/1f6STxw4HsI13xQ7eypBQ2V5cH2fjp4BD',
+  },
+];
 
 const Events = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubscribe = async () => {
     if (!email) return;
     try {
       const response = await fetch(
         'https://script.google.com/macros/s/AKfycbwdx14INhNr5HoY491xHHaRuZjliY-FYyGofc3TrNHsGoNmqZQDpNtqKBDxxiA4p_NLfA/exec',
-        { method: 'POST', body: new URLSearchParams({ email }) }
+        {
+          method: 'POST',
+          body: new URLSearchParams({ email }),
+        }
       );
       if (response.ok) {
         setSubscribed(true);
@@ -32,138 +50,178 @@ const Events = () => {
   };
 
   return (
-    <section id="events" className="py-20 bg-gray-900 relative overflow-hidden">
-      <div className="container relative z-10 mx-auto px-4">
+    <section id="events" className="py-20 bg-gray-900">
+      <div className="container mx-auto px-4">
 
-        {/* HEADER */}
+        {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-heading mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-orange-400 bg-clip-text text-transparent">
-            Events
-          </h2>
-          <div className="w-24 h-1 bg-cyan-400 mx-auto mb-8 rounded-full"></div>
+          <h2 className="text-4xl font-heading mb-4">Upcoming Events</h2>
+          <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            Join futuristic workshops, robotics bootcamps, and cutting-edge engineering events designed to push your technical skills to the next level.
+            Join us for workshops, competitions, and social gatherings...
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-          {/* ===================== SUMMER OF ROBOTICS ===================== */}
-          <div className="relative col-span-1 lg:col-span-2 rounded-3xl overflow-hidden border border-cyan-400/20 bg-white/[0.06] backdrop-blur-md shadow-[0_0_20px_rgba(0,255,255,0.10)] hover:shadow-[0_0_30px_rgba(0,255,255,0.14)] transition-all duration-500">
-            <div className="flex flex-col md:flex-row items-stretch">
-
-              <div className="md:w-1/2 p-8 relative z-10">
-                <div className="relative inline-flex items-center mb-4 px-3 py-1 bg-cyan-500/10 border border-cyan-400/20 rounded-full backdrop-blur-md">
-                  <Calendar size={16} className="text-cyan-400 mr-2" />
-                  <span className="text-sm text-cyan-300">Flagship Event</span>
-                </div>
-                <h3 className="text-3xl font-bold mb-4 font-heading text-white">Summer of Robotics</h3>
-                <div className="flex items-center text-gray-300 mb-2">
-                  <Calendar size={16} className="mr-2 text-cyan-400" />
-                  <span>6 Weeks Bootcamp</span>
-                </div>
-                <div className="flex items-center text-gray-300 mb-2">
-                  <Clock size={16} className="mr-2 text-cyan-400" />
-                  <span>Register by 4th June</span>
-                </div>
-                <div className="flex items-center text-gray-300 mb-4">
-                  <MapPin size={16} className="mr-2 text-cyan-400" />
-                  <span>MS Teams</span>
-                </div>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                  Summer of Robotics is ERC's flagship robotics bootcamp where ideas turn into intelligent machines. Dive into the complete robotics pipeline — from robot anatomy, CAD modelling, and URDF design to ROS2 simulations in Gazebo. Build autonomous systems using SLAM, OpenCV, YOLOv8, MoveIt, RSSI heatmaps, and Ollama-powered robotics AI while working on exciting real-world projects throughout the program.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScnv4Bs1Nn_aaZ4wuiZ75AFcLq7rKTkbZFDNmyMu2C2FeM5bg/viewform?usp=publish-editor"
-                    target="_blank" rel="noopener noreferrer"
-                    className="group/register px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-orange-500/40 active:scale-95"
-                  >
-                    Register Now
-                    <ArrowRight size={16} className="ml-2 group-hover/register:translate-x-1 transition-transform duration-300" />
-                  </a>
-                  <Link
-                    to="/sor"
-                    className="group/details px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-blue-500/40 active:scale-95"
-                  >
-                    Details
-                    <ArrowRight size={16} className="ml-2 group-hover/details:translate-x-1 transition-transform duration-300" />
-                  </Link>
-                </div>
+        {/* Featured Event - Summer of Robotics */}
+        <div className="bg-gradient-to-br from-blue-900/30 to-orange-900/30 rounded-xl overflow-hidden border border-blue-500/20 mb-8">
+          <div className="flex flex-col md:flex-row items-stretch">
+            <div className="md:w-1/2 p-8">
+              <div className="inline-flex items-center mb-4 px-3 py-1 bg-blue-500/20 rounded-full">
+                <Calendar size={16} className="text-blue-400 mr-2" />
+                <span className="text-sm text-blue-400">Flagship Event</span>
               </div>
-
-              {/* ✅ self-stretch so it fills the full card height, object-cover crops to fit */}
-              <div className="md:w-1/2 h-52 md:h-auto self-stretch overflow-hidden">
-                <img
-                  src={sor}
-                  alt="Summer of Robotics"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
+              <h3 className="text-2xl font-bold mb-3 font-heading">Summer of Robotics</h3>
+              <div className="flex items-center text-gray-300 mb-2">
+                <Calendar size={16} className="mr-2 text-gray-400" />
+                <span>6 Weeks Bootcamp</span>
               </div>
-
+              <div className="flex items-center text-gray-300 mb-2">
+                <Clock size={16} className="mr-2 text-gray-400" />
+                <span>Register by 4th June</span>
+              </div>
+              <div className="flex items-center text-gray-300 mb-4">
+                <MapPin size={16} className="mr-2 text-gray-400" />
+                <span>MS Teams</span>
+              </div>
+              <p className="text-gray-300 mb-6">
+                Summer of Robotics is ERC's flagship robotics bootcamp where ideas turn into intelligent machines.
+                Dive into the complete robotics pipeline — from robot anatomy, CAD modelling, and URDF design to
+                ROS2 simulations in Gazebo. Build autonomous systems using SLAM, OpenCV, YOLOv8, MoveIt, RSSI
+                heatmaps, and Ollama-powered robotics AI while working on exciting real-world projects throughout
+                the program.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScnv4Bs1Nn_aaZ4wuiZ75AFcLq7rKTkbZFDNmyMu2C2FeM5bg/viewform?usp=publish-editor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-blue-600 hover:bg-orange-600 rounded-md transition-all inline-flex items-center"
+                >
+                  Register Now
+                  <ArrowRight size={16} className="ml-2" />
+                </a>
+                <Link
+                  to="/sor"
+                  className="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-md transition-all inline-flex items-center"
+                >
+                  Details
+                  <ArrowRight size={16} className="ml-2" />
+                </Link>
+              </div>
+            </div>
+            <div className="md:w-1/2 h-64 md:h-auto relative">
+              <img
+                src={sor}
+                alt="Summer of Robotics"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
-
-          {/* ===================== ITSP BOOTCAMP ===================== */}
-          <div className="relative col-span-1 lg:col-span-2 rounded-3xl overflow-hidden border border-orange-400/20 bg-white/[0.06] backdrop-blur-md shadow-[0_0_20px_rgba(255,140,0,0.10)] hover:shadow-[0_0_30px_rgba(255,140,0,0.14)] transition-all duration-500">
-            <div className="flex flex-col md:flex-row items-stretch">
-
-              {/* ✅ same fix */}
-              <div className="md:w-1/2 h-52 md:h-auto self-stretch overflow-hidden">
-                <img
-                  src={itsp}
-                  alt="ITSP bootcamp"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="md:w-1/2 p-8 relative z-10">
-                <div className="relative inline-flex items-center mb-4 px-3 py-1 bg-orange-500/10 border border-orange-400/20 rounded-full backdrop-blur-md">
-                  <Calendar size={16} className="text-orange-400 mr-2" />
-                  <span className="text-sm text-orange-300">Technical Bootcamp</span>
-                </div>
-                <h3 className="text-3xl font-bold mb-4 font-heading text-white">ITSP Bootcamp 2026</h3>
-                <div className="flex items-center text-gray-300 mb-2">
-                  <Calendar size={16} className="mr-2 text-orange-400" />
-                  <span>24 May 2026</span>
-                </div>
-                <div className="flex items-center text-gray-300 mb-2">
-                  <Clock size={16} className="mr-2 text-orange-400" />
-                  <span>2:00 PM onwards</span>
-                </div>
-                <div className="flex items-center text-gray-300 mb-4">
-                  <MapPin size={16} className="mr-2 text-orange-400" />
-                  <span>MS Teams</span>
-                </div>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                  The ITSP Bootcamp introduced participants to embedded systems, sensors, microcontrollers, and IoT development while exploring tools like Gazebo, Proteus, MATLAB, and Simulink — making it the perfect launchpad for hardware and robotics projects.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://github.com/erciitb/ITSP_Resources"
-                    target="_blank" rel="noopener noreferrer"
-                    className="group/resources px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-orange-500/40 active:scale-95"
-                  >
-                    Resources
-                    <ArrowRight size={16} className="ml-2 group-hover/resources:translate-x-1 transition-transform duration-300" />
-                  </a>
-                  <a
-                    href="https://drive.google.com/drive/folders/1f6STxw4HsI13xQ7eypBQ2V5cH2fjp4BD"
-                    target="_blank" rel="noopener noreferrer"
-                    className="group/slides px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-blue-500/40 active:scale-95"
-                  >
-                    Slides & Recordings
-                    <ArrowRight size={16} className="ml-2 group-hover/slides:translate-x-1 transition-transform duration-300" />
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
         </div>
+
+        {/* Event Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {eventsData.map((event) => (
+            <div
+              key={event.id}
+              className={`rounded-xl overflow-hidden transition-all group ${
+                event.seats === 'Completed'
+                  ? 'bg-white/10 backdrop-blur-md border border-white/20'
+                  : 'bg-gray-900 hover:shadow-lg hover:shadow-blue-500/10'
+              }`}
+            >
+              <div className="h-48 relative">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 font-heading">{event.title}</h3>
+                <div className="flex items-center text-gray-300 mb-2">
+                  <Calendar size={16} className="mr-2 text-gray-400" />
+                  <span>{event.date}</span>
+                </div>
+                <div className="flex items-center text-gray-300 mb-2">
+                  <Clock size={16} className="mr-2 text-gray-400" />
+                  <span>{event.time}</span>
+                </div>
+                <div className="flex items-center text-gray-300 mb-3">
+                  <MapPin size={16} className="mr-2 text-gray-400" />
+                  <span>{event.location}</span>
+                </div>
+                <p className="text-gray-400 mb-4">{event.description}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-gray-300">
+                    <Users size={16} className="mr-2 text-gray-400" />
+                    <span>{event.seats}</span>
+                  </div>
+                  {event.seats === 'Completed' ? (
+                    <div className="flex items-center gap-4">
+                      {event.resourcesLink && (
+                        <a
+                          href={event.resourcesLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-orange-400 hover:text-orange-300 transition-colors font-medium inline-flex items-center gap-1"
+                        >
+                          Resources
+                          <ArrowRight size={14} />
+                        </a>
+                      )}
+                      {event.slidesLink && (
+                        
+                        <a
+                          href={event.slidesLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:text-blue-300 transition-colors font-medium inline-flex items-center gap-1"
+                        >
+                          Slides & Recordings
+                          <ArrowRight size={14} />
+                        </a>
+                      )}
+                    </div>
+                  ) : (
+                    <button className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                      Register
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Subscription */}
+        <div className="mt-12 p-6 bg-blue-900/30 rounded-xl border border-gray-700 text-center mb-20">
+          <h3 className="text-xl font-semibold mb-4">Stay Updated on All Events</h3>
+          <p className="text-gray-300 mb-6">
+            Subscribe to our newsletter to receive notifications...
+          </p>
+          <div className="flex flex-col sm:flex-row max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="px-4 py-3 bg-gray-900 rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-500 border border-gray-700 mb-2 sm:mb-0 sm:flex-1"
+            />
+            <button
+              onClick={handleSubscribe}
+              disabled={subscribed}
+              className={`px-6 py-3 transition-colors sm:rounded-l-none rounded-md ${
+                subscribed
+                  ? 'bg-orange-600 text-white cursor-default'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
+            >
+              {subscribed ? 'Subscribed!' : 'Subscribe'}
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
   );
