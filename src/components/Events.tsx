@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
-import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
-import Cont from '../assets/itsp banner.png';
-import Xlr8Img from '../assets/header.png';
+import { Link } from 'react-router-dom';
+import {
+  Calendar,
+  Clock,
+  MapPin,
+  ArrowRight,
+} from 'lucide-react';
 
-import itsp from '../assets/itsp banner.png';
-import sor from '../assets/sor banner.jpg';
+// ✅ Just use URLs directly as strings — no import needed for external URLs
+const itsp = 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780121523/itsp_banner.png';
+const sor = 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780121521/sor_banner.png';
 
 const Events = () => {
   const [email, setEmail] = useState('');
@@ -26,9 +30,7 @@ const Events = () => {
       if (response.ok) {
         setSubscribed(true);
         setEmail('');
-        setTimeout(() => {
-          setSubscribed(false);
-        }, 3000);
+        setTimeout(() => setSubscribed(false), 3000);
       }
     } catch (error) {
       console.error('Error subscribing:', error);
@@ -36,12 +38,11 @@ const Events = () => {
   };
 
   return (
-    <section
-      id="events"
-      className="py-20 bg-gray-900 relative overflow-hidden"
-    >
+    <section id="events" className="py-20 bg-gray-900 relative overflow-hidden">
 
       <div className="container relative z-10 mx-auto px-4">
+
+        {/* HEADER */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-heading mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-orange-400 bg-clip-text text-transparent">
             Events
@@ -54,16 +55,16 @@ const Events = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-          {/* SUMMER OF ROBOTICS CARD */}
-          <div className="relative col-span-1 lg:col-span-2 rounded-3xl overflow-hidden border border-cyan-400/20 bg-white/[0.06] backdrop-blur-md shadow-[0_0_40px_rgba(0,255,255,0.12)] hover:shadow-[0_0_55px_rgba(0,255,255,0.18)] transition-all duration-500">
+          {/* ===================== SUMMER OF ROBOTICS ===================== */}
+          <div className="relative col-span-1 lg:col-span-2 rounded-3xl overflow-hidden border border-cyan-400/20 bg-white/[0.06] backdrop-blur-md shadow-[0_0_20px_rgba(0,255,255,0.10)] hover:shadow-[0_0_30px_rgba(0,255,255,0.14)] transition-all duration-500">
+
             <div className="flex flex-col md:flex-row">
+
               <div className="md:w-1/2 p-8 relative z-10">
-                <div className="relative inline-flex items-center mb-4 px-3 py-1 bg-cyan-500/10 border border-cyan-400/20 rounded-full backdrop-blur-md overflow-hidden">
-                  <div className="absolute inset-0 bg-cyan-400/20 blur-xl"></div>
-                  <div className="relative z-10 flex items-center">
-                    <Calendar size={16} className="text-cyan-400 mr-2" />
-                    <span className="text-sm text-cyan-300">Flagship Event</span>
-                  </div>
+
+                <div className="relative inline-flex items-center mb-4 px-3 py-1 bg-cyan-500/10 border border-cyan-400/20 rounded-full backdrop-blur-md">
+                  <Calendar size={16} className="text-cyan-400 mr-2" />
+                  <span className="text-sm text-cyan-300">Flagship Event</span>
                 </div>
 
                 <h3 className="text-3xl font-bold mb-4 font-heading text-white">
@@ -71,21 +72,15 @@ const Events = () => {
                 </h3>
 
                 <div className="flex items-center text-gray-300 mb-2">
-                  <Calendar
-                    size={16}
-                    className="mr-2 text-cyan-400"
-                  />
-
+                  <Calendar size={16} className="mr-2 text-cyan-400" />
                   <span>6 Weeks Bootcamp</span>
                 </div>
-                <div className="flex items-center text-gray-300 mb-2">
-                  <Clock
-                    size={16}
-                    className="mr-2 text-cyan-400"
-                  />
 
+                <div className="flex items-center text-gray-300 mb-2">
+                  <Clock size={16} className="mr-2 text-cyan-400" />
                   <span>Register by 4th June</span>
                 </div>
+
                 <div className="flex items-center text-gray-300 mb-4">
                   <MapPin size={16} className="mr-2 text-cyan-400" />
                   <span>MS Teams</span>
@@ -100,20 +95,21 @@ const Events = () => {
                     href="https://docs.google.com/forms/d/e/1FAIpQLScnv4Bs1Nn_aaZ4wuiZ75AFcLq7rKTkbZFDNmyMu2C2FeM5bg/viewform?usp=publish-editor"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/register px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-cyan-500/40 active:scale-95"
+                    className="group/register px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-orange-500/40 active:scale-95"
                   >
                     Register Now
-                    <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/register:translate-x-1" />
+                    <ArrowRight size={16} className="ml-2 group-hover/register:translate-x-1 transition-transform duration-300" />
                   </a>
 
                   <Link
                     to="/sor"
-                    className="group/details px-6 py-3 rounded-lg border border-cyan-400/40 bg-white/[0.06] hover:bg-cyan-500/15 text-cyan-300 font-medium transition-all duration-300 inline-flex items-center hover:-translate-y-1 hover:shadow-cyan-500/30 hover:shadow-lg active:scale-95"
+                    className="group/details px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-blue-500/40 active:scale-95"
                   >
                     Details
-                    <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/details:translate-x-1" />
+                    <ArrowRight size={16} className="ml-2 group-hover/details:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
+
               </div>
 
               <div className="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
@@ -121,16 +117,19 @@ const Events = () => {
                   src={sor}
                   alt="Summer of Robotics"
                   loading="lazy"
-                  className="w-full h-full object-contain bg-gradient-to-br from-[#020617] via-[#0f172a] to-black p-8"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 via-transparent to-blue-500/10 opacity-60 pointer-events-none"></div>
               </div>
+
             </div>
           </div>
 
-          {/* ITSP BOOTCAMP CARD */}
-          <div className="relative col-span-1 lg:col-span-2 rounded-3xl overflow-hidden border border-orange-400/20 bg-white/[0.06] backdrop-blur-md shadow-[0_0_40px_rgba(255,140,0,0.12)] hover:shadow-[0_0_55px_rgba(255,140,0,0.18)] transition-all duration-500">
+          {/* ===================== ITSP BOOTCAMP ===================== */}
+          <div className="relative col-span-1 lg:col-span-2 rounded-3xl overflow-hidden border border-orange-400/20 bg-white/[0.06] backdrop-blur-md shadow-[0_0_20px_rgba(255,140,0,0.10)] hover:shadow-[0_0_30px_rgba(255,140,0,0.14)] transition-all duration-500">
+
             <div className="flex flex-col md:flex-row">
+
               <div className="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
                 <img
                   src={itsp}
@@ -141,13 +140,11 @@ const Events = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 via-transparent to-yellow-500/10 opacity-60 pointer-events-none"></div>
               </div>
 
-              <div className="md:w-1/2 p-8 order-1 md:order-2 relative z-10">
-                <div className="relative inline-flex items-center mb-4 px-3 py-1 bg-orange-500/10 border border-orange-400/20 rounded-full backdrop-blur-md overflow-hidden">
-                  <div className="absolute inset-0 bg-orange-400/20 blur-xl"></div>
-                  <div className="relative z-10 flex items-center">
-                    <Calendar size={16} className="text-orange-400 mr-2" />
-                    <span className="text-sm text-orange-300">Technical Bootcamp</span>
-                  </div>
+              <div className="md:w-1/2 p-8 relative z-10">
+
+                <div className="relative inline-flex items-center mb-4 px-3 py-1 bg-orange-500/10 border border-orange-400/20 rounded-full backdrop-blur-md">
+                  <Calendar size={16} className="text-orange-400 mr-2" />
+                  <span className="text-sm text-orange-300">Technical Bootcamp</span>
                 </div>
 
                 <h3 className="text-3xl font-bold mb-4 font-heading text-white">
@@ -158,10 +155,12 @@ const Events = () => {
                   <Calendar size={16} className="mr-2 text-orange-400" />
                   <span>24 May 2026</span>
                 </div>
+
                 <div className="flex items-center text-gray-300 mb-2">
                   <Clock size={16} className="mr-2 text-orange-400" />
                   <span>2:00 PM onwards</span>
                 </div>
+
                 <div className="flex items-center text-gray-300 mb-4">
                   <MapPin size={16} className="mr-2 text-orange-400" />
                   <span>MS Teams</span>
@@ -179,7 +178,7 @@ const Events = () => {
                     className="group/resources px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-orange-500/40 active:scale-95"
                   >
                     Resources
-                    <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/resources:translate-x-1" />
+                    <ArrowRight size={16} className="ml-2 group-hover/resources:translate-x-1 transition-transform duration-300" />
                   </a>
 
                   <a
@@ -189,43 +188,17 @@ const Events = () => {
                     className="group/slides px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:-translate-y-1 hover:shadow-blue-500/40 active:scale-95"
                   >
                     Slides & Recordings
-                    <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/slides:translate-x-1" />
+                    <ArrowRight size={16} className="ml-2 group-hover/slides:translate-x-1 transition-transform duration-300" />
                   </a>
                 </div>
+
               </div>
+
             </div>
           </div>
+
         </div>
 
-        <div className="mt-12 p-6 bg-white/[0.06] backdrop-blur-md rounded-3xl border border-white/10 text-center mb-20 shadow-2xl">
-          <h3 className="text-2xl font-semibold mb-4 text-white">
-            Stay Updated on All Events
-          </h3>
-          <p className="text-gray-300 mb-6">
-            Subscribe to receive updates about workshops, robotics bootcamps, competitions, and club activities.
-          </p>
-
-          <div className="flex flex-col sm:flex-row max-w-md mx-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="px-4 py-3 bg-black/40 text-white rounded-l-md focus:outline-none focus:ring-1 focus:ring-cyan-400 border border-cyan-400/20 mb-2 sm:mb-0 sm:flex-1"
-            />
-            <button
-              onClick={handleSubscribe}
-              disabled={subscribed}
-              className={`px-6 py-3 transition-all duration-300 sm:rounded-l-none rounded-md ${
-                subscribed
-                  ? 'bg-orange-600 text-white cursor-default'
-                  : 'bg-cyan-500 hover:bg-cyan-400 text-black font-semibold hover:-translate-y-1 active:scale-95'
-              }`}
-            >
-              {subscribed ? 'Subscribed!' : 'Subscribe'}
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
