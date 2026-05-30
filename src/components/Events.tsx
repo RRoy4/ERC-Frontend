@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
-import Cont from '../assets/ctbc banner.png';
+import Cont from '../assets/itsp banner.png';
 import Xlr8Img from '../assets/header.png';
 
 const eventsData = [
   {
     id: 1,
-    title: 'Control Theory Bootcamp 2025',
-    date: 'Ended on July 9, 2025',
-    time: '4 Weeks, via Moodle',
-    location: "Engineering Summer School, Learners' Space 2025",
+    title: 'ITSP Bootcamp 2026',
+    date: 'Held on May 24th 2026',
+    time: '2:00 PM, via MS Teams',
     description:
-      "This course is your gateway into the world of control systems — the brains behind every smart, stable machine...",
+      "Introduction to the world of Microcontrollers, Sensors, and IoT systems with brief demo runs of different softwares to help students enrolled to hardware projects of ITSP",
     image: Cont,
-    seats: 'Completed',
-    certificateLink: '/certificates',
+    session recording with slides: 
+    ITSP resources : '/certificates',
   },
 ];
 
