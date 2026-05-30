@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import SOR from './components/SOR';
 
 const XLR8Page = lazy(() => import('./components/XLR8Page.tsx'));
 const Events = lazy(() => import('./components/Events'));
@@ -46,6 +47,7 @@ function App() {
               <Route path="/legacy" element={<LegacyPage />} />
               <Route path="/certificates" element={<CertificatePortal />} />
               <Route path="/xlr8" element={<XLR8Page />} />
+              <Route path="/sor" element={<SOR />} />
               {/* <Route path="/winteROS" element={<Winteros />} /> */}
 
               {/* NEW ROUTE */}
