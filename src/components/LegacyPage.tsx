@@ -15,14 +15,14 @@ const LegacyPage = () => {
   
   // Team data with years and image paths - ordered from 2020 to 2024
   const teams = [
-    { year: 2025, image: '/team/images/2025-26.jpg' },
-    { year: 2024, image: '/team/images/2024-25.jpg' },
-    { year: 2023, image: '/team/images/2023-24.jpg' },
-    { year: 2022, image: '/team/images/2022-23.jpg' },
-    { year: 2021, image: '/team/images/2021-22.jpg' },
-    { year: 2020, image: '/team/images/2020-21.jpg' },
-    { year: 2019, image: '/team/images/2019-20.jpg' },
-    { year: 2018, image: '/team/images/2018-19.jpg' }
+    { year: 2025, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2025-26.jpg' },
+    { year: 2024, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2024-25.jpg' },
+    { year: 2023, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2023-24.jpg' },
+    { year: 2022, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2022-23.jpg' },
+    { year: 2021, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2021-22.jpg' },
+    { year: 2020, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2020-21.jpg' },
+    { year: 2019, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2019-20.jpg' },
+    { year: 2018, image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110702/2018-19.jpg' }
   ];
 
   return (
