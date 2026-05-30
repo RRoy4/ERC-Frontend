@@ -2,36 +2,33 @@ import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// const resoimg = "/blogs/thumb/";
-
 const resourcesData = [
   {
     id: 1,
     title: 'Watt is Electronics?: An Amateurs Roadmap',
     description: 'Master digital logic design, microcontroller architecture, and embedded programming fundamentals.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/wie.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780110713/wie.jpg',
     link: 'https://github.com/erciitb/WattIsElectronics/blob/main/README.md',
   },
   {
     id: 4,
     title: 'MCU: MicroController Universe',
     description: 'Get started with microcontrollers — the tiny computers behind modern electronics. Learn the basics of architecture, GPIO, and communication protocols.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/mcu.webp',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780110713/mcu.webp',
     link: 'https://github.com/erciitb/MCU-MicroControllerUniverse/blob/main/README.md',
   },
   {
     id: 2,
     title: 'A beginners Guide to ROS2 Humble',
     description: 'Comprehensive guide to ROS architecture, working and applications along with Gazebo. Works for any OS.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/reso-ros.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780110713/reso-ros.png',
     link: 'https://github.com/erciitb/fROSty-winter-2024/blob/main/README.md',
   },
-
   {
     id: 5,
     title: 'Hardware Security & Reverse Engineering',
     description: 'Circuit analysis, fault injection, and side-channel attacks for embedded system security.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110713/reso-hh.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780110713/reso-hh.png',
     link: 'https://github.com/erciitb/Hardware_Hacking_Resources/blob/main/README.md',
   }
 ];
@@ -41,21 +38,21 @@ const workshopData = [
     id: 1,
     title: 'Control Theory Bootcamp',
     description: 'Master PID, LQR and system modeling through MATLAB Simulink and build a self-balancing bot.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780116239/ctb.jpg',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780116239/ctb.jpg',
     link: 'https://github.com/erciitb/LS2025_Control_Theory/tree/main',
   },
   {
     id: 3,
     title: 'ITSP Collaborative and Prototyping tools',
     description: 'Devise and design the perfect ITSA Project by using the right tools and software when remote.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110693/reso-ct.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780110693/reso-ct.png',
     link: 'https://github.com/erciitb/ITSP_Resources/blob/main/README.md',
   },
   {
     id: 6,
     title: 'Internet Of Things Workshop',
     description: 'Hands-on worshop exploring IoT systems, edge AI, and communication technologies.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780116234/iot.png',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto/v1780116234/iot.png',
     link: 'https://github.com/Radhika-B1084/ESP32CAM-face',
   }
 ];
@@ -83,13 +80,8 @@ const Resources = () => {
           rel="noopener noreferrer"
           className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-lg transition-colors group bg-orange-600 hover:bg-orange-500"
         >
-          <span className="font-medium text-white">
-            Access Resource
-          </span>
-          <ExternalLink
-            size={18}
-            className="transition-colors text-white group-hover:text-white"
-          />
+          <span className="font-medium text-white">Access Resource</span>
+          <ExternalLink size={18} className="transition-colors text-white group-hover:text-white" />
         </a>
       </div>
     </div>
@@ -98,6 +90,7 @@ const Resources = () => {
   return (
     <section id="resources" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
+
         {/* Tutorials Section */}
         <div id="tutorials" className="text-center mb-16">
           <h2 className="text-4xl font-heading mb-4">Learning Resources</h2>
@@ -138,6 +131,7 @@ const Resources = () => {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
