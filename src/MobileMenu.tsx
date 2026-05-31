@@ -48,6 +48,14 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
         >
           XLR8
         </Link>
+
+        <Link
+          to="/sor"
+          className="px-4 py-3 bg-blue-600 hover:bg-blue-500 rounded-md transition-colors text-center font-heading"
+          onClick={onClose}
+        >
+          SOR
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import{d as r,j as a,a as d}from"./index-DXBbLgyx.js";import{M as m}from"./mail-DrcsmHqC.js";/**
+import{d as r,j as a,a as d}from"./index-c4iHWqUc.js";import{M as m}from"./mail-DGmjv37q.js";/**
  * @license lucide-react v0.344.0 - ISC
  *
  * This source code is licensed under the ISC license.
