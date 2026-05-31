@@ -11,6 +11,13 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
+    week: '31 May - 4 June',
+    title: 'Registrations Open',
+    description: 'Register for Summer of Robotics 2026. Complete the registration form and secure your spot before registrations close on 4th June.',
+    gradient: 'from-green-400 to-emerald-600',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(74,222,128,0.4)]',
+  },
+  {
     week: 'Week 1',
     title: 'Mechatronics',
     description: 'Dive into the core building blocks of physical robotics. This phase packs in mechanical CAD design, coordinate transformations, and IK/FK math, right alongside practical control theory, dynamic actuation, and sensor integration.',
@@ -38,6 +45,7 @@ const SOR: React.FC = () => {
   
   const [phone, setPhone] = useState('');
   const [motivation, setMotivation] = useState('');
+  const [dreamGadget, setDreamGadget] = useState('');
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasRegistered, setHasRegistered] = useState(false);
@@ -57,7 +65,7 @@ const SOR: React.FC = () => {
       return;
     }
 
-    if (!phone.trim() || !motivation.trim() || !user?.name || !user?.roll || !user?.department) {
+    if (!phone.trim() || !motivation.trim() || !dreamGadget.trim() || !user?.name || !user?.roll || !user?.department) {
       alert("Please fill out all the required fields before submitting! (Make sure your account details are loaded)");
       return;
     }
@@ -74,7 +82,8 @@ const SOR: React.FC = () => {
             roll: user.roll,
             department: user.department,
             phone: phone.trim(),
-            motivation: motivation.trim()
+            motivation: motivation.trim(),
+            dreamGadget: dreamGadget.trim()
           }),
         }
       );
@@ -91,6 +100,7 @@ const SOR: React.FC = () => {
         if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
         setPhone('');
         setMotivation('');
+        setDreamGadget('');
       } 
       else {
         alert("Something went wrong on the server. Please try again.");
@@ -107,15 +117,19 @@ const SOR: React.FC = () => {
     <div className="min-h-screen bg-gray-900 text-white py-20 px-4 sm:px-8 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
 
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold font-heading mb-6 text-blue-500">
             Summer of Robotics
           </h1>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-6 rounded-full"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Your roadmap to mastering the intersection of hardware and software.
+          <p className="text-gray-300 text-lg md:text-xl leading-9 max-w-6xl mx-auto text-center px-4">
+            Ever wondered how robots perceive, think, and interact with the world? Join Summer of Robotics 2026 and take your first step into the exciting fields of Mechatronics and ROS-based Simulation.
+
+            Starting 5th June 2026, this program consists of 5 lectures designed to provide a strong foundation in robotics, combining essential concepts with practical insights into modern robotic systems and simulation tools.
+
+            Whether you're a beginner exploring robotics or someone looking to build practical skills, this program offers an opportunity to learn, create, and begin your journey in robotics.
           </p>
         </div>
 
@@ -170,6 +184,24 @@ const SOR: React.FC = () => {
                       required
                     />
                   </div>
+
+                  <div>
+                  <label className="block text-gray-400 text-sm mb-2">
+                    Ever watched Iron Man, Doraemon, Transformers, Interstellar, Marvel, Anime, or any sci-fi movie and thought:
+                    <span className="text-blue-400"> "I wish I could build that!"</span>
+                    🤖⚡
+                    <span className="text-red-500">*</span>
+                  </label>
+
+                  <textarea
+                    rows={4}
+                    value={dreamGadget}
+                    onChange={(e) => setDreamGadget(e.target.value)}
+                    placeholder="Tell us the gadget, robot, suit, AI assistant, spacecraft, or technology you'd love to build someday and why!"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    required
+                  />
+                </div>
 
                   <button 
                     onClick={handleRegister}

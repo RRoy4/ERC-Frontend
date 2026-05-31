@@ -16,7 +16,6 @@ const eventsData = [
       'The ITSP Bootcamp introduced participants to embedded systems, sensors, microcontrollers, and IoT development while exploring tools like Gazebo, Proteus, MATLAB, and Simulink — making it the perfect launchpad for hardware and robotics projects.',
     image: itsp,
     seats: 'Completed',
-    resourcesLink: 'https://github.com/erciitb/ITSP_Resources',
     slidesLink: 'https://drive.google.com/drive/folders/1f6STxw4HsI13xQ7eypBQ2V5cH2fjp4BD',
   },
 ];
@@ -144,17 +143,6 @@ const Events = () => {
                   </div>
                   {event.seats === 'Completed' ? (
                     <div className="flex items-center gap-4">
-                      {event.resourcesLink && (
-                        <a
-                          href={event.resourcesLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-orange-400 hover:text-orange-300 transition-colors font-medium inline-flex items-center gap-1"
-                        >
-                          Resources
-                          <ArrowRight size={14} />
-                        </a>
-                      )}
                       {event.slidesLink && (
                         <a
                           href={event.slidesLink}
