@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, Cpu } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import HeaderLogo from '../assets/header.png';
 import MobileMenu from '../MobileMenu';
-
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -22,9 +21,13 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSorClick = () => {
+    setIsMenuOpen(false);
+    navigate('/sor');
+  };
+
   const navItems = [
     { label: 'Home', path: '/' },
-    // { label: 'projects', path: '/projects' },
     { label: 'events', path: '/events' },
     { label: 'team', path: '/team' },
     { label: 'legacy', path: '/legacy' },
@@ -41,6 +44,7 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+
           {/* Logo */}
           <Link to="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
             <img src={HeaderLogo} alt="Header Logo" className="w-auto h-20 min-h-[24px] min-w-[24px]" />
@@ -59,24 +63,25 @@ const Header = () => {
               </Link>
             ))}
 
-            {/* WinterROS Link with background
-            <Link
-              to="/winteros"
-              className="px-4 py-2 bg-blue-600 hover:bg-cyan-500 rounded-md transition-colors font-heading"
-              onClick={() => setIsMenuOpen(false)}
+            {/* SOR Button */}
+            <button
+              onClick={handleSorClick}
+              className="px-4 py-2 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors font-heading text-white"
             >
-              ❄️ WinteROS
-            </Link> */}
+              SOR
+            </button>
 
+            {/* XLR8 Button */}
             <Link
               to="/xlr8"
               className="px-4 py-2 bg-blue-600 hover:bg-orange-700 rounded-md transition-colors font-heading"
             >
               XLR8
             </Link>
+
           </nav>
 
-          {/* Mobile Menu Toggle — move inside the same flex row */}
+          {/* Mobile Menu Toggle */}
           <button className="md:hidden text-gray-300" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

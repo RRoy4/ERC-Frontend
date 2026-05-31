@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
+import { useAuth, logout } from '../hooks/useAuth'
 
-// Define the structure for our timeline items to keep the code clean
 interface TimelineItem {
-  week: string;
-  title: string;
-  description: string;
-  gradient: string;
-  glow: string;
+  week: string
+  title: string
+  description: string
+  gradient: string
+  glow: string
 }
 
 const timelineData: TimelineItem[] = [
@@ -31,23 +31,20 @@ const timelineData: TimelineItem[] = [
     gradient: 'from-yellow-400 to-orange-500',
     glow: 'group-hover:shadow-[0_0_30px_rgba(251,146,60,0.4)]',
   },
-];
+]
 
 const SOR: React.FC = () => {
+  const { user } = useAuth()
+
   return (
     <div className="min-h-screen bg-gray-900 text-white py-20 px-4 sm:px-8 relative overflow-hidden">
-      
-      {/* Background Ambient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        
-        {/* Header Section */}
+
+        {/* Header */}
         <div className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-bold font-heading mb-6 
-            bg-gradient-to-r from-yellow-300 via-orange-400 to-blue-500 
-            bg-[length:200%_200%] bg-clip-text text-transparent 
-            animate-gradient-x">
+          <h1 className="text-5xl md:text-6xl font-bold font-heading mb-6 bg-gradient-to-r from-yellow-300 via-orange-400 to-blue-500 bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x">
             Summer of Robotics
           </h1>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-6 rounded-full"></div>
@@ -56,63 +53,100 @@ const SOR: React.FC = () => {
           </p>
         </div>
 
-        {/* Timeline Container */}
+        {/* Timeline */}
         <div className="relative border-l-2 border-gray-800 ml-4 md:ml-0 md:border-none">
-          
-          {/* Central Line for Desktop */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-orange-500 -translate-x-1/2 rounded-full opacity-50"></div>
-
           <div className="space-y-12">
             {timelineData.map((item, index) => (
-              <div 
-                key={index} 
-                className={`relative flex flex-col md:flex-row items-center group
-                  ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}
-                `}
+              <div
+                key={index}
+                className={`relative flex flex-col md:flex-row items-center group ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
               >
-                
-                {/* Timeline Dot */}
-                <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-gray-900 border-4 border-gray-700 
-                  group-hover:border-white transition-colors duration-300 z-10
-                  shadow-[0_0_10px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.8)]">
-                </div>
-
-                {/* Content Card (Left or Right depending on index) */}
+                <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-gray-900 border-4 border-gray-700 group-hover:border-white transition-colors duration-300 z-10 shadow-[0_0_10px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.8)]"></div>
                 <div className={`ml-8 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
-                  
-                  <div className={`
-                    p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10
-                    transform transition-all duration-500 ease-out
-                    group-hover:-translate-y-2 ${item.glow}
-                  `}>
-                    
-                    {/* Week Badge */}
-                    <span className={`
-                      inline-block px-4 py-1 rounded-full text-sm font-bold mb-4
-                      bg-gradient-to-r ${item.gradient} text-gray-950
-                    `}>
+                  <div className={`p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 transform transition-all duration-500 ease-out group-hover:-translate-y-2 ${item.glow}`}>
+                    <span className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 bg-gradient-to-r ${item.gradient} text-gray-950`}>
                       {item.week}
                     </span>
-                    
-                    {/* Card Title */}
-                    <h3 className="text-2xl font-bold text-gray-100 mb-3">
-                      {item.title}
-                    </h3>
-                    
-                    {/* Card Description */}
-                    <p className="text-gray-400 leading-relaxed">
-                      {item.description}
-                    </p>
-
+                    <h3 className="text-2xl font-bold text-gray-100 mb-3">{item.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* User details + Registration form */}
+        <div className="mt-20">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+
+            {/* User info bar */}
+            <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+              <div>
+                <p className="text-white font-bold text-xl">{user?.name}</p>
+                <p className="text-gray-400 text-sm mt-1">{user?.roll} · {user?.department} · {user?.degree}</p>
+              </div>
+              <button
+                onClick={logout}
+                className="text-xs text-gray-500 hover:text-gray-300 underline transition-colors"
+              >
+                Logout
+              </button>
+            </div>
+
+            {/* Registration form */}
+            <h2 className="text-2xl font-bold text-white mb-6">Complete Your Registration</h2>
+
+            <div className="space-y-5">
+              <div>
+                <label className="block text-gray-400 text-sm mb-2">Phone Number</label>
+                <input
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-400 text-sm mb-2">Hostel</label>
+                <input
+                  type="text"
+                  placeholder="e.g. H4, H10"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-400 text-sm mb-2">Prior Experience</label>
+                <select className="w-full bg-gray-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
+                  <option value="">Select experience level</option>
+                  <option value="none">No prior experience</option>
+                  <option value="beginner">Beginner — done a few tutorials</option>
+                  <option value="intermediate">Intermediate — built small projects</option>
+                  <option value="advanced">Advanced — worked on robotics before</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-gray-400 text-sm mb-2">Why do you want to join SOR?</label>
+                <textarea
+                  rows={4}
+                  placeholder="Tell us your motivation..."
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                />
+              </div>
+
+              <button className="w-full py-4 bg-blue-600 hover:bg-blue-500 rounded-xl font-bold text-white transition-all duration-200 hover:scale-[1.02] mt-2">
+                Submit Registration
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SOR;
+export default SOR

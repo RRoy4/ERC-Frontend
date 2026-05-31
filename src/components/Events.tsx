@@ -7,7 +7,6 @@ import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
 import itsp from '../assets/itsp_banner.png';
 import sor from '../assets/sor_banner.png';
 
-
 const eventsData = [
   {
     id: 1,
@@ -55,7 +54,7 @@ const Events = () => {
 
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-heading mb-4">Upcoming Events</h2>
+          <h2 className="text-4xl font-heading mb-4">Events</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             Join us for workshops, competitions, and social gatherings...
@@ -109,7 +108,7 @@ const Events = () => {
                 </Link>
               </div>
             </div>
-            <div className="md:w-1/2 h-64 md:h-auto relative">
+            <div className="md:w-1/2 h-64 md:h-auto relative bg-gray-950/50 flex items-center justify-center">
               <img
                 src={sor}
                 alt="Summer of Robotics"
@@ -130,7 +129,7 @@ const Events = () => {
                   : 'bg-gray-900 hover:shadow-lg hover:shadow-blue-500/10'
               }`}
             >
-              <div className="h-48 relative">
+              <div className="h-48 relative bg-gray-950/50 flex items-center justify-center overflow-hidden">
                 <img
                   src={event.image}
                   alt={event.title}
