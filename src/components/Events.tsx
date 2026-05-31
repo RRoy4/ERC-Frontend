@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
 
-// const itsp = 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/itsp_banner.jpg';
-// const sor = 'https://res.cloudinary.com/djbm9dagt/image/upload/v1780110647/sor_banner.jpg';
 import itsp from '../assets/itsp_banner.png';
 import sor from '../assets/sor_banner.png';
 
@@ -52,7 +50,6 @@ const Events = () => {
     <section id="events" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
 
-        {/* Section Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-heading mb-4">Events</h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
@@ -61,7 +58,6 @@ const Events = () => {
           </p>
         </div>
 
-        {/* Featured Event - Summer of Robotics */}
         <div className="bg-gradient-to-br from-blue-900/30 to-orange-900/30 rounded-xl overflow-hidden border border-blue-500/20 mb-8">
           <div className="flex flex-col md:flex-row items-stretch">
             <div className="md:w-1/2 p-8">
@@ -90,18 +86,9 @@ const Events = () => {
                 the program.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScnv4Bs1Nn_aaZ4wuiZ75AFcLq7rKTkbZFDNmyMu2C2FeM5bg/viewform?usp=publish-editor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-blue-600 hover:bg-orange-600 rounded-md transition-all inline-flex items-center"
-                >
-                  Register Now
-                  <ArrowRight size={16} className="ml-2" />
-                </a>
                 <Link
                   to="/sor"
-                  className="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-md transition-all inline-flex items-center"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md transition-all inline-flex items-center"
                 >
                   Details
                   <ArrowRight size={16} className="ml-2" />
@@ -118,7 +105,6 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Event Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {eventsData.map((event) => (
             <div
@@ -170,7 +156,6 @@ const Events = () => {
                         </a>
                       )}
                       {event.slidesLink && (
-                        
                         <a
                           href={event.slidesLink}
                           target="_blank"
@@ -193,7 +178,6 @@ const Events = () => {
           ))}
         </div>
 
-        {/* Subscription */}
         <div className="mt-12 p-6 bg-blue-900/30 rounded-xl border border-gray-700 text-center mb-20">
           <h3 className="text-xl font-semibold mb-4">Stay Updated on All Events</h3>
           <p className="text-gray-300 mb-6">

@@ -1,12 +1,12 @@
-import React from 'react'
-import { useAuth, logout } from '../hooks/useAuth'
+import React, { useState, useEffect } from 'react';
+import { useAuth, logout } from '../hooks/useAuth';
 
 interface TimelineItem {
-  week: string
-  title: string
-  description: string
-  gradient: string
-  glow: string
+  week: string;
+  title: string;
+  description: string;
+  gradient: string;
+  glow: string;
 }
 
 const timelineData: TimelineItem[] = [
@@ -31,10 +31,77 @@ const timelineData: TimelineItem[] = [
     gradient: 'from-yellow-400 to-orange-500',
     glow: 'group-hover:shadow-[0_0_30px_rgba(251,146,60,0.4)]',
   },
-]
+];
 
 const SOR: React.FC = () => {
-  const { user } = useAuth()
+  const { user } = useAuth();
+  
+  const [phone, setPhone] = useState('');
+  const [motivation, setMotivation] = useState('');
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasRegistered, setHasRegistered] = useState(false);
+
+  useEffect(() => {
+    if (user?.roll) {
+      const alreadyRegistered = localStorage.getItem(`sor_registered_${user.roll}`);
+      if (alreadyRegistered) {
+        setHasRegistered(true);
+      }
+    }
+  }, [user]);
+
+  const handleRegister = async () => {
+    if (hasRegistered) {
+      alert("You have already registered for this event!");
+      return;
+    }
+
+    if (!phone.trim() || !motivation.trim() || !user?.name || !user?.roll || !user?.department) {
+      alert("Please fill out all the required fields before submitting! (Make sure your account details are loaded)");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        'https://script.google.com/macros/s/AKfycbyTA9Hvg2-N9jYpFkgo1pRpZvZy6682l3krmVYcpDYvZyYLtnMe7Z_KwWyBHAdajyAS/exec',
+        {
+          method: 'POST',
+          body: new URLSearchParams({ 
+            name: user.name,
+            roll: user.roll,
+            department: user.department,
+            phone: phone.trim(),
+            motivation: motivation.trim()
+          }),
+        }
+      );
+
+      const resultText = await response.text();
+
+      if (resultText === "Duplicate") {
+        alert("Our records show this Roll Number is already registered!");
+        setHasRegistered(true);
+        if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
+      } 
+      else if (resultText === "Success") {
+        setHasRegistered(true);
+        if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
+        setPhone('');
+        setMotivation('');
+      } 
+      else {
+        alert("Something went wrong on the server. Please try again.");
+      }
+    } catch (error) {
+      console.error('Registration failed:', error);
+      alert("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white py-20 px-4 sm:px-8 relative overflow-hidden">
@@ -42,9 +109,8 @@ const SOR: React.FC = () => {
 
       <div className="max-w-4xl mx-auto relative z-10">
 
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-bold font-heading mb-6 bg-gradient-to-r from-yellow-300 via-orange-400 to-blue-500 bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold font-heading mb-6 text-blue-500">
             Summer of Robotics
           </h1>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-6 rounded-full"></div>
@@ -53,7 +119,75 @@ const SOR: React.FC = () => {
           </p>
         </div>
 
-        {/* Timeline */}
+        <div className="mb-20">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+
+            <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+              <div>
+                <p className="text-white font-bold text-xl">{user?.name || "Loading..."}</p>
+                <p className="text-gray-400 text-sm mt-1">
+                  {user?.roll ? `${user.roll} · ${user.department} · ${user.degree}` : "Fetching user details..."}
+                </p>
+              </div>
+              <button
+                onClick={logout}
+                className="text-xs text-gray-500 hover:text-gray-300 underline transition-colors"
+              >
+                Logout
+              </button>
+            </div>
+
+            {hasRegistered ? (
+              <div className="text-center py-10">
+                <h2 className="text-3xl font-bold text-emerald-400 mb-4">You're Registered!</h2>
+                <p className="text-gray-400">Your spot is secured. We'll be in touch soon with more details.</p>
+              </div>
+            ) : (
+              <>
+                <h2 className="text-2xl font-bold text-white mb-6">Complete Your Registration</h2>
+
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-gray-400 text-sm mb-2">Phone Number <span className="text-red-500">*</span></label>
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="Enter your phone number"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-400 text-sm mb-2">Why do you want to join SOR? <span className="text-red-500">*</span></label>
+                    <textarea
+                      rows={4}
+                      value={motivation}
+                      onChange={(e) => setMotivation(e.target.value)}
+                      placeholder="Tell us your motivation..."
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                      required
+                    />
+                  </div>
+
+                  <button 
+                    onClick={handleRegister}
+                    disabled={isSubmitting}
+                    className={`w-full py-4 rounded-xl font-bold text-white transition-all duration-200 mt-2 ${
+                      isSubmitting 
+                        ? 'bg-blue-800 cursor-wait' 
+                        : 'bg-blue-600 hover:bg-blue-500 hover:scale-[1.02]'
+                    }`}
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit Registration'}
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+
         <div className="relative border-l-2 border-gray-800 ml-4 md:ml-0 md:border-none">
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-orange-500 -translate-x-1/2 rounded-full opacity-50"></div>
           <div className="space-y-12">
@@ -77,76 +211,9 @@ const SOR: React.FC = () => {
           </div>
         </div>
 
-        {/* User details + Registration form */}
-        <div className="mt-20">
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-
-            {/* User info bar */}
-            <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
-              <div>
-                <p className="text-white font-bold text-xl">{user?.name}</p>
-                <p className="text-gray-400 text-sm mt-1">{user?.roll} · {user?.department} · {user?.degree}</p>
-              </div>
-              <button
-                onClick={logout}
-                className="text-xs text-gray-500 hover:text-gray-300 underline transition-colors"
-              >
-                Logout
-              </button>
-            </div>
-
-            {/* Registration form */}
-            <h2 className="text-2xl font-bold text-white mb-6">Complete Your Registration</h2>
-
-            <div className="space-y-5">
-              <div>
-                <label className="block text-gray-400 text-sm mb-2">Phone Number</label>
-                <input
-                  type="tel"
-                  placeholder="Enter your phone number"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-400 text-sm mb-2">Hostel</label>
-                <input
-                  type="text"
-                  placeholder="e.g. H4, H10"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-400 text-sm mb-2">Prior Experience</label>
-                <select className="w-full bg-gray-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
-                  <option value="">Select experience level</option>
-                  <option value="none">No prior experience</option>
-                  <option value="beginner">Beginner — done a few tutorials</option>
-                  <option value="intermediate">Intermediate — built small projects</option>
-                  <option value="advanced">Advanced — worked on robotics before</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-400 text-sm mb-2">Why do you want to join SOR?</label>
-                <textarea
-                  rows={4}
-                  placeholder="Tell us your motivation..."
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                />
-              </div>
-
-              <button className="w-full py-4 bg-blue-600 hover:bg-blue-500 rounded-xl font-bold text-white transition-all duration-200 hover:scale-[1.02] mt-2">
-                Submit Registration
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SOR
+export default SOR;
