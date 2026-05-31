@@ -90,7 +90,7 @@ const Events = () => {
                   to="/sor"
                   className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md transition-all inline-flex items-center"
                 >
-                  Details
+                  Register Now
                   <ArrowRight size={16} className="ml-2" />
                 </Link>
               </div>

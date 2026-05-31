@@ -6,6 +6,9 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import SOR from './components/SOR';
 import ProtectedRoute from './components/ProtectedRoute';
+import SorLayout from './components/SorLayout'
+import SorTimeline from './components/SorTimeline'
+import SorProjects from './components/SorProjects'
 
 const XLR8Page = lazy(() => import('./components/XLR8Page.tsx'));
 const Events = lazy(() => import('./components/Events'));

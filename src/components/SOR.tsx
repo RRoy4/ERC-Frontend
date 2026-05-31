@@ -82,7 +82,7 @@ const SOR: React.FC = () => {
       const resultText = await response.text();
 
       if (resultText === "Duplicate") {
-        alert("Our records show this Roll Number is already registered!");
+        alert("You're already registered!");
         setHasRegistered(true);
         if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
       } 
