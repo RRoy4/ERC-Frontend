@@ -42,7 +42,7 @@ const timelineData: TimelineItem[] = [
     date: '19th June',
     title: 'Sensors and Perception',
     description:
-      'Elevate your robotics projects by bridging the gap between raw hardware and intelligent software. This phase focuses deeply on integrating diverse sensors to capture vital environmental data. You will dive into the fascinating world of machine perception by leveraging OpenCV for advanced computer vision tasks. Empower your robotic systems with the intelligence to accurately see, interpret, and react to dynamic surroundings.',
+      'Bridge the gap between hardware and software through advanced sensor integration. Dive into machine perception using OpenCV, empowering your robots to accurately interpret and react to dynamic visual environments.',
     gradient: 'from-orange-400 to-red-500',
     glow: 'group-hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]',
   },
@@ -50,7 +50,7 @@ const timelineData: TimelineItem[] = [
     date: '26th June',
     title: 'SLAM and Manipulation',
     description:
-      'Tackle the advanced challenges of autonomous spatial navigation and physical manipulation. Explore the core principles of Simultaneous Localization and Mapping (SLAM) to map unknown environments while seamlessly tracking robot coordinates. Alongside mobile navigation, you will receive a streamlined, practical introduction to robotic arm kinematics. Learn the essential control techniques required to maneuver simple manipulators for real-world tasks.',
+      'Master autonomous navigation by applying Simultaneous Localization and Mapping (SLAM) in unknown environments. Alongside mobile tracking, learn essential kinematics to control and maneuver simple robotic arms for real-world tasks.',
     gradient: 'from-emerald-400 to-green-600',
     glow: 'group-hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]',
   },
