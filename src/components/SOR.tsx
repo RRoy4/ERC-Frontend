@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { useAuth, logout } from '../hooks/useAuth';
 
 interface TimelineItem {
@@ -11,138 +13,220 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    week: '31 May - 4 June',
-    title: 'Registrations Open',
-    description: 'Register for Summer of Robotics 2026. Complete the registration form and secure your spot before registrations close on 4th June.',
-    gradient: 'from-green-400 to-emerald-600',
-    glow: 'group-hover:shadow-[0_0_30px_rgba(74,222,128,0.4)]',
-  },
-  {
     week: 'Week 1',
-    title: 'Mechatronics',
-    description: 'Dive into the core building blocks of physical robotics. This phase packs in mechanical CAD design, coordinate transformations, and IK/FK math, right alongside practical control theory, dynamic actuation, and sensor integration.',
-    gradient: 'from-blue-400 to-blue-600',
-    glow: 'group-hover:shadow-[0_0_30px_rgba(96,165,250,0.4)]',
+    title: 'Mechatronics Foundations',
+    description:
+      'Understand how robots are built from the ground up. Learn CAD basics, coordinate frames, transformations, forward & inverse kinematics, actuators, sensors, and the fundamentals of robot control.',
+    gradient: 'from-blue-400 to-cyan-500',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]',
   },
   {
-    week: 'Week 2-4',
-    title: 'ROS Simulation',
-    description: 'Transition into software. Learn the Robot Operating System, visualize robot models in RViz, and simulate physics in Gazebo.',
-    gradient: 'from-purple-400 to-purple-600',
-    glow: 'group-hover:shadow-[0_0_30px_rgba(192,132,252,0.4)]',
+    week: 'Week 2',
+    title: 'ROS & Gazebo Basics',
+    description:
+      'Get started with the Robot Operating System (ROS). Learn nodes, topics, services, packages, and build your first simulated robot in Gazebo while visualizing data using RViz.',
+    gradient: 'from-purple-400 to-violet-600',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]',
+  },
+  {
+    week: 'Week 3',
+    title: 'SLAM & Navigation',
+    description:
+      'Explore how robots perceive and map their surroundings. Learn the fundamentals of SLAM, occupancy grids, localization, path planning, and autonomous navigation.',
+    gradient: 'from-pink-400 to-purple-600',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(217,70,239,0.4)]',
+  },
+  {
+    week: 'Week 4',
+    title: 'Perception & Control',
+    description:
+      'Dive into robot intelligence. Work with sensors, computer vision concepts, object detection pipelines, feedback control systems, and autonomous decision-making.',
+    gradient: 'from-orange-400 to-red-500',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]',
   },
   {
     week: 'Week 5-6',
-    title: 'Projects',
-    description: 'Apply everything learned to build and deploy a comprehensive robotics project from scratch.',
-    gradient: 'from-yellow-400 to-orange-500',
-    glow: 'group-hover:shadow-[0_0_30px_rgba(251,146,60,0.4)]',
+    title: 'Capstone Project',
+    description:
+      'Combine everything learned throughout the bootcamp to design, simulate, and showcase a complete robotics project using ROS, Gazebo, perception, navigation, and control.',
+    gradient: 'from-emerald-400 to-green-600',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]',
   },
 ];
 
 const SOR: React.FC = () => {
   const { user } = useAuth();
   
-  const [phone, setPhone] = useState('');
-  const [motivation, setMotivation] = useState('');
-  const [dreamGadget, setDreamGadget] = useState('');
+  // const [phone, setPhone] = useState('');
+  // const [motivation, setMotivation] = useState('');
+  // const [dreamGadget, setDreamGadget] = useState('');
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [hasRegistered, setHasRegistered] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [hasRegistered, setHasRegistered] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // useEffect(() => {
+  //   if (user?.roll) {
+  //     const alreadyRegistered = localStorage.getItem(`sor_registered_${user.roll}`);
+  //     if (alreadyRegistered) {
+  //       setHasRegistered(true);
+  //     }
+  //   }
+  // }, [user]);
 
   useEffect(() => {
-    if (user?.roll) {
-      const alreadyRegistered = localStorage.getItem(`sor_registered_${user.roll}`);
-      if (alreadyRegistered) {
-        setHasRegistered(true);
-      }
-    }
-  }, [user]);
+    const closeMenu = () => setMenuOpen(false);
 
-  const handleRegister = async () => {
-    if (hasRegistered) {
-      alert("You have already registered for this event!");
-      return;
+    if (menuOpen) {
+      document.addEventListener('click', closeMenu);
     }
 
-    if (!phone.trim() || !motivation.trim() || !dreamGadget.trim() || !user?.name || !user?.roll || !user?.department) {
-      alert("Please fill out all the required fields before submitting! (Make sure your account details are loaded)");
-      return;
-    }
+    return () => {
+      document.removeEventListener('click', closeMenu);
+    };
+  }, [menuOpen]);
 
-    setIsSubmitting(true);
+  // const handleRegister = async () => {
+  //   if (hasRegistered) {
+  //     alert("You have already registered for this event!");
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch(
-        'https://script.google.com/macros/s/AKfycbyTA9Hvg2-N9jYpFkgo1pRpZvZy6682l3krmVYcpDYvZyYLtnMe7Z_KwWyBHAdajyAS/exec',
-        {
-          method: 'POST',
-          body: new URLSearchParams({ 
-            name: user.name,
-            roll: user.roll,
-            department: user.department,
-            phone: phone.trim(),
-            motivation: motivation.trim(),
-            dreamGadget: dreamGadget.trim()
-          }),
-        }
-      );
+  //   if (!phone.trim() || !motivation.trim() || !dreamGadget.trim() || !user?.name || !user?.roll || !user?.department) {
+  //     alert("Please fill out all the required fields before submitting! (Make sure your account details are loaded)");
+  //     return;
+  //   }
 
-      const resultText = await response.text();
+  //   setIsSubmitting(true);
 
-      if (resultText === "Duplicate") {
-        alert("You're already registered!");
-        setHasRegistered(true);
-        if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
-      } 
-      else if (resultText === "Success") {
-        setHasRegistered(true);
-        if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
-        setPhone('');
-        setMotivation('');
-        setDreamGadget('');
-      } 
-      else {
-        alert("Something went wrong on the server. Please try again.");
-      }
-    } catch (error) {
-      console.error('Registration failed:', error);
-      alert("Network error. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //   try {
+  //     const response = await fetch(
+  //       'https://script.google.com/macros/s/AKfycbyTA9Hvg2-N9jYpFkgo1pRpZvZy6682l3krmVYcpDYvZyYLtnMe7Z_KwWyBHAdajyAS/exec',
+  //       {
+  //         method: 'POST',
+  //         body: new URLSearchParams({ 
+  //           name: user.name,
+  //           roll: user.roll,
+  //           department: user.department,
+  //           phone: phone.trim(),
+  //           motivation: motivation.trim(),
+  //           dreamGadget: dreamGadget.trim()
+  //         }),
+  //       }
+  //     );
+
+  //     const resultText = await response.text();
+
+  //     if (resultText === "Duplicate") {
+  //       alert("You're already registered!");
+  //       setHasRegistered(true);
+  //       if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
+  //     } 
+  //     else if (resultText === "Success") {
+  //       setHasRegistered(true);
+  //       if (user?.roll) localStorage.setItem(`sor_registered_${user.roll}`, 'true');
+  //       setPhone('');
+  //       setMotivation('');
+  //       setDreamGadget('');
+  //     } 
+  //     else {
+  //       alert("Something went wrong on the server. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     console.error('Registration failed:', error);
+  //     alert("Network error. Please try again.");
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white py-20 px-4 sm:px-8 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
+      {/* Hamburger Menu */}
+        <div
+          className="fixed top-24 right-8 z-[9999]"
+        >
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setMenuOpen(!menuOpen);
+            }}
+            className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/10
+            hover:bg-blue-500/5 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]
+            transition-all duration-300"
+          >
+            {menuOpen ? <X size={25} /> : <Menu size={30} />}
+          </button>
+
+          {menuOpen && (
+            <div className="absolute right-0 mt-3 w-64 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+              <div className="px-4 py-3 border-b border-white/10 text-sm font-semibold text-blue-400">
+                Bootcamp Weeks
+              </div>
+
+              <Link to="/week1" className="block px-5 py-3 hover:bg-white/10 transition">
+                Week 1 • Mechatronics
+              </Link>
+
+              <Link to="/week2" className="block px-5 py-3 hover:bg-white/10 transition">
+                Week 2 • ROS and Gazebo Basics
+              </Link>
+
+              <Link to="/week3" className="block px-5 py-3 hover:bg-white/10 transition">
+                Week 3 • SLAM
+              </Link>
+
+              <Link to="/week4" className="block px-5 py-3 hover:bg-white/10 transition">
+                Week 4 • Perception and Control
+              </Link>
+
+              <Link to="/week5" className="block px-5 py-3 hover:bg-white/10 transition">
+                Week 5 • Project week
+              </Link>
+            </div>
+          )}
+        </div>
 
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold font-heading mb-6 text-blue-500">
             Summer of Robotics
           </h1>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-6 rounded-full"></div>
-          <p className="text-gray-300 text-lg md:text-xl leading-9 max-w-6xl mx-auto text-center px-4">
+          {/* <p className="text-gray-300 text-lg md:text-xl leading-9 max-w-6xl mx-auto text-center px-4">
             Ever wondered how robots perceive, think, and interact with the world? Join Summer of Robotics 2026 and take your first step into the exciting fields of Mechatronics and ROS-based Simulation.
 
             Starting 5th June 2026, this program consists of 5 lectures designed to provide a strong foundation in robotics, combining essential concepts with practical insights into modern robotic systems and simulation tools.
 
             Whether you're a beginner exploring robotics or someone looking to build practical skills, this program offers an opportunity to learn, create, and begin your journey in robotics.
-          </p>
+          </p> */}
         </div>
 
         <div className="mb-20">
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-
-            <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+        <div
+          className="
+            bg-white/5 border border-white/10 rounded-2xl p-8
+            transition-all duration-500
+            hover:-translate-y-2
+            hover:border-blue-500/30
+            hover:shadow-[0_0_35px_rgba(59,130,246,0.35)]
+          "
+        >
+            <div className="flex items-center justify-between mb-6">
               <div>
-                <p className="text-white font-bold text-xl">{user?.name || "Loading..."}</p>
+                <p className="text-white font-bold text-xl">
+                  {user?.name || "Loading..."}
+                </p>
+
                 <p className="text-gray-400 text-sm mt-1">
-                  {user?.roll ? `${user.roll} · ${user.department} · ${user.degree}` : "Fetching user details..."}
+                  {user?.roll
+                    ? `${user.roll} · ${user.department} · ${user.degree}`
+                    : "Fetching user details..."}
                 </p>
               </div>
+
               <button
                 onClick={logout}
                 className="text-xs text-gray-500 hover:text-gray-300 underline transition-colors"
@@ -150,99 +234,71 @@ const SOR: React.FC = () => {
                 Logout
               </button>
             </div>
+            
+            <div className="border-t border-white/10 pt-6">
+              <h2 className="text-2xl font-bold mb-3 text-blue-400">
+                Welcome to Summer of Robotics 2026
+              </h2>
 
-            {hasRegistered ? (
-              <div className="text-center py-10">
-                <h2 className="text-3xl font-bold text-emerald-400 mb-4">You're Registered!</h2>
-                <p className="text-gray-400">Your spot is secured. We'll be in touch soon with more details.</p>
-              </div>
-            ) : (
-              <>
-                <h2 className="text-2xl font-bold text-white mb-6">Complete Your Registration</h2>
-
-                <div className="space-y-5">
-                  <div>
-                    <label className="block text-gray-400 text-sm mb-2">Phone Number <span className="text-red-500">*</span></label>
-                    <input
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="Enter your phone number"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-400 text-sm mb-2">Why do you want to join SOR? <span className="text-red-500">*</span></label>
-                    <textarea
-                      rows={4}
-                      value={motivation}
-                      onChange={(e) => setMotivation(e.target.value)}
-                      placeholder="Tell us your motivation..."
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                  <label className="block text-gray-400 text-sm mb-2">
-                    Ever watched Iron Man, Doraemon, Transformers, Interstellar, Marvel, Anime, or any sci-fi movie and thought:
-                    <span className="text-blue-400"> "I wish I could build that!"</span>
-                    🤖⚡
-                    <span className="text-red-500">*</span>
-                  </label>
-
-                  <textarea
-                    rows={4}
-                    value={dreamGadget}
-                    onChange={(e) => setDreamGadget(e.target.value)}
-                    placeholder="Tell us the gadget, robot, suit, AI assistant, spacecraft, or technology you'd love to build someday and why!"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                    required
-                  />
-                </div>
-
-                  <button 
-                    onClick={handleRegister}
-                    disabled={isSubmitting}
-                    className={`w-full py-4 rounded-xl font-bold text-white transition-all duration-200 mt-2 ${
-                      isSubmitting 
-                        ? 'bg-blue-800 cursor-wait' 
-                        : 'bg-blue-600 hover:bg-blue-500 hover:scale-[1.02]'
-                    }`}
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Submit Registration'}
-                  </button>
-                </div>
-              </>
-            )}
+              <p className="text-gray-400 leading-relaxed">
+                Your account has been successfully authenticated. Use the menu in the
+                top-right corner to access lecture materials, assignments, and weekly
+                content throughout the program.
+              </p>
+            </div>
           </div>
+        </div>            
+
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white mb-3">
+            Learning Roadmap
+          </h2>
+          <p className="text-gray-400 max-w-3xl mx-auto">
+            Follow a structured journey from robot mechanics and simulation to perception,
+            navigation, and a full-fledged robotics project.
+          </p>
         </div>
 
         <div className="relative border-l-2 border-gray-800 ml-4 md:ml-0 md:border-none">
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-orange-500 -translate-x-1/2 rounded-full opacity-50"></div>
+
           <div className="space-y-12">
             {timelineData.map((item, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-center group ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                className={`relative flex flex-col md:flex-row items-center group ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
               >
                 <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-gray-900 border-4 border-gray-700 group-hover:border-white transition-colors duration-300 z-10 shadow-[0_0_10px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.8)]"></div>
-                <div className={`ml-8 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
-                  <div className={`p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 transform transition-all duration-500 ease-out group-hover:-translate-y-2 ${item.glow}`}>
-                    <span className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 bg-gradient-to-r ${item.gradient} text-gray-950`}>
+
+                <div
+                  className={`ml-8 md:ml-0 md:w-1/2 ${
+                    index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'
+                  }`}
+                >
+                  <div
+                    className={`p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 transform transition-all duration-500 ease-out group-hover:-translate-y-2 ${item.glow}`}
+                  >
+                    <span
+                      className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 bg-gradient-to-r ${item.gradient} text-gray-950`}
+                    >
                       {item.week}
                     </span>
-                    <h3 className="text-2xl font-bold text-gray-100 mb-3">{item.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{item.description}</p>
+
+                    <h3 className="text-2xl font-bold text-gray-100 mb-3">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-gray-400 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

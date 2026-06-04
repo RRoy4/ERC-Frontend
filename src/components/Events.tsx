@@ -71,7 +71,7 @@ const Events = () => {
               </div>
               <div className="flex items-center text-gray-300 mb-2">
                 <Clock size={16} className="mr-2 text-gray-400" />
-                <span>Register by 4th June</span>
+                <span>Registrations closed</span>
               </div>
               <div className="flex items-center text-gray-300 mb-4">
                 <MapPin size={16} className="mr-2 text-gray-400" />
@@ -89,7 +89,7 @@ const Events = () => {
                   to="/sor"
                   className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md transition-all inline-flex items-center"
                 >
-                  Register Now
+                  Details
                   <ArrowRight size={16} className="ml-2" />
                 </Link>
               </div>
