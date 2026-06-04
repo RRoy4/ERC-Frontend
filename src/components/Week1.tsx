@@ -1,6 +1,6 @@
 import React from "react";
 import { Calendar, Clock, ExternalLink } from "lucide-react";
-import session1Image from "../assets/Mechatronics1_SOR.png"; // <-- Updated filename
+import session1Image from "../assets/Mechatronics1_SOR.png"; 
 
 const Week1 = () => {
   return (
@@ -70,12 +70,12 @@ const Week1 = () => {
                 </a>
               </div>
 
-              {/* Right Thumbnail */}
-              <div className="order-1 lg:order-2 h-72 lg:h-full">
+              {/* Right Thumbnail - UPDATED SECTION BELOW */}
+              <div className="relative order-1 lg:order-2 h-72 lg:h-full overflow-hidden">
                 <img
                   src={session1Image}
                   alt="Session 1"
-                  className="w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
             </div>
