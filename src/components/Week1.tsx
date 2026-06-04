@@ -1,5 +1,6 @@
 import React from "react";
 import { Calendar, Clock, ExternalLink } from "lucide-react";
+import session1Image from "../assets/Mechatronics1_SOR.png"; // <-- Updated filename
 
 const Week1 = () => {
   return (
@@ -7,8 +8,6 @@ const Week1 = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
-            
-
             <h2 className="text-6xl font-bold text-blue-500">Mechatronics</h2>
           </div>
 
@@ -74,7 +73,7 @@ const Week1 = () => {
               {/* Right Thumbnail */}
               <div className="order-1 lg:order-2 h-72 lg:h-full">
                 <img
-                  src="/images/week1-session1.jpg"
+                  src={session1Image}
                   alt="Session 1"
                   className="w-full h-full object-cover"
                 />
