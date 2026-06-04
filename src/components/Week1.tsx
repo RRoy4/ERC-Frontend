@@ -64,10 +64,13 @@ const Week1 = () => {
                 </div>
 
                 <a
-                  href="sessio_link"
+                  href="https://teams.microsoft.com/meet/44483570719347?p=kOhId8PyecX2UujFUY"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl transition-colors"
                 >
                   Join on MS Teams
+                  <ExternalLink size={18} />
                 </a>
               </div>
 
