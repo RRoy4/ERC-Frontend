@@ -54,6 +54,14 @@ const timelineData: TimelineItem[] = [
     gradient: 'from-emerald-400 to-green-600',
     glow: 'group-hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]',
   },
+  {
+    date: '30 June - 14 July',
+    title: 'Projects',
+    description:
+      'Apply everything learnt to build and deploy a comprehensive robotics project from scratch. Projects include an LLM-controlled bot, delivery drone, robotic arm sorting system, and spatial signal mapper.',
+    gradient: 'from-yellow-400 to-amber-500',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]',
+  },
 ];
 
 const SOR: React.FC = () => {
@@ -113,6 +121,10 @@ const SOR: React.FC = () => {
 
               <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 5 • SLAM and Manipulation
+              </div>
+
+              <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default text-yellow-500/80">
+                Project Phase • Final Build
               </div>
             </div>
           )}
