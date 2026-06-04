@@ -1,0 +1,59 @@
+import React, { Suspense, lazy } from 'react';
+import ScrollToTop from './components/ScrollToTop';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import SOR from './components/SOR';
+import ProtectedRoute from './components/ProtectedRoute';
+import Week1 from './components/Week1';
+// import Week2 from './components/Week2';
+
+const XLR8Page = lazy(() => import('./components/XLR8Page.tsx'));
+const Events = lazy(() => import('./components/Events'));
+const Team = lazy(() => import('./components/Team'));
+const Resources = lazy(() => import('./components/Resources'));
+const Contact = lazy(() => import('./components/Contact'));
+const LegacyPage = lazy(() => import('./components/LegacyPage'));
+const BlogViewer = lazy(() => import('./components/BlogViewer.tsx'));
+const CertificatePortal = lazy(() => import('./components/CertificatePortal.tsx'));
+const Callback = lazy(() => import('./components/Callback.tsx'));
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen bg-gray-900 text-white">
+        <Header />
+        <main>
+          <Suspense
+            fallback={
+              <div className="flex min-h-[50vh] items-center justify-center text-gray-300">
+                Loading...
+              </div>
+            }
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blog/:slug" element={<BlogViewer />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legacy" element={<LegacyPage />} />
+              <Route path="/certificates" element={<CertificatePortal />} />
+              <Route path="/xlr8" element={<XLR8Page />} />
+              <Route path="/callback" element={<Callback />} />
+              <Route path="/sor" element={<ProtectedRoute><SOR /></ProtectedRoute>} />
+              <Route path="/week1" element={<Week1 />} />
+              {/* <Route path="/week2" element={<Week2 />} /> */}
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
