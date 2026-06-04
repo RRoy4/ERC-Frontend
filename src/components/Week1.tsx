@@ -1,6 +1,6 @@
 import React from "react";
 import { Calendar, Clock, ExternalLink } from "lucide-react";
-import session1Image from "../assets/Mechatronics1_SOR.png"; 
+import session1Image from "../assets/Mechatronics1_SOR.png";
 
 const Week1 = () => {
   return (
@@ -27,9 +27,9 @@ const Week1 = () => {
             bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_0_35px_rgba(59,130,246,0.25)]
           "
           >
-            <div className="grid lg:grid-cols-3">
+            <div className="flex flex-col lg:flex-row">
               {/* Left Content */}
-              <div className="lg:col-span-2 p-8 order-2 lg:order-1">
+              <div className="w-full lg:w-2/3 p-8 order-2 lg:order-1">
                 <h2 className="text-3xl font-bold mb-4">
                   Session 1 — Introduction to Mechatronics
                 </h2>
@@ -50,6 +50,7 @@ const Week1 = () => {
                   end-effector to a camera-detected target using the principles
                   of Forward Kinematics and Inverse Kinematics.
                 </p>
+                
                 <div className="flex flex-col gap-3 text-gray-300 mb-6">
                   <div className="flex items-center">
                     <Calendar size={18} className="mr-3 text-blue-400" />
@@ -64,19 +65,22 @@ const Week1 = () => {
 
                 <a
                   href="sessio_link"
-                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl transition-colors"
                 >
                   Join on MS Teams
                 </a>
               </div>
 
-              {/* Right Thumbnail - UPDATED SECTION BELOW */}
-              <div className="relative order-1 lg:order-2 h-72 lg:h-full overflow-hidden">
-                <img
-                  src={session1Image}
-                  alt="Session 1"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+              {/* Right Thumbnail (Background Image Method with bg-contain) */}
+              <div 
+                className="w-full lg:w-1/3 order-1 lg:order-2 min-h-[300px] lg:min-h-full bg-contain bg-center bg-no-repeat border-b lg:border-b-0 lg:border-l border-white/10"
+                style={{ 
+                  backgroundImage: `url(${session1Image})`,
+                  // Optional: If you see empty space above/below the image, 
+                  // uncomment the line below and tweak the hex code to match your poster's exact blue!
+                  // backgroundColor: '#5B68F6' 
+                }}
+              >
               </div>
             </div>
           </div>
