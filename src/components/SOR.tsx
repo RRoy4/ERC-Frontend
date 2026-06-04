@@ -153,11 +153,32 @@ const SOR: React.FC = () => {
                 Welcome to Summer of Robotics 2026
               </h2>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Your account has been successfully authenticated. Use the menu in the
                 top-right corner to access lecture materials, assignments, and weekly
                 content throughout the program.
               </p>
+
+              {/* Certification Requirements Box */}
+              <div className="bg-blue-900/20 border border-blue-500/20 rounded-xl p-5 backdrop-blur-sm">
+                <h3 className="text-blue-300 font-semibold mb-3 flex items-center gap-2">
+                  🎓 Certification Tracks
+                </h3>
+                <ul className="space-y-3 text-sm text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-400 mt-0.5">•</span>
+                    <div>
+                      <strong className="text-gray-200">Basic Certificate:</strong> Attend all 5 live sessions and successfully complete at least 4 of the 5 weekly assignments.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-0.5">•</span>
+                    <div>
+                      <strong className="text-gray-200">Advanced Certificate:</strong> Fulfill all requirements for the Basic Certificate and successfully deliver a final capstone project.
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>            
