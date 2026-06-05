@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, Clock, ExternalLink } from "lucide-react";
+import { Calendar, Clock, ExternalLink, Presentation, Video } from "lucide-react";
 import session1Image from "../assets/Mechatronics1_SOR.png";
 
 const Week1 = () => {
@@ -63,18 +63,31 @@ const Week1 = () => {
                   </div>
                 </div>
 
-                <a
-                  href="https://teams.microsoft.com/meet/44483570719347?p=kOhId8PyecX2UujFUY"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl transition-colors"
-                >
-                  Join on MS Teams
-                  <ExternalLink size={18} />
-                </a>
+                {/* Slides & Recording Buttons */}
+                <div className="flex flex-wrap gap-4 mt-2">
+                  <a
+                    href="https://canva.link/ebvm1sdz3mth1jq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-blue-500/20"
+                  >
+                    <Presentation size={18} />
+                    Slides
+                  </a>
+                  
+                  <a
+                    href="https://iitbacin.sharepoint.com/sites/ERCBLAH-BASICSOFROBOTNAVIGATION/Shared%20Documents/Summer%20Of%20Robotics/Recordings/Session%201%20%E2%80%94%20Introduction%20to%20Mechatronics-20260605_142831-Meeting%20Recording.mp4?web=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl transition-colors font-medium border border-gray-600"
+                  >
+                    <Video size={18} />
+                    Recording
+                  </a>
+                </div>
               </div>
 
-              {/* Right Thumbnail (Background Image Method with bg-contain) */}
+              {/* Right Thumbnail */}
               <div 
                 className="w-full lg:w-1/3 order-1 lg:order-2 min-h-[300px] lg:min-h-full bg-contain bg-center bg-no-repeat border-b lg:border-b-0 lg:border-l border-white/10"
                 style={{ 
