@@ -195,7 +195,7 @@ const Session1 = () => {
               > 
                 <div className="text-left">
                   <label className="block text-blue-400 font-medium mb-2">
-                    How was your feedback in Session 1?
+                    Share your feedback regarding Session 1
                   </label>
 
                   <textarea
