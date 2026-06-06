@@ -160,7 +160,7 @@ const Session1 = () => {
             </h2>
 
             <a
-              href=""
+              href="https://drive.google.com/file/d/1aLJAE9gvJaXm0iOyp58xxQJy1Hvfy-Ay/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="
