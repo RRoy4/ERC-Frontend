@@ -20,7 +20,7 @@ const timelineData: TimelineItem[] = [
       'Master the core anatomy of robotics by navigating coordinate frames and applying spatial mathematical transformations. Solve forward and inverse kinematics to bridge mechanical design with software control, culminating in custom URDF exports from Fusion.',
     gradient: 'from-blue-400 to-cyan-500',
     glow: 'group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]',
-    link: '/week1',
+    link: '/session1',
   },
   {
     date: '8th June',
