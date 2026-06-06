@@ -102,7 +102,7 @@ const SOR: React.FC = () => {
                 Bootcamp Sessions
               </div>
 
-              <Link to="/week1" className="block px-5 py-3 hover:bg-white/10 transition">
+              <Link to="/session1" className="block px-5 py-3 hover:bg-white/10 transition">
                 Session 1 • Intro to Mechatronics
               </Link>
 
