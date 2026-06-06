@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { Calendar, Clock, ExternalLink, Presentation, Video } from "lucide-react";
 import session1Image from "../assets/Mechatronics1_SOR.png";
+import { useAuth } from "../hooks/useAuth";
 
 const Session1 = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const [driveLink, setDriveLink] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [funAnswer, setFunAnswer] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const { user } = useAuth();
+  const handleAssignmentSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+
+      formData.append("name", user?.name || "");
+      formData.append("roll", user?.roll || "");
+      formData.append("driveLink", driveLink);
+      formData.append("feedback", feedback);
+      formData.append("funAnswer", funAnswer);
+      setSubmitting(true);
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbxfGarPsay6hlIxhj4S2VMIt2KWCoa34iTblgiP8UN8304knYoHV_WppmBWz_OL79g3/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        }
+      );
+
+      setSubmitted(true);
+      setDriveLink("");
+      setFeedback("");
+      setFunAnswer("");
+    } catch (error) {
+      alert("Submission failed. Please try again.");
+    }
+    finally {
+    setSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-gray-900 text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -97,9 +138,143 @@ const Session1 = () => {
                   // backgroundColor: '#5B68F6' 
                 }}
               >
+
               </div>
             </div>
+            
           </div>
+          {/* Assignment Section */}
+          <div
+              className="
+                max-w-3xl mx-auto mt-8
+                bg-white/5 border border-white/10
+                rounded-3xl p-8
+                backdrop-blur-md text-center
+                transition-all duration-300
+                hover:border-blue-500/30
+                hover:shadow-[0_0_35px_rgba(59,130,246,0.25)]
+              "
+            >
+            <h2 className="text-3xl font-bold mb-6">
+              Session 1 Assignment
+            </h2>
+
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center gap-3
+                bg-blue-600 hover:bg-blue-500
+                px-8 py-4
+                rounded-xl
+                font-semibold text-lg
+                transition-colors
+                mb-8
+              "
+            >
+              <ExternalLink size={20} />
+              Click Here to Access Assignment
+            </a>
+
+            {submitted ? (
+              <div className="max-w-xl mx-auto">
+                <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-6">
+                  <h3 className="text-green-400 text-xl font-semibold mb-2">
+                    ✓ Assignment Submitted Successfully
+                  </h3>
+                  <p className="text-gray-300">
+                    Your submission has been recorded.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleAssignmentSubmit}
+                className="max-w-2xl mx-auto space-y-6"
+              > 
+                <div className="text-left">
+                  <label className="block text-blue-400 font-medium mb-2">
+                    How was your feedback in Session 1?
+                  </label>
+
+                  <textarea
+                    value={feedback}
+                    onChange={(e) => setFeedback(e.target.value)}
+                    rows={4}
+                    placeholder="What did you enjoy? What could be improved?"
+                    className="
+                      w-full px-4 py-3
+                      rounded-xl
+                      bg-gray-800
+                      border border-gray-700
+                      focus:border-blue-500
+                      focus:outline-none
+                      resize-none
+                    "
+                  />
+                </div>
+                <div className="text-left">
+                <label className="block text-blue-400 font-medium mb-2">
+                  😈 What's the most unethical-but-harmless task you'd be tempted to give your robot?
+                </label>
+
+                <textarea
+                  value={funAnswer}
+                  onChange={(e) => setFunAnswer(e.target.value)}
+                  rows={4}
+                  placeholder="Be creative..."
+                  className="
+                    w-full px-4 py-3
+                    rounded-xl
+                    bg-gray-800
+                    border border-gray-700
+                    focus:border-blue-500
+                    focus:outline-none
+                    resize-none
+                  "
+                />
+              </div>
+              <div className="text-left">
+              <label className="block text-blue-400 font-medium mb-2">
+                Assignment Submission Link
+              </label>
+
+              <input
+                type="url"
+                value={driveLink}
+                onChange={(e) => setDriveLink(e.target.value)}
+                placeholder="Paste Google Drive link here"
+                required
+                className="
+                  w-full px-4 py-3
+                  rounded-xl
+                  bg-gray-800
+                  border border-gray-700
+                  focus:border-blue-500
+                  focus:outline-none
+                "
+              />
+            </div>
+
+               <button
+                type="submit"
+                disabled={submitting}
+                className="
+                  w-full
+                  bg-blue-600 hover:bg-blue-500
+                  py-3 rounded-xl
+                  font-medium
+                  transition-colors
+                  disabled:opacity-60
+                  disabled:cursor-not-allowed
+                "
+              >
+                {submitting ? "Submitting..." : "Submit Assignment"}
+              </button>
+              </form>
+            )}
+           </div>
         </div>
       </div>
     </div>

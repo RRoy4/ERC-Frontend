@@ -16,7 +16,7 @@ const eventsData = [
       'The ITSP Bootcamp introduced participants to embedded systems, sensors, microcontrollers, and IoT development while exploring tools like Gazebo, Proteus, MATLAB, and Simulink — making it the perfect launchpad for hardware and robotics projects.',
     image: itsp,
     seats: 'Completed',
-    slidesLink: 'https://drive.google.com/drive/folders/1f6STxw4HsI13xQ7eypBQ2V5cH2fjp4BD',
+    slidesLink: 'https://bit.ly/ITSPBootcamp2026-resources',
   },
 ];
 
