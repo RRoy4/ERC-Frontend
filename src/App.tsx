@@ -6,8 +6,8 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import SOR from './components/SOR';
 import ProtectedRoute from './components/ProtectedRoute';
-import Week1 from './components/Week1';
-// import Week2 from './components/Week2';
+import Session1 from './components/Session1';
+
 
 const XLR8Page = lazy(() => import('./components/XLR8Page.tsx'));
 const Events = lazy(() => import('./components/Events'));
@@ -45,7 +45,7 @@ function App() {
               <Route path="/xlr8" element={<XLR8Page />} />
               <Route path="/callback" element={<Callback />} />
               <Route path="/sor" element={<ProtectedRoute><SOR /></ProtectedRoute>} />
-              <Route path="/week1" element={<Week1 />} />
+              <Route path="/session1" element={<Session1 />} />
               {/* <Route path="/week2" element={<Week2 />} /> */}
             </Routes>
           </Suspense>
