@@ -29,6 +29,7 @@ const timelineData: TimelineItem[] = [
       'Master robotic system dynamics and inertia to understand the physical forces driving your hardware. Bridge the gap between theory and reality by pairing advanced sensor integration with practical PID control, perfectly closing the crucial sense-act loop.',
     gradient: 'from-purple-400 to-violet-600',
     glow: 'group-hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]',
+    link: '/session2',
   },
   {
     date: '12th June',
@@ -106,11 +107,11 @@ const SOR: React.FC = () => {
                 Session 1 • Intro to Mechatronics
               </Link>
 
-              {/* These look identical on hover but do not navigate anywhere */}
-              <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
+              <Link to="/session2" className="block px-5 py-3 hover:bg-white/10 transition">
                 Session 2 • Sensors and Actuators
-              </div>
+              </Link>
 
+              {/* These look identical on hover but do not navigate anywhere */}
               <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 3 • Introduction to ROS
               </div>
