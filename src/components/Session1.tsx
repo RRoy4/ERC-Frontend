@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Calendar, Clock, ExternalLink, Presentation, Video } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Calendar, Clock, ExternalLink, Presentation, Video, Loader2 } from "lucide-react";
 import session1Image from "../assets/Mechatronics1_SOR.png";
 import { useAuth } from "../hooks/useAuth";
 
@@ -9,7 +9,36 @@ const Session1 = () => {
   const [feedback, setFeedback] = useState("");
   const [funAnswer, setFunAnswer] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [isChecking, setIsChecking] = useState(true); 
+  
   const { user } = useAuth();
+
+  // Check submission status on load
+  useEffect(() => {
+    const checkStatus = async () => {
+      if (!user?.roll) {
+        setIsChecking(false);
+        return;
+      }
+
+      try {
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbxfGarPsay6hlIxhj4S2VMIt2KWCoa34iTblgiP8UN8304knYoHV_WppmBWz_OL79g3/exec";
+        const response = await fetch(`${scriptUrl}?roll=${user.roll}`);
+        const data = await response.json();
+
+        if (data.hasSubmitted) {
+          setSubmitted(true);
+        }
+      } catch (error) {
+        console.error("Error checking submission status:", error);
+      } finally {
+        setIsChecking(false);
+      }
+    };
+
+    checkStatus();
+  }, [user?.roll]);
+
   const handleAssignmentSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
@@ -39,11 +68,11 @@ const Session1 = () => {
       setFunAnswer("");
     } catch (error) {
       alert("Submission failed. Please try again.");
-    }
-    finally {
-    setSubmitting(false);
+    } finally {
+      setSubmitting(false);
     }
   };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -62,7 +91,7 @@ const Session1 = () => {
         </div>
 
         <div className="space-y-8">
-          {/* Session 1 */}
+          {/* Session 1 Info Card */}
           <div
             className="
             bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_0_35px_rgba(59,130,246,0.25)]
@@ -133,28 +162,24 @@ const Session1 = () => {
                 className="w-full lg:w-1/3 order-1 lg:order-2 min-h-[300px] lg:min-h-full bg-contain bg-center bg-no-repeat border-b lg:border-b-0 lg:border-l border-white/10"
                 style={{ 
                   backgroundImage: `url(${session1Image})`,
-                  // Optional: If you see empty space above/below the image, 
-                  // uncomment the line below and tweak the hex code to match your poster's exact blue!
-                  // backgroundColor: '#5B68F6' 
                 }}
               >
-
               </div>
             </div>
-            
           </div>
+
           {/* Assignment Section */}
           <div
-              className="
-                max-w-3xl mx-auto mt-8
-                bg-white/5 border border-white/10
-                rounded-3xl p-8
-                backdrop-blur-md text-center
-                transition-all duration-300
-                hover:border-blue-500/30
-                hover:shadow-[0_0_35px_rgba(59,130,246,0.25)]
-              "
-            >
+            className="
+              max-w-3xl mx-auto mt-8
+              bg-white/5 border border-white/10
+              rounded-3xl p-8
+              backdrop-blur-md text-center
+              transition-all duration-300
+              hover:border-blue-500/30
+              hover:shadow-[0_0_35px_rgba(59,130,246,0.25)]
+            "
+          >
             <h2 className="text-3xl font-bold mb-6">
               Session 1 Assignment
             </h2>
@@ -177,7 +202,13 @@ const Session1 = () => {
               Click Here to Access Assignment
             </a>
 
-            {submitted ? (
+            {/* Check Loading State */}
+            {isChecking ? (
+              <div className="flex flex-col items-center justify-center py-8 text-blue-400">
+                <Loader2 className="animate-spin mb-4" size={32} />
+                <p>Checking submission status...</p>
+              </div>
+            ) : submitted ? (
               <div className="max-w-xl mx-auto">
                 <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-6">
                   <h3 className="text-green-400 text-xl font-semibold mb-2">
@@ -193,6 +224,29 @@ const Session1 = () => {
                 onSubmit={handleAssignmentSubmit}
                 className="max-w-2xl mx-auto space-y-6"
               > 
+                {/* --- NEW: User Details Display --- */}
+                <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 text-left mb-6">
+                  <h4 className="text-blue-400 font-medium mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Authenticated as
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <span className="text-xs text-gray-500 uppercase tracking-wider block mb-1">Name</span>
+                      <span className="text-gray-200 font-medium">{user?.name || "Loading..."}</span>
+                    </div>
+                    <div>
+                      <span className="text-xs text-gray-500 uppercase tracking-wider block mb-1">Roll Number</span>
+                      <span className="text-gray-200 font-medium uppercase">{user?.roll || "Loading..."}</span>
+                    </div>
+                    <div className="md:col-span-2">
+                      <span className="text-xs text-gray-500 uppercase tracking-wider block mb-1">Department</span>
+                      <span className="text-gray-200 font-medium">{user?.department || "Loading..."}</span>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------------------------- */}
+
                 <div className="text-left">
                   <label className="block text-blue-400 font-medium mb-2">
                     Share your feedback regarding Session 1
@@ -215,66 +269,66 @@ const Session1 = () => {
                   />
                 </div>
                 <div className="text-left">
-                <label className="block text-blue-400 font-medium mb-2">
-                  😈 What's the most unethical-but-harmless task you'd be tempted to give your robot?
-                </label>
+                  <label className="block text-blue-400 font-medium mb-2">
+                    😈 What's the most unethical-but-harmless task you'd be tempted to give your robot?
+                  </label>
 
-                <textarea
-                  value={funAnswer}
-                  onChange={(e) => setFunAnswer(e.target.value)}
-                  rows={4}
-                  placeholder="Be creative..."
+                  <textarea
+                    value={funAnswer}
+                    onChange={(e) => setFunAnswer(e.target.value)}
+                    rows={4}
+                    placeholder="Be creative..."
+                    className="
+                      w-full px-4 py-3
+                      rounded-xl
+                      bg-gray-800
+                      border border-gray-700
+                      focus:border-blue-500
+                      focus:outline-none
+                      resize-none
+                    "
+                  />
+                </div>
+                <div className="text-left">
+                  <label className="block text-blue-400 font-medium mb-2">
+                    Assignment Submission Link
+                  </label>
+
+                  <input
+                    type="url"
+                    value={driveLink}
+                    onChange={(e) => setDriveLink(e.target.value)}
+                    placeholder="Paste Google Drive link here"
+                    required
+                    className="
+                      w-full px-4 py-3
+                      rounded-xl
+                      bg-gray-800
+                      border border-gray-700
+                      focus:border-blue-500
+                      focus:outline-none
+                    "
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
                   className="
-                    w-full px-4 py-3
-                    rounded-xl
-                    bg-gray-800
-                    border border-gray-700
-                    focus:border-blue-500
-                    focus:outline-none
-                    resize-none
+                    w-full
+                    bg-blue-600 hover:bg-blue-500
+                    py-3 rounded-xl
+                    font-medium
+                    transition-colors
+                    disabled:opacity-60
+                    disabled:cursor-not-allowed
                   "
-                />
-              </div>
-              <div className="text-left">
-              <label className="block text-blue-400 font-medium mb-2">
-                Assignment Submission Link
-              </label>
-
-              <input
-                type="url"
-                value={driveLink}
-                onChange={(e) => setDriveLink(e.target.value)}
-                placeholder="Paste Google Drive link here"
-                required
-                className="
-                  w-full px-4 py-3
-                  rounded-xl
-                  bg-gray-800
-                  border border-gray-700
-                  focus:border-blue-500
-                  focus:outline-none
-                "
-              />
-            </div>
-
-               <button
-                type="submit"
-                disabled={submitting}
-                className="
-                  w-full
-                  bg-blue-600 hover:bg-blue-500
-                  py-3 rounded-xl
-                  font-medium
-                  transition-colors
-                  disabled:opacity-60
-                  disabled:cursor-not-allowed
-                "
-              >
-                {submitting ? "Submitting..." : "Submit Assignment"}
-              </button>
+                >
+                  {submitting ? "Submitting..." : "Submit Assignment"}
+                </button>
               </form>
             )}
-           </div>
+          </div>
         </div>
       </div>
     </div>
