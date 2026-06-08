@@ -24,7 +24,7 @@ const timelineData: TimelineItem[] = [
   },
   {
     date: '8th June',
-    title: 'Sensors and Actuators',
+    title: 'Mechatronics: From Perception to Action',
     description:
       'Master robotic system dynamics and inertia to understand the physical forces driving your hardware. Bridge the gap between theory and reality by pairing advanced sensor integration with practical PID control, perfectly closing the crucial sense-act loop.',
     gradient: 'from-purple-400 to-violet-600',
@@ -108,7 +108,7 @@ const SOR: React.FC = () => {
               </Link>
 
               <Link to="/session2" className="block px-5 py-3 hover:bg-white/10 transition">
-                Session 2 • Sensors and Actuators
+                Session 2 • Mechatronics: From Perception to Action
               </Link>
 
               {/* These look identical on hover but do not navigate anywhere */}

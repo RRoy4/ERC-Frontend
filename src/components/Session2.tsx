@@ -27,7 +27,7 @@ const Session2 = () => {
               {/* Left Content */}
               <div className="w-full lg:w-2/3 p-8 order-2 lg:order-1">
                 <h2 className="text-3xl font-bold mb-4">
-                  Session 2 — Sensors and Actuators
+                  Session 2 — Mechatronics: From Perception to Action
                 </h2>
                 <h3 className="text-purple-400 font-semibold mb-3">
                   What You'll Explore
