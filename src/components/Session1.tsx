@@ -45,20 +45,25 @@ const Session1 = () => {
     e.preventDefault();
 
     try {
-      const formData = new FormData();
-
-      formData.append("name", user?.name || "");
-      formData.append("roll", user?.roll || "");
-      formData.append("driveLink", driveLink);
-      formData.append("feedback", feedback);
-      formData.append("funAnswer", funAnswer);
       setSubmitting(true);
+
+      // BROWSER FIX: Use URLSearchParams instead of FormData for reliable App Script parsing
+      const submitData = new URLSearchParams();
+      submitData.append("name", user?.name || "");
+      submitData.append("roll", user?.roll || "");
+      submitData.append("driveLink", driveLink);
+      submitData.append("feedback", feedback);
+      submitData.append("funAnswer", funAnswer);
+
       await fetch(
         "https://script.google.com/macros/s/AKfycbxfGarPsay6hlIxhj4S2VMIt2KWCoa34iTblgiP8UN8304knYoHV_WppmBWz_OL79g3/exec",
         {
           method: "POST",
           mode: "no-cors",
-          body: formData,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: submitData.toString(),
         }
       );
 
@@ -68,6 +73,7 @@ const Session1 = () => {
       setFunAnswer("");
     } catch (error) {
       alert("Submission failed. Please try again.");
+      console.error("Submission error:", error);
     } finally {
       setSubmitting(false);
     }
@@ -224,7 +230,7 @@ const Session1 = () => {
                 onSubmit={handleAssignmentSubmit}
                 className="max-w-2xl mx-auto space-y-6"
               > 
-                {/* --- NEW: User Details Display --- */}
+                {/* User Details Display */}
                 <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 text-left mb-6">
                   <h4 className="text-blue-400 font-medium mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -245,7 +251,6 @@ const Session1 = () => {
                     </div>
                   </div>
                 </div>
-                {/* ------------------------------- */}
 
                 <div className="text-left">
                   <label className="block text-blue-400 font-medium mb-2">
@@ -313,7 +318,7 @@ const Session1 = () => {
 
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting} 
                   className="
                     w-full
                     bg-blue-600 hover:bg-blue-500
