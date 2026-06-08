@@ -8,7 +8,7 @@ const Session2 = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
-            <h2 className="text-6xl font-bold text-purple-500">Sensors and Actuators</h2>
+            <h2 className="text-6xl font-bold text-purple-500">Mechatronics: From Perception to Action</h2>
           </div>
 
           <p className="max-w-4xl mx-auto text-gray-400 text-lg leading-relaxed">
@@ -40,17 +40,19 @@ const Session2 = () => {
                 <div className="flex flex-col gap-3 text-gray-300 mb-6">
                   <div className="flex items-center">
                     <Calendar size={18} className="mr-3 text-purple-400" />
-                    <span>8 June 2026</span>
+                    <span>9 June 2026</span>
                   </div>
 
                   <div className="flex items-center">
                     <Clock size={18} className="mr-3 text-purple-400" />
-                    <span>2:00 PM onwards</span>
+                    <span>7:00 PM onwards</span>
                   </div>
                 </div>
 
                 <a
-                  href="#"
+                  href="https://teams.microsoft.com/meet/46357945342660?p=9sLE3EtEbLsbcF1fBt"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl transition-colors"
                 >
                   Join on MS Teams

@@ -23,7 +23,7 @@ const timelineData: TimelineItem[] = [
     link: '/session1',
   },
   {
-    date: '8th June',
+    date: '9th June',
     title: 'Mechatronics: From Perception to Action',
     description:
       'Master robotic system dynamics and inertia to understand the physical forces driving your hardware. Bridge the gap between theory and reality by pairing advanced sensor integration with practical PID control, perfectly closing the crucial sense-act loop.',
@@ -32,7 +32,7 @@ const timelineData: TimelineItem[] = [
     link: '/session2',
   },
   {
-    date: '12th June',
+    date: '13th June',
     title: 'Introduction to ROS',
     description:
       'Get started with the Robot Operating System (ROS). Learn nodes, topics, services, packages, and build your first simulated robot in Gazebo while visualizing data using RViz.',
