@@ -233,8 +233,7 @@ const Session1 = () => {
                 {/* User Details Display */}
                 <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 text-left mb-6">
                   <h4 className="text-blue-400 font-medium mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    Authenticated as
+                    Login Details
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
