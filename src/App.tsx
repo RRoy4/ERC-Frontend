@@ -7,7 +7,8 @@ import Home from './components/Home';
 import SOR from './components/SOR';
 import ProtectedRoute from './components/ProtectedRoute';
 import Session1 from './components/Session1';
-import Session2 from './components/Session2.tsx';
+import Session2 from './components/Session2';
+// import Session3 from './components/Session3';
 
 
 const XLR8Page = lazy(() => import('./components/XLR8Page.tsx'));
@@ -48,7 +49,7 @@ function App() {
               <Route path="/sor" element={<ProtectedRoute><SOR /></ProtectedRoute>} />
               <Route path="/session1" element={<Session1 />} />
               <Route path="/session2" element={<Session2 />} />
-              {/* <Route path="/week2" element={<Week2 />} /> */}
+              {/* <Route path="/session3" element={<Session3 />} /> */}
             </Routes>
           </Suspense>
         </main>

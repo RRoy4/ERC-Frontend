@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, Clock, ExternalLink } from "lucide-react";
+import { Boxes, Calendar, Clock, ExternalLink, Presentation, Video } from "lucide-react";
 import session2Image from "../assets/Mechatronics2_SOR.png"; // Make sure to add a placeholder image here
 
 const Session2 = () => {
@@ -49,15 +49,37 @@ const Session2 = () => {
                   </div>
                 </div>
 
-                <a
-                  href="https://teams.microsoft.com/meet/46357945342660?p=9sLE3EtEbLsbcF1fBt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl transition-colors"
-                >
-                  Join on MS Teams
-                  <ExternalLink size={18} />
-                </a>
+                <div className="flex flex-wrap gap-4 mt-2">
+                  <a
+                    href="https://canva.link/fr2mjbrr4r33hal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-blue-500/20"
+                  >
+                    <Presentation size={18} />
+                    Slides
+                  </a>
+                  
+                  <a
+                    href="https://iitbacin.sharepoint.com/sites/ERCBLAH-BASICSOFROBOTNAVIGATION/Shared%20Documents/Summer%20Of%20Robotics/Recordings/Session%202%20%E2%80%94%20Mechatronics%20From%20Perception%20to%20Action-20260609_190055-Meeting%20Recording.mp4?web=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-blue-500/20"
+                  >
+                    <Video size={18} />
+                    Recording
+                  </a>
+
+                  <a
+                    href=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl transition-colors font-medium border border-gray-600"
+                  >
+                    Resources & Docker Setup Guide
+                  </a>
+                </div>
+
               </div>
 
               {/* Right Thumbnail (Background Image Method with bg-contain) */}
@@ -72,6 +94,7 @@ const Session2 = () => {
               >
               </div>
             </div>
+            
           </div>
         </div>
       </div>
