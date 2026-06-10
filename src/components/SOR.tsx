@@ -38,6 +38,7 @@ const timelineData: TimelineItem[] = [
       'Get started with the Robot Operating System (ROS). Learn nodes, topics, services, packages, and build your first simulated robot in Gazebo while visualizing data using RViz.',
     gradient: 'from-pink-400 to-purple-600',
     glow: 'group-hover:shadow-[0_0_30px_rgba(217,70,239,0.4)]',
+    link: '/session3',
   },
   {
     date: '19th June',
@@ -112,9 +113,9 @@ const SOR: React.FC = () => {
               </Link>
 
               {/* These look identical on hover but do not navigate anywhere */}
-              <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
-                Session 3 • Introduction to ROS
-              </div>
+              <Link to="/session3" className="block px-5 py-3 hover:bg-white/10 transition">
+                Session 2 • Intro to ROS
+              </Link>
 
               <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 4 • Sensors and Perception

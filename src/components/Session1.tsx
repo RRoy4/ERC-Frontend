@@ -72,7 +72,7 @@ const Session1 = () => {
                     href="https://iitbacin.sharepoint.com/sites/ERCBLAH-BASICSOFROBOTNAVIGATION/Shared%20Documents/Summer%20Of%20Robotics/Recordings/Session%201%20%E2%80%94%20Introduction%20to%20Mechatronics-20260605_142831-Meeting%20Recording.mp4?web=1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl transition-colors font-medium border border-gray-600"
+                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-blue-500/20"
                   >
                     <Video size={18} />
                     Recording
