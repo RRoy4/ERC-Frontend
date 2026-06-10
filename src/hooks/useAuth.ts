@@ -22,4 +22,3 @@ export function logout() {
   Cookies.remove('sso_user')
   window.location.href = '/'
 }
-
