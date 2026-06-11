@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Calendar, Clock, ExternalLink, Loader2 } from "lucide-react";
+import { Calendar, Clock, ExternalLink, Presentation, Video, Loader2, Github } from "lucide-react";
 import session2Image from "../assets/Mechatronics2_SOR.png";
 import { useAuth } from "../hooks/useAuth";
 
@@ -22,7 +22,6 @@ const Session2 = () => {
       }
 
       try {
-        // You can update this URL if Session 2 uses a different Google Script deployment
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxfGarPsay6hlIxhj4S2VMIt2KWCoa34iTblgiP8UN8304knYoHV_WppmBWz_OL79g3/exec";
         const response = await fetch(`${scriptUrl}?roll=${user.roll}`);
         const data = await response.json();
@@ -61,7 +60,6 @@ const Session2 = () => {
       submitData.append("feedback", feedback);
       submitData.append("funAnswer", funAnswer);
 
-      // You can update this URL if Session 2 uses a different Google Script deployment
       await fetch(
         "https://script.google.com/macros/s/AKfycbxfGarPsay6hlIxhj4S2VMIt2KWCoa34iTblgiP8UN8304knYoHV_WppmBWz_OL79g3/exec",
         {
@@ -127,15 +125,38 @@ const Session2 = () => {
                   </div>
                 </div>
 
-                <a
-                  href="https://teams.microsoft.com/meet/46357945342660?p=9sLE3EtEbLsbcF1fBt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-purple-500/20"
-                >
-                  Join on MS Teams
-                  <ExternalLink size={18} />
-                </a>
+                {/* Updated Buttons Section */}
+                <div className="flex flex-wrap gap-4 mt-2">
+                  <a
+                    href="https://canva.link/fr2mjbrr4r33hal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-purple-500/20"
+                  >
+                    <Presentation size={18} />
+                    Slides
+                  </a>
+                  
+                  <a
+                    href="https://iitbacin.sharepoint.com/sites/ERCBLAH-BASICSOFROBOTNAVIGATION/Shared%20Documents/Summer%20Of%20Robotics/Recordings/Session%202%20%E2%80%94%20Mechatronics%20From%20Perception%20to%20Action-20260609_190055-Meeting%20Recording.mp4?web=1" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-purple-500/20"
+                  >
+                    <Video size={18} />
+                    Recording
+                  </a>
+
+                  <a
+                    href="https://github.com/RRoy4/Docker-Installation/tree/main" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 border border-purple-500/30 text-purple-300 px-6 py-3 rounded-xl transition-colors font-medium"
+                  >
+                    <Github size={18} />
+                    Docker Installation & Resources
+                  </a>
+                </div>
               </div>
 
               <div 
@@ -153,7 +174,7 @@ const Session2 = () => {
             </h2>
 
             <a
-              href="https://drive.google.com/file/d/1c6mHP4Pc1-4HzDuJa6XvZrAK7_W7oDy-/view?usp=sharing" 
+              href="#" // ADD YOUR ASSIGNMENT LINK HERE
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-xl font-semibold text-lg transition-colors mb-8"
@@ -245,7 +266,7 @@ const Session2 = () => {
                 
                 <div className="text-left">
                   <label className="block text-purple-400 font-medium mb-2">
-                    💸Suppose ERC gives you unlimited funding to build the most useless robot imaginable. What would it be?
+                    😈 What's the most unethical-but-harmless task you'd be tempted to give your robot?
                   </label>
                   <textarea
                     value={funAnswer}
