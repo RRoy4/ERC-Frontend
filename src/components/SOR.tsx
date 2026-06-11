@@ -182,7 +182,7 @@ const SOR: React.FC = () => {
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-0.5">•</span>
                     <div>
-                      <strong className="text-gray-200">Basic Certificate:</strong> Attend all 5 live sessions and successfully complete at least 4 of the 5 weekly assignments.
+                      <strong className="text-gray-200">Basic Certificate:</strong> Attend all 5 live sessions and successfully complete at least 4 of the 5 weekly assignments <span className="text-blue-300/80 italic">(Note: submissions must pass a minimum grading threshold to qualify)</span>.
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
