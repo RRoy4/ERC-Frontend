@@ -174,7 +174,7 @@ const Session2 = () => {
             </h2>
 
             <a
-              href="#" // ADD YOUR ASSIGNMENT LINK HERE
+              href="https://drive.google.com/file/d/1c6mHP4Pc1-4HzDuJa6XvZrAK7_W7oDy-/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-xl font-semibold text-lg transition-colors mb-8"
