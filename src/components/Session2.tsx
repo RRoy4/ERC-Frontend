@@ -272,7 +272,7 @@ const Session2 = () => {
                     value={funAnswer}
                     onChange={(e) => setFunAnswer(e.target.value)}
                     rows={4}
-                    placeholder="Be creative..."
+                    placeholder="The more unnecessary, the better..."
                     className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-purple-500 focus:outline-none resize-none"
                   />
                 </div>
