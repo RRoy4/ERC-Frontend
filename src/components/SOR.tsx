@@ -112,7 +112,6 @@ const SOR: React.FC = () => {
                 Session 2 • Mechatronics: From Perception to Action
               </Link>
 
-              {/* These look identical on hover but do not navigate anywhere */}
               <Link to="/session3" className="block px-5 py-3 hover:bg-white/10 transition">
                 Session 2 • Intro to ROS
               </Link>
