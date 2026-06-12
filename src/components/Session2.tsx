@@ -266,7 +266,7 @@ const Session2 = () => {
                 
                 <div className="text-left">
                   <label className="block text-purple-400 font-medium mb-2">
-                    😈 What's the most unethical-but-harmless task you'd be tempted to give your robot?
+                    💸 Suppose ERC gives you unlimited funding to build the most useless robot imaginable. What would it be?
                   </label>
                   <textarea
                     value={funAnswer}
