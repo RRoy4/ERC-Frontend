@@ -49,7 +49,7 @@ const Session3 = () => {
                 {/* Slides Button */}
                 <div className="flex flex-wrap gap-4 mt-2">
                   <a
-                    href="https://canva.link/xyxgam60x1mqeaw" 
+                    href="https://canva.link/66ic8d4t50nyrgg" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-fuchsia-600 hover:bg-fuchsia-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-fuchsia-500/20"
