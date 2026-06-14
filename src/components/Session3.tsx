@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, Clock, ExternalLink } from "lucide-react";
+import { Calendar, Clock, Presentation } from "lucide-react";
 import session3Image from "../assets/Mechatronics3_SOR.png"; 
 
 const Session3 = () => {
@@ -46,16 +46,16 @@ const Session3 = () => {
                   </div>
                 </div>
 
-                {/* Join Us Button */}
+                {/* Slides Button */}
                 <div className="flex flex-wrap gap-4 mt-2">
                   <a
-                    href="https://teams.microsoft.com/meet/44688152051447?p=k4BfBkj95oCIimndVV" 
+                    href="https://canva.link/xyxgam60x1mqeaw" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-fuchsia-600 hover:bg-fuchsia-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-fuchsia-500/20"
                   >
-                    Join Us
-                    <ExternalLink size={18} />
+                    <Presentation size={18} />
+                    Slides
                   </a>
                 </div>
               </div>
