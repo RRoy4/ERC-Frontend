@@ -140,7 +140,7 @@ const Session3 = () => {
                   </a>
 
                   <a
-                    href="https://drive.google.com/file/d/1uhXESPJ9gbY0UFnfAPg2heancPswnX39/view?usp=drivesdk" 
+                    href="https://teams.microsoft.com/l/meetingrecap?driveId=b%21xfjONngaaU614pi6N4yY4znIifqPaPBFpOEtftBcrX8E_ytauW7eSrVW6HzvHkOU&driveItemId=01FFSBYKF5I65GISAIQZAI7FYE3TIRWNT5&sitePath=https%3A%2F%2Fiitbacin.sharepoint.com%2Fsites%2FRECORDING_b06a01%2FShared+Documents%2FGeneral%2FRecordings%2FMeeting+in+General-20260615_142514-Meeting+Recording.mp4%3Fweb%3D1&fileUrl=https%3A%2F%2Fiitbacin.sharepoint.com%2Fsites%2FRECORDING_b06a01%2FShared+Documents%2FGeneral%2FRecordings%2FMeeting+in+General-20260615_142514-Meeting+Recording.mp4%3Fweb%3D1&threadId=19%3A01V17LXTaM2b3EtinP2KVnxDqohcqd1NLWahmUHHCeo1%40thread.tacv2&organizerId=3114c371-2a31-4e8d-a611-7f13df5771d9&tenantId=403ee5f4-55b3-45cd-8ae2-824be887a075&callId=7756d80e-b399-483d-954f-ba93667d9251&threadType=space&meetingType=Unknown&channelType=Standard&replyChainId=1781513668407&subType=RecapSharingLink_RecapChiclet" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-fuchsia-600 hover:bg-fuchsia-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-fuchsia-500/20"
@@ -268,18 +268,16 @@ const Session3 = () => {
                 
                 <div className="text-left">
                   <label className="block text-fuchsia-400 font-medium mb-2">
-                    <div className="text-left">
-  <label className="block text-fuchsia-400 font-medium mb-2">
-    🤖 Reality Check Failed! You wake up and discover you're actually an NPC in a robotics simulation. What is your character description, and what ridiculous bug do you have?
-  </label>
-  <textarea
-    value={funAnswer}
-    onChange={(e) => setFunAnswer(e.target.value)}
-    rows={4}
-    placeholder="Example: Sleep-Deprived Engineer v2.1 — Solves impossible problems at 3 AM. Bug: Brain enters low-power mode during lectures."
-    className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-fuchsia-500 focus:outline-none resize-none"
-  />
-</div>
+                    🤖 Reality Check Failed! You wake up and discover you're actually an NPC in a robotics simulation. What is your character description, and what ridiculous bug do you have?
+                  </label>
+                  <textarea
+                    value={funAnswer}
+                    onChange={(e) => setFunAnswer(e.target.value)}
+                    rows={4}
+                    placeholder="Example: Sleep-Deprived Engineer v2.1 — Solves impossible problems at 3 AM. Bug: Brain enters low-power mode during lectures."
+                    className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-fuchsia-500 focus:outline-none resize-none"
+                  />
+                </div>
                 
                 <div className="text-left">
                   <label className="block text-fuchsia-400 font-medium mb-2">
