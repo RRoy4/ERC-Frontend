@@ -140,7 +140,7 @@ const Session3 = () => {
                   </a>
 
                   <a
-                    href="https://teams.microsoft.com/l/meetingrecap?driveId=b%21xfjONngaaU614pi6N4yY4znIifqPaPBFpOEtftBcrX8E_ytauW7eSrVW6HzvHkOU&driveItemId=01FFSBYKF5I65GISAIQZAI7FYE3TIRWNT5&sitePath=https%3A%2F%2Fiitbacin.sharepoint.com%2Fsites%2FRECORDING_b06a01%2FShared+Documents%2FGeneral%2FRecordings%2FMeeting+in+General-20260615_142514-Meeting+Recording.mp4%3Fweb%3D1&fileUrl=https%3A%2F%2Fiitbacin.sharepoint.com%2Fsites%2FRECORDING_b06a01%2FShared+Documents%2FGeneral%2FRecordings%2FMeeting+in+General-20260615_142514-Meeting+Recording.mp4%3Fweb%3D1&threadId=19%3A01V17LXTaM2b3EtinP2KVnxDqohcqd1NLWahmUHHCeo1%40thread.tacv2&organizerId=3114c371-2a31-4e8d-a611-7f13df5771d9&tenantId=403ee5f4-55b3-45cd-8ae2-824be887a075&callId=7756d80e-b399-483d-954f-ba93667d9251&threadType=space&meetingType=Unknown&channelType=Standard&replyChainId=1781513668407&subType=RecapSharingLink_RecapChiclet" 
+                    href="https://drive.google.com/file/d/1uhXESPJ9gbY0UFnfAPg2heancPswnX39/view?usp=drivesdk" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-fuchsia-600 hover:bg-fuchsia-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-fuchsia-500/20"
