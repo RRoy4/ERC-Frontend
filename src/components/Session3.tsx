@@ -176,7 +176,7 @@ const Session3 = () => {
             </h2>
 
             <a
-              href="https://drive.google.com/file/d/1uhXESPJ9gbY0UFnfAPg2heancPswnX39/view?usp=drivesdk"
+              href="https://drive.google.com/file/d/17FoKpLFvpjhOc9N2GxkWh89hvBDjsTxZ/view?usp=drivesdk"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-fuchsia-600 hover:bg-fuchsia-500 px-8 py-4 rounded-xl font-semibold text-lg transition-colors mb-8"
