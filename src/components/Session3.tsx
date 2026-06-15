@@ -274,7 +274,7 @@ const Session3 = () => {
                     value={funAnswer}
                     onChange={(e) => setFunAnswer(e.target.value)}
                     rows={4}
-                    placeholder="Be creative..."
+                    placeholder="Example: Sleep-Deprived Engineer v2.1 — Solves impossible problems at 3 AM. Bug: Brain enters low-power mode during lectures."
                     className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-fuchsia-500 focus:outline-none resize-none"
                   />
                 </div>
