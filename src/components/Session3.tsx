@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, Clock, Presentation } from "lucide-react";
+import { Calendar, Clock, Presentation, Video } from "lucide-react";
 import session3Image from "../assets/Mechatronics3_SOR.png"; 
 
 const Session3 = () => {
@@ -46,7 +46,7 @@ const Session3 = () => {
                   </div>
                 </div>
 
-                {/* Slides Button */}
+                {/* Buttons */}
                 <div className="flex flex-wrap gap-4 mt-2">
                   <a
                     href="https://canva.link/66ic8d4t50nyrgg" 
@@ -56,6 +56,16 @@ const Session3 = () => {
                   >
                     <Presentation size={18} />
                     Slides
+                  </a>
+
+                  <a
+                    href="https://drive.google.com/file/d/1uhXESPJ9gbY0UFnfAPg2heancPswnX39/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-fuchsia-600 hover:bg-fuchsia-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-fuchsia-500/20"
+                  >
+                    <Video size={18} />
+                    Recording
                   </a>
                 </div>
               </div>
