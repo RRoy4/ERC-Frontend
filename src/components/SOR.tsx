@@ -47,6 +47,7 @@ const timelineData: TimelineItem[] = [
       'Bridge the gap between hardware and software through advanced sensor integration. Dive into machine perception using OpenCV, empowering your robots to accurately interpret and react to dynamic visual environments.',
     gradient: 'from-orange-400 to-red-500',
     glow: 'group-hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]',
+    link: '/session4',
   },
   {
     date: '26th June',
@@ -116,9 +117,9 @@ const SOR: React.FC = () => {
                 Session 2 • Intro to ROS
               </Link>
 
-              <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
+              <Link to = "/session4" className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 4 • Sensors and Perception
-              </div>
+              </Link>
 
               <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 5 • SLAM and Manipulation
