@@ -284,13 +284,13 @@ const Session4 = () => {
                 
                 <div className="text-left">
                   <label className="block text-orange-400 font-medium mb-2">
-                    Drive Video Link
+                    Submit your drive link
                   </label>
                   <input
                     type="url"
                     value={driveLink}
                     onChange={(e) => setDriveLink(e.target.value)}
-                    placeholder="Paste Google Drive video link here"
+                    placeholder="Paste Google Drive folder link here with video and short report"
                     required
                     className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-orange-500 focus:outline-none"
                   />
@@ -298,13 +298,13 @@ const Session4 = () => {
 
                 <div className="text-left">
                   <label className="block text-orange-400 font-medium mb-2">
-                    GitHub Code Repository Link
+                    GitHub code repository link
                   </label>
                   <input
                     type="url"
                     value={githubLink}
                     onChange={(e) => setGithubLink(e.target.value)}
-                    placeholder="Paste GitHub link here"
+                    placeholder="Paste GitHub link here with all modified files"
                     required
                     className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-orange-500 focus:outline-none"
                   />
