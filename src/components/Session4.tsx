@@ -6,6 +6,7 @@ import { useAuth } from "../hooks/useAuth";
 const Session4 = () => {
   const [submitted, setSubmitted] = useState(false);
   const [driveLink, setDriveLink] = useState("");
+  const [githubLink, setGithubLink] = useState("");
   const [feedback, setFeedback] = useState("");
   const [funAnswer, setFunAnswer] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -57,6 +58,7 @@ const Session4 = () => {
       submitData.append("name", user.name);
       submitData.append("roll", user.roll);
       submitData.append("driveLink", driveLink);
+      submitData.append("githubLink", githubLink);
       submitData.append("feedback", feedback);
       submitData.append("funAnswer", funAnswer);
 
@@ -74,6 +76,7 @@ const Session4 = () => {
 
       setSubmitted(true);
       setDriveLink("");
+      setGithubLink("");
       setFeedback("");
       setFunAnswer("");
     } catch (error) {
@@ -281,13 +284,27 @@ const Session4 = () => {
                 
                 <div className="text-left">
                   <label className="block text-orange-400 font-medium mb-2">
-                    Assignment Submission Link
+                    Drive Video Link
                   </label>
                   <input
                     type="url"
                     value={driveLink}
                     onChange={(e) => setDriveLink(e.target.value)}
-                    placeholder="Paste Google Drive link here"
+                    placeholder="Paste Google Drive video link here"
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-orange-500 focus:outline-none"
+                  />
+                </div>
+
+                <div className="text-left">
+                  <label className="block text-orange-400 font-medium mb-2">
+                    GitHub Code Repository Link
+                  </label>
+                  <input
+                    type="url"
+                    value={githubLink}
+                    onChange={(e) => setGithubLink(e.target.value)}
+                    placeholder="Paste GitHub link here"
                     required
                     className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-orange-500 focus:outline-none"
                   />
