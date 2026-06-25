@@ -47,6 +47,7 @@ const timelineData: TimelineItem[] = [
       'Bridge the gap between hardware and software through advanced sensor integration. Dive into machine perception using OpenCV, empowering your robots to accurately interpret and react to dynamic visual environments.',
     gradient: 'from-orange-400 to-red-500',
     glow: 'group-hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]',
+    link: '/session4',
   },
   {
     date: '26th June',
@@ -112,14 +113,13 @@ const SOR: React.FC = () => {
                 Session 2 • Mechatronics: From Perception to Action
               </Link>
 
-              {/* These look identical on hover but do not navigate anywhere */}
               <Link to="/session3" className="block px-5 py-3 hover:bg-white/10 transition">
                 Session 2 • Intro to ROS
               </Link>
 
-              <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
+              <Link to = "/session4" className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 4 • Sensors and Perception
-              </div>
+              </Link>
 
               <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 5 • SLAM and Manipulation
@@ -182,7 +182,7 @@ const SOR: React.FC = () => {
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-0.5">•</span>
                     <div>
-                      <strong className="text-gray-200">Basic Certificate:</strong> Attend all 5 live sessions and successfully complete at least 4 of the 5 weekly assignments.
+                      <strong className="text-gray-200">Basic Certificate:</strong> Attend all 5 live sessions and successfully complete at least 4 of the 5 weekly assignments <span className="text-blue-300/80 italic">(Note: submissions must pass a minimum grading threshold to qualify)</span>.
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
