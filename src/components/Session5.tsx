@@ -50,7 +50,7 @@ const Session5 = () => {
                 {/* Join Us Button */}
                 <div className="flex flex-wrap gap-4 mt-2">
                   <a
-                    href="#" // ADD YOUR MS TEAMS LINK HERE
+                    href="https://teams.microsoft.com/meet/46903169093492?p=waSVpufaSWZ7vV054M" // ADD YOUR MS TEAMS LINK HERE
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 px-6 py-3 rounded-xl transition-colors font-medium shadow-lg shadow-green-500/20"
