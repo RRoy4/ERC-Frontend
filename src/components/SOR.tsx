@@ -56,6 +56,7 @@ const timelineData: TimelineItem[] = [
       'Master autonomous navigation by applying Simultaneous Localization and Mapping (SLAM) in unknown environments. Alongside mobile tracking, learn essential kinematics to control and maneuver simple robotic arms for real-world tasks.',
     gradient: 'from-emerald-400 to-green-600',
     glow: 'group-hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]',
+    link: '/session5',
   },
   {
     date: '30 June - 14 July',
@@ -121,9 +122,9 @@ const SOR: React.FC = () => {
                 Session 4 • Sensors and Perception
               </Link>
 
-              <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
+              <Link to = "/session5" className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Session 5 • SLAM and Manipulation
-              </div>
+              </Link>
 
               <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default text-yellow-500/80">
                 Project Phase • Final Build
