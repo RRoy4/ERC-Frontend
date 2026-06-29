@@ -1,5 +1,6 @@
-import React, { useState, Component } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import Spline from '@splinetool/react-spline';
+import { Bot, X, Lightbulb } from 'lucide-react';
 
 // ─── Error Boundary ────────────────────────────────────────────────────────────
 class SplineErrorBoundary extends Component<
@@ -46,12 +47,83 @@ const galleryImages = [
   { url: 'https://res.cloudinary.com/djbm9dagt/image/upload/f_auto,q_auto,w_1200/v1780110702/t.jpeg', alt: 'ERC Event T' },
 ];
 
+// ─── Daily Robotics Facts ──────────────────────────────────────────────────────
+const roboticsFacts = [
+  "The word 'robot' comes from the Czech word 'robota', which literally translates to 'forced labor' or 'drudgery'.",
+  "The first known design for a humanoid robot was created by Leonardo da Vinci around the year 1495.",
+  "Mars is entirely inhabited by robots! As of now, several rovers and landers are the only active 'residents' on the Red Planet.",
+  "The world's first industrial robot, Unimate, went to work on a General Motors assembly line in 1961.",
+  "In 2017, Saudi Arabia granted citizenship to a humanoid robot named Sophia, making her the first robot to receive legal personhood.",
+  "The smallest robot ever created is a 'crab' robot that is smaller than a flea. It walks using shape-memory alloys instead of motors.",
+  "Roomba, the popular robot vacuum, uses a SLAM (Simultaneous Localization and Mapping) algorithm similar to the ones used in autonomous cars.",
+  "The first recorded instance of a robot causing a human fatality occurred in 1979 at a Ford Motor plant.",
+  "Electro, a 7-foot tall robot built by Westinghouse in 1939, could walk by voice command, speak 700 words, and even smoke cigarettes!",
+  "Modern surgical robots are so precise they can successfully peel the skin off a grape and stitch it back together."
+];
+
+// ─── Floating Daily Fact Widget ──────────────────────────────────────────────
+const DailyFactWidget = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
+  const [dailyFact, setDailyFact] = useState("");
+
+  useEffect(() => {
+    // Calculate a unique index based on the current day of the year
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 1000 / 60 / 60 / 24);
+    setDailyFact(roboticsFacts[dayOfYear % roboticsFacts.length]);
+  }, []);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+    if (!hasBeenClicked) {
+      setHasBeenClicked(true); // Stop the bouncing permanently after first interaction
+    }
+  };
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      {/* The Popup Card */}
+      <div 
+        className={`mb-4 w-72 md:w-80 bg-gray-900/90 backdrop-blur-xl border border-blue-500/30 rounded-2xl p-5 shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-500 origin-bottom-right ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+      >
+        <div className="flex justify-between items-start mb-3">
+          <div className="flex items-center gap-2 text-yellow-400">
+            <Lightbulb size={18} className="animate-pulse" />
+            <h4 className="font-bold font-heading text-sm uppercase tracking-wider">Daily Robo-Fact</h4>
+          </div>
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            <X size={18} />
+          </button>
+        </div>
+        <p className="text-gray-300 text-sm leading-relaxed">
+          {dailyFact}
+        </p>
+      </div>
+
+      {/* The Floating Toggle Button */}
+      <button
+        onClick={handleToggle}
+        className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg ${isOpen ? 'bg-gray-800 border border-gray-600 text-gray-400' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:-translate-y-1'}`}
+      >
+        <Bot size={24} className={!hasBeenClicked ? "animate-bounce" : ""} />
+      </button>
+    </div>
+  );
+};
+
 // ─── About Component ───────────────────────────────────────────────────────────
 const About = () => {
   const [splineLoaded, setSplineLoaded] = useState(false);
 
   return (
-    <section id="about" className="py-20 bg-gray-900/70">
+    <section id="about" className="py-20 bg-gray-900/70 relative overflow-hidden">
+      
+      {/* Floating Daily Fact Widget Injection */}
+      <DailyFactWidget />
+
       <div className="container mx-auto px-4">
 
         {/* Heading */}
@@ -81,7 +153,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="w-64 h-64 rounded-full bg-gray-900 overflow-hidden shadow-lg relative">
+            <div className="w-64 h-64 rounded-full bg-gray-900 overflow-hidden shadow-lg relative shrink-0">
               <div className="absolute inset-0 animate-spin-slow border border-yellow-400/30 rounded-full" />
               <SplineErrorBoundary>
                 {/* Spinner until Spline fires onLoad */}
