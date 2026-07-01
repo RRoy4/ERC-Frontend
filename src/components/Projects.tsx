@@ -69,7 +69,7 @@ const defaultProjects: Project[] = [
     description:
       'Develop a fully autonomous ROS 2 drone capable of navigating to DIGIPIN-based destinations, detecting targets using YOLO, and performing precision payload deliveries. Experience the complete aerial robotics stack—from flight control and perception to mission planning—in a realistic Gazebo simulation.',
     image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883362/drone_ar9jlz.png',
-    category: 'Advanced',
+    category: 'Intermediate',
     tags: ['Yolov8', 'PID/PI control', 'Digipin'],
     githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_drone.git',
   },
