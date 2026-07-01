@@ -71,7 +71,7 @@ const defaultProjects: Project[] = [
     image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883363/llm_ujrr40.png',
     category: 'Intermediate',
     tags: ['LLM', 'ROS', 'Natural Language'],
-    githubUrl: 'https://github.com/your-org/smartbot',
+    githubUrl: 'https://github.com/RRoy4/LLM-Controlled-Bot.git',
   },
   {
     id: 5,
