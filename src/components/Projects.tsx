@@ -55,16 +55,6 @@ const defaultProjects: Project[] = [
   },
   {
     id: 3,
-    title: 'BraccioSORT — Vision-Guided Pick-and-Place System',
-    description:
-      'Build a complete vision-guided manipulation stack including camera-based object detection, pixel-to-world coordinate estimation, MoveIt-powered inverse kinematics and motion planning, gripper control, and autonomous colour-based pick-and-place sorting using a simulated Braccio robotic arm.',
-    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883355/arm_g9layb.png',
-    category: 'Intermediate',
-    tags: ['6-DOF Robotic Arm', 'YOLOv8', 'Moveit'],
-    githubUrl: 'https://github.com/Saarthak43/ros2_pick_n_place_braccio',
-  },
-  {
-    id: 4,
     title: 'SmartBOT — LLM-Powered Autonomous Exploration Bot',
     description:
       'Build a complete navigation stack including keyboard teleop, a hand-rolled FSM/PID navigator for obstacle avoidance, frontier-based autonomous exploration on a live SLAM Toolbox occupancy grid, and a local LLM that parses typed commands into Nav2 goals.',
@@ -73,8 +63,8 @@ const defaultProjects: Project[] = [
     tags: ['LLM', 'ROS', 'Natural Language'],
     githubUrl: 'https://github.com/RRoy4/LLM-Controlled-Bot.git',
   },
-  {
-    id: 5,
+{
+    id: 4,
     title: 'AERODrop — DIGIPIN-Based Precision Delivery Drone',
     description:
       'Develop a fully autonomous ROS 2 drone capable of navigating to DIGIPIN-based destinations, detecting targets using YOLO, and performing precision payload deliveries. Experience the complete aerial robotics stack—from flight control and perception to mission planning—in a realistic Gazebo simulation.',
@@ -82,6 +72,16 @@ const defaultProjects: Project[] = [
     category: 'Advanced',
     tags: ['Yolov8', 'PID/PI control', 'Digipin'],
     githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_drone.git',
+  },
+{
+    id: 5,
+    title: 'BraccioSORT — Vision-Guided Pick-and-Place System',
+    description:
+      'Build a complete vision-guided manipulation stack including camera-based object detection, pixel-to-world coordinate estimation, MoveIt-powered inverse kinematics and motion planning, gripper control, and autonomous colour-based pick-and-place sorting using a simulated Braccio robotic arm.',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883355/arm_g9layb.png',
+    category: 'Advanced',
+    tags: ['6-DOF Robotic Arm', 'YOLOv8', 'Moveit'],
+    githubUrl: 'https://github.com/Saarthak43/ros2_pick_n_place_braccio',
   },
   {
     id: 6,
