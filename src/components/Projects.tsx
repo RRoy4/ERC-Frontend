@@ -61,7 +61,7 @@ const defaultProjects: Project[] = [
     image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883355/arm_g9layb.png',
     category: 'Intermediate',
     tags: ['6-DOF Robotic Arm', 'YOLOv8', 'Moveit'],
-    githubUrl: 'https://github.com/your-org/braccio-sort',
+    githubUrl: 'https://github.com/Saarthak43/ros2_pick_n_place_braccio',
   },
   {
     id: 4,
