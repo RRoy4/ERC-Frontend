@@ -11,6 +11,7 @@ import Session2 from './components/Session2';
 import Session3 from './components/Session3';
 import Session4 from './components/Session4';
 import Session5 from './components/Session5.tsx';
+import Projects from './components/Projects.tsx'
 
 
 const XLR8Page = lazy(() => import('./components/XLR8Page.tsx'));
@@ -54,6 +55,7 @@ function App() {
               <Route path="/session3" element={<Session3 />} />
               <Route path="/session4" element={<Session4 />} />
               <Route path="/session5" element={<Session5 />} />
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </Suspense>
         </main>
