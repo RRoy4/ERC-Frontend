@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ExternalLink, X, Plus, ChevronDown, Loader2, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
-import followerImg from "../assets/follower.png";
-import rssiImg from "../assets/rssi.png";
-import armImg from "../assets/arm.png";
-import llmImg from "../assets/llm.png";
-import droneImg from "../assets/drone.png";
-import roverImg from "../assets/rover.png";
+// import followerImg from "../assets/follower.png";
+// import rssiImg from "../assets/rssi.png";
+// import armImg from "../assets/arm.png";
+// import llmImg from "../assets/llm.png";
+// import droneImg from "../assets/drone.png";
+// import roverImg from "../assets/rover.png";
 
 const APPS_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbwa7qRY--gt-JS0mdSgdSjgWDeKFDyV7F_yKlEHuY7hWRGEy4nbxWJvu2_RFBhZo6Nj/exec';
@@ -38,7 +38,7 @@ const defaultProjects: Project[] = [
     title: 'ROBOTRACE — Autonomous Vision-Based Line Follower',
     description:
       'Develop an intelligent mobile robot capable of following a track without GPS, maps, or external guidance. Using ROS 2, computer vision, and closed-loop control, you will build a system that detects lane markings, corrects its trajectory in real time, and completes autonomous navigation challenges',
-    image: followerImg,
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883354/follower_mmbx7s.png',
     category: 'Beginner',
     tags: ['TurtleBot3', 'OpenCV', 'PID Control'],
     githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_line_follower.git',
@@ -48,7 +48,7 @@ const defaultProjects: Project[] = [
     title: 'SignalSCOUT — Autonomous Spatial Signal Mapper',
     description:
       'Build an autonomous robotic WiFi surveyor that maps an environment, navigates safely through it, collects wireless signal measurements, and generates coverage heatmaps. Implement the complete ROS 2 autonomy pipeline—from SLAM and localization to navigation, data collection, and spatial visualization.',
-    image: rssiImg,
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883379/rssi_xvwpie.png',
     category: 'Intermediate',
     tags: ['TurtleBot3', 'SLAM', 'RSSI'],
     githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_RSSI_Heatmap.git',
@@ -58,7 +58,7 @@ const defaultProjects: Project[] = [
     title: 'BraccioSORT — Vision-Guided Pick-and-Place System',
     description:
       'Build a complete vision-guided manipulation stack including camera-based object detection, pixel-to-world coordinate estimation, MoveIt-powered inverse kinematics and motion planning, gripper control, and autonomous colour-based pick-and-place sorting using a simulated Braccio robotic arm.',
-    image: armImg,
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883355/arm_g9layb.png',
     category: 'Intermediate',
     tags: ['6-DOF Robotic Arm', 'YOLOv8', 'Moveit'],
     githubUrl: 'https://github.com/your-org/braccio-sort',
@@ -68,7 +68,7 @@ const defaultProjects: Project[] = [
     title: 'SmartBOT — LLM-Powered Autonomous Exploration Bot',
     description:
       'Build a complete navigation stack including keyboard teleop, a hand-rolled FSM/PID navigator for obstacle avoidance, frontier-based autonomous exploration on a live SLAM Toolbox occupancy grid, and a local LLM that parses typed commands into Nav2 goals.',
-    image: llmImg,
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883363/llm_ujrr40.png',
     category: 'Intermediate',
     tags: ['LLM', 'ROS', 'Natural Language'],
     githubUrl: 'https://github.com/your-org/smartbot',
@@ -78,7 +78,7 @@ const defaultProjects: Project[] = [
     title: 'AERODrop — DIGIPIN-Based Precision Delivery Drone',
     description:
       'Develop a fully autonomous ROS 2 drone capable of navigating to DIGIPIN-based destinations, detecting targets using YOLO, and performing precision payload deliveries. Experience the complete aerial robotics stack—from flight control and perception to mission planning—in a realistic Gazebo simulation.',
-    image: droneImg,
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883362/drone_ar9jlz.png',
     category: 'Advanced',
     tags: ['Yolov8', 'PID/PI control', 'Digipin'],
     githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_drone.git',
@@ -88,7 +88,7 @@ const defaultProjects: Project[] = [
     title: 'TerraROVER — 6-Wheeled Planetary Exploration Rover',
     description:
       'Build an intelligent Mars rover capable of autonomously exploring rugged planetary terrain using ROS 2 Jazzy. Implement the complete autonomy stack—from wheel-level control and EKF localization to Nav2 path planning and obstacle avoidance—in a realistic Gazebo simulation',
-    image: roverImg,
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883366/rover_fi4iwl.png',
     category: 'Advanced',
     tags: ['Rocker-Bogie', 'Ackermann Steering', 'SLAM'],
     githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_rover.git',
