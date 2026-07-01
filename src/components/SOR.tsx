@@ -190,7 +190,7 @@ const SOR: React.FC = () => {
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-0.5">•</span>
                     <div>
-                      <strong className="text-gray-200">Advanced Certificate:</strong> Fulfill all requirements for the Basic Certificate and successfully deliver a final capstone project.
+                      <strong className="text-gray-200">Advanced Certificate:</strong>Fulfill all requirements for the Basic Certificate and successfully complete one of the six available project options.
                     </div>
                   </li>
                 </ul>
