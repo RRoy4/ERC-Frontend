@@ -59,7 +59,7 @@ const timelineData: TimelineItem[] = [
     link: '/session5',
   },
   {
-    date: '30 June - 14 July',
+    date: '6th July - 20th July',
     title: 'Projects',
     description:
       'Apply everything learnt to build and deploy a comprehensive robotics project from scratch. Projects include an LLM-controlled bot, delivery drone, robotic arm sorting system, and spatial signal mapper.',
