@@ -263,7 +263,7 @@ const Projects: React.FC = () => {
                 <FolderGit2 size={24} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2 font-heading">Project Submission Portal</h3>
-              <p className="text-gray-400 text-sm">Submit your final deliverables. Authenticated strictly via standard ITC SSO.</p>
+              <p className="text-gray-400 text-sm">Submit your final deliverables.</p>
             </div>
 
             {/* Authenticated Student Banner */}
@@ -350,7 +350,7 @@ const Projects: React.FC = () => {
 
                 <div>
   <label className="block text-sm font-medium text-gray-300 mb-2">
-    How far are you now from building your dream project after SOR? <span className="text-gray-500 font-normal">(Optional)</span>
+    Now that you've completed SOR, how close are you to building your dream project? <span className="text-gray-500 font-normal">(Optional)</span>
   </label>
   <input
     type="text"
