@@ -11,7 +11,9 @@ import Session2 from './components/Session2';
 import Session3 from './components/Session3';
 import Session4 from './components/Session4';
 import Session5 from './components/Session5.tsx';
-import Preloader from './components/Preloader'; // <-- Added import for Preloader
+import Projects from './components/Projects.tsx';
+import Preloader from './components/Preloader.tsx'
+
 
 const XLR8Page = lazy(() => import('./components/XLR8Page.tsx'));
 const Events = lazy(() => import('./components/Events'));
@@ -28,7 +30,6 @@ function App() {
     <Router>
       <ScrollToTop />
       
-      {/* Loading Screen injected here */}
       <Preloader />
       
       <div className="min-h-screen bg-gray-900 text-white">
@@ -58,6 +59,7 @@ function App() {
               <Route path="/session3" element={<Session3 />} />
               <Route path="/session4" element={<Session4 />} />
               <Route path="/session5" element={<Session5 />} />
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </Suspense>
         </main>

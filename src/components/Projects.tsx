@@ -1,144 +1,158 @@
-import React, { useState } from 'react';
-import { Code, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { ExternalLink } from 'lucide-react';
 
-// Project data
-const projectsData = [
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  tags: string[];
+  githubUrl: string;
+}
+
+const defaultProjects: Project[] = [
   {
     id: 1,
-    title: 'Autonomous Maze Solver Robot',
-    description: 'A robot that uses ultrasonic sensors and advanced algorithms to navigate and solve complex mazes autonomously.',
-    image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    category: 'robotics',
-    tags: ['Arduino', 'Sensors', 'Algorithms']
+    title: 'ROBOTRACE — Autonomous Vision-Based Line Follower',
+    description:
+      'Develop an intelligent mobile robot capable of following a track without GPS, maps, or external guidance. Using ROS 2, computer vision, and closed-loop control, you will build a system that detects lane markings, corrects its trajectory in real time, and completes autonomous navigation challenges',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883354/follower_mmbx7s.png',
+    category: 'Beginner',
+    tags: ['TurtleBot3', 'OpenCV', 'PID Control'],
+    githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_line_follower.git',
   },
   {
     id: 2,
-    title: 'Smart Home Automation System',
-    description: 'IoT-based home automation system that controls lighting, temperature, and security using a mobile app interface.',
-    image: 'https://images.pexels.com/photos/1191877/pexels-photo-1191877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    category: 'iot',
-    tags: ['ESP32', 'IoT', 'Mobile App']
+    title: 'SignalSCOUT — Autonomous Spatial Signal Mapper',
+    description:
+      'Build an autonomous robotic WiFi surveyor that maps an environment, navigates safely through it, collects wireless signal measurements, and generates coverage heatmaps. Implement the complete ROS 2 autonomy pipeline—from SLAM and localization to navigation, data collection, and spatial visualization.',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883379/rssi_xvwpie.png',
+    category: 'Intermediate',
+    tags: ['TurtleBot3', 'SLAM', 'RSSI'],
+    githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_RSSI_Heatmap.git',
   },
   {
     id: 3,
-    title: 'Gesture-Controlled Drone',
-    description: 'Custom-built drone that responds to hand gestures captured by a camera and processed using computer vision.',
-    image: 'https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    category: 'robotics',
-    tags: ['Computer Vision', 'Drone', 'Embedded Systems']
+    title: 'SmartBOT — LLM-Powered Autonomous Exploration Bot',
+    description:
+      'Build a complete navigation stack including keyboard teleop, a hand-rolled FSM/PID navigator for obstacle avoidance, frontier-based autonomous exploration on a live SLAM Toolbox occupancy grid, and a local LLM that parses typed commands into Nav2 goals.',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883363/llm_ujrr40.png',
+    category: 'Intermediate',
+    tags: ['LLM', 'ROS', 'Natural Language'],
+    githubUrl: 'https://github.com/RRoy4/LLM-Controlled-Bot.git',
   },
   {
     id: 4,
-    title: 'Solar-Powered Weather Station',
-    description: 'Self-sustaining weather monitoring system that collects and transmits environmental data wirelessly.',
-    image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    category: 'electronics',
-    tags: ['Solar', 'Sensors', 'Wireless']
+    title: 'AERODrop — DIGIPIN-Based Precision Delivery Drone',
+    description:
+      'Develop a fully autonomous ROS 2 drone capable of navigating to DIGIPIN-based destinations, detecting targets using YOLO, and performing precision payload deliveries. Experience the complete aerial robotics stack—from flight control and perception to mission planning—in a realistic Gazebo simulation.',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883362/drone_ar9jlz.png',
+    category: 'Intermediate',
+    tags: ['Yolov8', 'PID/PI control', 'Digipin'],
+    githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_drone.git',
   },
   {
     id: 5,
-    title: 'Music Visualizer LED Matrix',
-    description: 'Responsive LED matrix that creates dynamic visual patterns synchronized with music using frequency analysis.',
-    image: 'https://images.pexels.com/photos/1694000/pexels-photo-1694000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    category: 'electronics',
-    tags: ['LEDs', 'Audio Processing', 'Art']
+    title: 'BraccioSORT — Vision-Guided Pick-and-Place System',
+    description:
+      'Build a complete vision-guided manipulation stack including camera-based object detection, pixel-to-world coordinate estimation, MoveIt-powered inverse kinematics and motion planning, gripper control, and autonomous colour-based pick-and-place sorting using a simulated Braccio robotic arm.',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883355/arm_g9layb.png',
+    category: 'Advanced',
+    tags: ['6-DOF Robotic Arm', 'YOLOv8', 'Moveit'],
+    githubUrl: 'https://github.com/Saarthak43/ros2_pick_n_place_braccio',
   },
   {
     id: 6,
-    title: 'Robotic Arm with Computer Vision',
-    description: 'Precision robotic arm that can identify, pick up, and sort objects based on their color and shape.',
-    image: 'https://images.pexels.com/photos/4816921/pexels-photo-4816921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    category: 'robotics',
-    tags: ['Computer Vision', 'Servos', 'Machine Learning']
-  }
+    title: 'TerraROVER — 6-Wheeled Planetary Exploration Rover',
+    description:
+      'Build an intelligent Mars rover capable of autonomously exploring rugged planetary terrain using ROS 2 Jazzy. Implement the complete autonomy stack—from wheel-level control and EKF localization to Nav2 path planning and obstacle avoidance—in a realistic Gazebo simulation',
+    image: 'https://res.cloudinary.com/djbm9dagt/image/upload/v1782883366/rover_fi4iwl.png',
+    category: 'Advanced',
+    tags: ['Rocker-Bogie', 'Ackermann Steering', 'SLAM'],
+    githubUrl: 'https://github.com/sachinmandal3580-rgb/ros2_rover.git',
+  },
 ];
 
-const Projects = () => {
-  const [filter, setFilter] = useState('all');
-  
-  const filteredProjects = filter === 'all' 
-    ? projectsData 
-    : projectsData.filter(project => project.category === filter);
-
+const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 bg-gray-900">
+    <section id="projects" className="py-20 bg-gray-900 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4 font-heading">Our Projects</h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            Explore some of our innovative projects that combine electronics, programming, and mechanical design to solve real-world problems.
-          </p>
-          
-          {/* Filter buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            {['all', 'robotics', 'electronics', 'IoT'].map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                  filter === category 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }  font-heading`}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
         
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4 font-heading text-white">Projects</h2>
+          <div className="w-24 h-1 bg-blue-500 mx-auto mb-8 rounded-full"></div>
+          <p className="max-w-4xl mx-auto text-gray-300 text-lg">
+            The theory is behind you—now it's time to build intelligent robots in simulation. Put
+            your ROS skills to the test through immersive, hands-on projects where autonomous
+            navigation, computer vision, manipulation, and AI come together to solve real-world
+            robotics challenges.
+          </p>
+        </div>
+
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div 
-              key={project.id} 
-              className="bg-gray-800 rounded-xl overflow-hidden transition-all hover:transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/10 group"
+          {defaultProjects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-gray-800 rounded-xl overflow-hidden transition-all hover:-translate-y-2
+                hover:shadow-lg hover:shadow-blue-500/10 group border border-white/5 hover:border-blue-500/20"
             >
-              <div className="h-48 overflow-hidden relative">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
-                <div className="absolute bottom-4 left-4 flex gap-2">
-                  {project.tags.map((tag, index) => (
-                    <span 
-                      key={index} 
-                      className="px-2 py-1 bg-gray-900/80 text-xs rounded-full text-blue-400"
+              <div className="h-48 overflow-hidden relative bg-gray-700">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800">
+                    <span className="text-gray-500 text-sm">No image</span>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70" />
+                <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
+                  {project.tags.filter(Boolean).map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-2 py-1 bg-gray-900/80 text-xs rounded-full text-blue-400 border border-blue-500/20"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
+              
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors font-heading">
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors font-heading text-white leading-snug">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4">
+                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-blue-500 capitalize">
+                <div className="flex items-center justify-between">
+                  {/* Category */}
+                  <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-medium text-blue-400">
                     {project.category}
                   </span>
-                  <button className="flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
-                    <span className="mr-1">View Details</span>
-                    <ExternalLink size={16} />
-                  </button>
+
+                  {/* More Info */}
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors gap-1"
+                  >
+                    <span>More Info</span>
+                    <ExternalLink size={14} />
+                  </a>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
-        <div className="text-center mt-12">
-          <button className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-md border border-gray-700 hover:border-blue-500/50 transition-all font-medium inline-flex items-center">
-            <Code size={18} className="mr-2" />
-            View All Projects on GitHub
-          </button>
-        </div>
+
       </div>
     </section>
   );

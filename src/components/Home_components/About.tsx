@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect, useRef, Component } from 'react';
 import Spline from '@splinetool/react-spline';
 import { Bot, X, Lightbulb } from 'lucide-react';
 
@@ -117,6 +117,29 @@ const DailyFactWidget = () => {
 // ─── About Component ───────────────────────────────────────────────────────────
 const About = () => {
   const [splineLoaded, setSplineLoaded] = useState(false);
+  
+  // Setup State and Ref for the scroll reveal
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    // Create the Intersection Observer
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true);
+          observer.disconnect(); // Stops observing once it animates in (only animates once)
+        }
+      },
+      { threshold: 0.2 } // Triggers when 20% of the element is visible on screen
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="about" className="py-20 bg-gray-900/70 relative overflow-hidden">
@@ -126,19 +149,33 @@ const About = () => {
 
       <div className="container mx-auto px-4">
 
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl mb-4 font-heading font-bold
+        {/* ── Animated Heading Section ── */}
+        <div ref={headerRef} className="text-center mb-16 flex flex-col items-center">
+          
+          {/* Title Reveal */}
+          <h1 className={`text-5xl mb-4 font-heading font-bold
             bg-gradient-to-r from-yellow-300 to-orange-500
             bg-[length:200%_200%] bg-clip-text text-transparent
-            animate-gradient-x">
+            animate-gradient-x
+            transition-all duration-1000 ease-out
+            ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          >
             ELECTRIFY. CODE. INNOVATE.
           </h1>
-          <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-gray-300 text-lg">
+          
+          {/* Blue Line Expand Reveal */}
+          <div className={`w-24 h-1 bg-blue-500 mb-8 transition-all duration-1000 delay-300 ease-out origin-center
+            ${isHeaderVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}
+          ></div>
+          
+          {/* Paragraph Reveal */}
+          <p className={`max-w-3xl mx-auto text-gray-300 text-lg transition-all duration-1000 delay-500 ease-out
+            ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
             The Electronics & Robotics Club, IIT Bombay is a vibrant community of passionate students united by a love for circuits, robotics, and innovation. Open to all skill levels, the club hosts competitions, workshops, and discussions throughout the year to promote hands-on learning and creative problem-solving.
           </p>
         </div>
+        {/* ──────────────────────────────── */}
 
         {/* Vision Section */}
         <div className="mt-16 bg-gradient-to-r from-blue-600/20 to-orange-600/20 p-8 rounded-xl border border-blue-500/20">

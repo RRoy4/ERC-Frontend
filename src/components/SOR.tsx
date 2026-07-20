@@ -59,12 +59,13 @@ const timelineData: TimelineItem[] = [
     link: '/session5',
   },
   {
-    date: '30 June - 14 July',
+    date: '6th July - 20th July',
     title: 'Projects',
     description:
       'Apply everything learnt to build and deploy a comprehensive robotics project from scratch. Projects include an LLM-controlled bot, delivery drone, robotic arm sorting system, and spatial signal mapper.',
     gradient: 'from-yellow-400 to-amber-500',
     glow: 'group-hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]',
+    link: '/projects',
   },
 ];
 
@@ -126,9 +127,9 @@ const SOR: React.FC = () => {
                 Session 5 • SLAM and Manipulation
               </Link>
 
-              <div className="block px-5 py-3 hover:bg-white/10 transition cursor-default text-yellow-500/80">
+              <Link to = "/projects" className="block px-5 py-3 hover:bg-white/10 transition cursor-default">
                 Project Phase • Final Build
-              </div>
+              </Link>
             </div>
           )}
         </div>
@@ -189,7 +190,7 @@ const SOR: React.FC = () => {
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-0.5">•</span>
                     <div>
-                      <strong className="text-gray-200">Advanced Certificate:</strong> Fulfill all requirements for the Basic Certificate and successfully deliver a final capstone project.
+                      <strong className="text-gray-200">Advanced Certificate:</strong> Successfully complete one of the six available project options.
                     </div>
                   </li>
                 </ul>
